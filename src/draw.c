@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <stdio.h>
-int main()
+void MainMenu()
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
     sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers,
@@ -8,7 +7,7 @@ int main()
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
             tex_but_settings;
 
-    texture1.loadFromFile("src/img/mainmenu.png");
+    texture1.loadFromFile("src/img/mainmenu.jpg");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
     tex_but_settings.loadFromFile("src/img/buttonsettings.png");
     tex_but_developers.loadFromFile("src/img/buttondevelopers.png");
@@ -40,6 +39,4 @@ int main()
         window.draw(buttonexit);
         window.display();
     }
-
-    return 0;
 }
