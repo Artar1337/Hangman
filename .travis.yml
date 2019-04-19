@@ -8,4 +8,4 @@ compiler: gcc
       - g++-6
       - cmake
       - gcc -v && g++ -v && cmake --version
-script: - git ls-files src/ | xargs clang-format -i && git diff --exit-code && ln -s /usr/bin/gcc-6 /usr/local/bin/gcc && sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
+script: git ls-files src/ | xargs clang-format -i && git diff --exit-code && ln -s /usr/bin/gcc-6 /usr/local/bin/gcc && sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
