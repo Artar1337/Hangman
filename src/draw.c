@@ -7,7 +7,7 @@ void MainMenu()
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
             tex_but_settings;
 
-    texture1.loadFromFile("src/img/mainmenu.jpg");
+    texture1.loadFromFile("src/img/mainmenu.png");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
     tex_but_settings.loadFromFile("src/img/buttonsettings.png");
     tex_but_developers.loadFromFile("src/img/buttondevelopers.png");
