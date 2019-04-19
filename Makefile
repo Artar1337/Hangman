@@ -1,10 +1,10 @@
 .PHONY:all clean
-CC=g++
-CFLAGS=-Wall -Werror
-SD=~/Hangman/src/
-OD=~/Hangman/build/
+CC = g++
+CFLAGS = -Wall -Werror
+SD = src/
+OD = build/
 SFMLFIX = -lsfml-graphics -lsfml-window -lsfml-system
-EXECUTABLE = ~/Hangman/bin/hangman.exe
+EXECUTABLE = bin/hangman.exe
 all: $(EXECUTABLE)
 	
 $(EXECUTABLE): $(OD)hangman.o $(OD)draw.o
