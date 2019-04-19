@@ -1,6 +1,6 @@
+#include "draw.h"
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
-#include "draw.h"
 int main()
 {
     MainMenu();
