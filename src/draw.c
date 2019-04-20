@@ -76,3 +76,38 @@ void StartGameMenu()
     }
 }
 
+void SettingsMenu()
+{
+    sf::Sprite spriteback, buttonsound, buttonprogress, buttonmainmenu;
+    sf::Texture textureback, tex_but_sound, tex_but_progress, tex_but_mainmenu;
+
+    textureback.loadFromFile("src/img/settings.png");
+    tex_but_sound.loadFromFile("src/img/buttonsoundON.png");
+    tex_but_progress.loadFromFile("src/img/buttonprogress.png");
+    tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+
+    spriteback.setTexture(textureback);
+    buttonsound.setTexture(tex_but_sound);
+    buttonprogress.setTexture(tex_but_progress);
+    buttonmainmenu.setTexture(tex_but_mainmenu);
+
+    buttonsound.setPosition(340, 30);
+    buttonprogress.setPosition(340, 250);
+    buttonmainmenu.setPosition(340, 470);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(buttonsound);
+        window.draw(buttonprogress);
+        window.draw(buttonmainmenu);
+        window.display();
+    }
+}
+

@@ -2,4 +2,5 @@
 #define DRAW_GUARD
 void MainMenu();
 void StartGameMenu();
+void SettingsMenu();
 #endif
