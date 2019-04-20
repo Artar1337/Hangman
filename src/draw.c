@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
+sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
     sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers,
             buttonsettings;
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
@@ -40,3 +40,39 @@ void MainMenu()
         window.display();
     }
 }
+
+void StartGameMenu()
+{
+    sf::Sprite spriteback, buttonfriend, buttonmainmenu, buttoncomp;
+    sf::Texture textureback, tex_but_friend, tex_but_mainmenu, tex_but_comp;
+
+    textureback.loadFromFile("src/img/mainmenu.png");
+    tex_but_comp.loadFromFile("src/img/buttoncomp.png");
+    tex_but_friend.loadFromFile("src/img/buttonfriend.png");
+    tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+
+    spriteback.setTexture(textureback);
+    buttoncomp.setTexture(tex_but_comp);
+    buttonfriend.setTexture(tex_but_friend);
+    buttonmainmenu.setTexture(tex_but_mainmenu);
+
+    buttoncomp.setPosition(340, 30);
+    buttonfriend.setPosition(340, 250);
+    buttonmainmenu.setPosition(340, 470);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(buttoncomp);
+        window.draw(buttonfriend);
+        window.draw(buttonmainmenu);
+        window.display();
+    }
+}
+
