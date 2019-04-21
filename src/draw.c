@@ -203,11 +203,12 @@ void CategoryMenu()
 
 void FriendNameMenu()
 {
-    sf::Sprite spriteback, buttonmainmenu;
-    sf::Texture textureback, tex_but_mainmenu;
+    sf::Sprite spriteback, buttoncontinue, buttonmainmenu;
+    sf::Texture textureback, tex_but_mainmenu, tex_but_cont;
 
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+    tex_but_cont.loadFromFile("src/img/buttoncont.png");
     sf::Font font;
     font.loadFromFile("src/pricedown.ttf");
     sf::Text text1, text2;
@@ -224,10 +225,11 @@ void FriendNameMenu()
 
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
+    buttoncontinue.setTexture(tex_but_cont);
     text1.setPosition(20, 20);
-    text2.setPosition(20, 340);
-    buttonmainmenu.setPosition(679, 569);
-
+    text2.setPosition(20, 240);
+    buttonmainmenu.setPosition(1, 559);
+    buttoncontinue.setPosition(679, 559);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -240,6 +242,40 @@ void FriendNameMenu()
         window.draw(text1);
         window.draw(text2);
         window.draw(buttonmainmenu);
+        window.draw(buttoncontinue);
+        window.display();
+    }
+}
+void FriendWordMenu()
+{
+    sf::Sprite spriteback, buttoncontinue;
+    sf::Texture textureback, tex_but_cont;
+
+    textureback.loadFromFile("src/img/gameback.png");
+    tex_but_cont.loadFromFile("src/img/buttoncont.png");
+    sf::Font font;
+    font.loadFromFile("src/pricedown.ttf");
+    sf::Text text1;
+
+    text1.setFont(font);
+    text1.setString(L"ВВЕДИТЕ СЛОВО:");
+    text1.setCharacterSize(100);
+    text1.setFillColor(sf::Color::Red);
+    spriteback.setTexture(textureback);
+    buttoncontinue.setTexture(tex_but_cont);
+    text1.setPosition(340, 20);
+    buttoncontinue.setPosition(340, 559);
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(buttoncontinue);
+        window.draw(text1);
         window.display();
     }
 }
