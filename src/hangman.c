@@ -3,6 +3,6 @@
 #include <stdio.h>
 int main()
 {
-    DevelopersMenu();
+    CategoryMenu();
     return 0;
 }

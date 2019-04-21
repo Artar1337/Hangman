@@ -137,3 +137,65 @@ void DevelopersMenu()
     }
 }
 
+void CategoryMenu()
+{
+    sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
+            buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
+    sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
+            tex_but_math, tex_but_bio, tex_but_stuff, tex_but_sport,
+            tex_but_food, tex_but_mainmenu;
+
+    textureback.loadFromFile("src/img/gameback.png");
+    tex_but_allthemes.loadFromFile("src/img/allthemes.png");
+    tex_but_food.loadFromFile("src/img/food.png");
+    tex_but_geo.loadFromFile("src/img/geo.png");
+    tex_but_phys.loadFromFile("src/img/phys.png");
+    tex_but_math.loadFromFile("src/img/math.png");
+    tex_but_bio.loadFromFile("src/img/bio.png");
+    tex_but_stuff.loadFromFile("src/img/stuff.png");
+    tex_but_sport.loadFromFile("src/img/sport.png");
+    tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+
+    spriteback.setTexture(textureback);
+    buttonallthemes.setTexture(tex_but_allthemes);
+    buttonfood.setTexture(tex_but_food);
+    buttongeo.setTexture(tex_but_geo);
+    buttonphys.setTexture(tex_but_phys);
+    buttonmath.setTexture(tex_but_math);
+    buttonbio.setTexture(tex_but_bio);
+    buttonstuff.setTexture(tex_but_stuff);
+    buttonsport.setTexture(tex_but_sport);
+    buttonmainmenu.setTexture(tex_but_mainmenu);
+
+    buttonallthemes.setPosition(10, 10);
+    buttongeo.setPosition(10, 140);
+    buttonphys.setPosition(10, 270);
+    buttonmath.setPosition(10, 400);
+    buttonbio.setPosition(690, 10);
+    buttonstuff.setPosition(690, 140);
+    buttonfood.setPosition(690, 270);
+    buttonsport.setPosition(690, 400);
+    buttonmainmenu.setPosition(340, 530);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(buttonallthemes);
+        window.draw(buttongeo);
+        window.draw(buttonphys);
+        window.draw(buttonmath);
+        window.draw(buttonbio);
+        window.draw(buttonstuff);
+        window.draw(buttonsport);
+        window.draw(buttonfood);
+        window.draw(buttonmainmenu);
+        window.display();
+    }
+}
+
