@@ -111,3 +111,29 @@ void SettingsMenu()
     }
 }
 
+void DevelopersMenu()
+{
+    sf::Sprite spriteback, buttonmainmenu;
+    sf::Texture textureback, tex_but_mainmenu;
+
+    textureback.loadFromFile("src/img/gameback.png");
+    tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+
+    spriteback.setTexture(textureback);
+    buttonmainmenu.setTexture(tex_but_mainmenu);
+    buttonmainmenu.setPosition(679, 579);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(buttonmainmenu);
+        window.display();
+    }
+}
+
