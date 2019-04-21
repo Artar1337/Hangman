@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string.h>
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
 {
@@ -199,3 +201,45 @@ void CategoryMenu()
     }
 }
 
+void FriendNameMenu()
+{
+    sf::Sprite spriteback, buttonmainmenu;
+    sf::Texture textureback, tex_but_mainmenu;
+
+    textureback.loadFromFile("src/img/gameback.png");
+    tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+    sf::Font font;
+    font.loadFromFile("src/pricedown.ttf");
+    sf::Text text1, text2;
+
+    text1.setFont(font);
+    text2.setFont(font);
+    text1.setString(L"ИГРОК 1:");
+    text2.setString(L"ИГРОК 2:");
+
+    text2.setCharacterSize(100);
+    text1.setCharacterSize(100);
+    text1.setFillColor(sf::Color::Red);
+    text2.setFillColor(sf::Color::Red);
+
+    spriteback.setTexture(textureback);
+    buttonmainmenu.setTexture(tex_but_mainmenu);
+    text1.setPosition(20, 20);
+    text2.setPosition(20, 340);
+    buttonmainmenu.setPosition(679, 569);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(spriteback);
+        window.draw(text1);
+        window.draw(text2);
+        window.draw(buttonmainmenu);
+        window.display();
+    }
+}
