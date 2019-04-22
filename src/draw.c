@@ -226,8 +226,6 @@ void FriendNameMenu()
 
     text2.setCharacterSize(100);
     text1.setCharacterSize(100);
-    text1.setFillColor(sf::Color::Red);
-    text2.setFillColor(sf::Color::Red);
 
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
@@ -339,7 +337,7 @@ void FriendWordMenu()
     text1.setFont(font);
     text1.setString(L"ВВЕДИТЕ СЛОВО:");
     text1.setCharacterSize(100);
-    text1.setFillColor(sf::Color::Red);
+
     spriteback.setTexture(textureback);
     buttoncontinue.setTexture(tex_but_cont);
     text1.setPosition(340, 20);
