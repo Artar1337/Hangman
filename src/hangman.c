@@ -3,6 +3,6 @@
 #include <stdio.h>
 int main()
 {
-    FriendWordMenu();
+    FriendNameMenu();
     return 0;
 }

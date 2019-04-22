@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdio.h>
 #include <string.h>
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
@@ -205,17 +206,22 @@ void FriendNameMenu()
 {
     sf::Sprite spriteback, buttoncontinue, buttonmainmenu;
     sf::Texture textureback, tex_but_mainmenu, tex_but_cont;
-
+    unsigned char emp = '\0', str[32], i;
+    for (i = 0; i < 32; i++) {
+        str[i] = emp;
+        printf("%c", str[i]);
+    }
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
     sf::Font font;
-    font.loadFromFile("src/pricedown.ttf");
     sf::Text text1, text2;
-
+    font.loadFromFile("src/pricedown.ttf");
     text1.setFont(font);
     text2.setFont(font);
     text1.setString(L"ИГРОК 1:");
+    sf::RectangleShape textfield1(sf::Vector2f(700, 200));
+    sf::RectangleShape textfield2(sf::Vector2f(700, 200));
     text2.setString(L"ИГРОК 2:");
 
     text2.setCharacterSize(100);
@@ -226,21 +232,93 @@ void FriendNameMenu()
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttoncontinue.setTexture(tex_but_cont);
+
     text1.setPosition(20, 20);
     text2.setPosition(20, 240);
     buttonmainmenu.setPosition(1, 559);
     buttoncontinue.setPosition(679, 559);
+    textfield1.setPosition(340, 20);
+    textfield2.setPosition(340, 240);
+    i = 0;
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::TextEntered) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+                    printf("Й");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+                    printf("Ц");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+                    printf("У");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+                    printf("К");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+                    printf("Е");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+                    printf("Н");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
+                    printf("Г");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+                    printf("Ш");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+                    printf("Щ");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+                    printf("З");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::LBracket))
+                    printf("Х");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::RBracket))
+                    printf("Ъ");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                    printf("Ф");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+                    printf("Ы");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                    printf("В");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+                    printf("А");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::G))
+                    printf("П");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+                    printf("Р");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+                    printf("О");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+                    printf("Л");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+                    printf("Д");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::SemiColon))
+                    printf("Ж");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Quote))
+                    printf("Э");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+                    printf("Я");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+                    printf("Ч");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
+                    printf("С");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::V))
+                    printf("М");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
+                    printf("И");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::N))
+                    printf("Т");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+                    printf("Ь");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                    printf("Б");
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+                    printf("Ю");
+            }
         }
 
         window.clear();
         window.draw(spriteback);
         window.draw(text1);
         window.draw(text2);
+        window.draw(textfield1);
+        window.draw(textfield2);
         window.draw(buttonmainmenu);
         window.draw(buttoncontinue);
         window.display();
@@ -250,7 +328,8 @@ void FriendWordMenu()
 {
     sf::Sprite spriteback, buttoncontinue;
     sf::Texture textureback, tex_but_cont;
-
+    std::string t[32];
+    // char i = 0, j;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
     sf::Font font;
@@ -269,7 +348,21 @@ void FriendWordMenu()
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
+
                 window.close();
+            /*  if (event.type == sf::Event::TextEntered) {
+                  if (event.KeyPressed == '\b' && i != 0) {
+                      t[i] = '\0';
+                      i--;
+                      for (j = 0; j < i; j++)
+                          printf("%c", t[i]);
+                  } else {
+                      t[i] = event.KeyPressed;
+                      i++;
+                      for (j = 0; j < i; j++)
+                          printf("%c", t[i]);
+                  }
+              }*/
         }
 
         window.clear();
