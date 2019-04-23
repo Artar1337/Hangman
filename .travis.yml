@@ -3,6 +3,7 @@ sudo: required
 language: cpp 
 compiler: g++ 
 addons:
+dist: trusty
   apt_packages:
     - libsfml-dev
 script: 
