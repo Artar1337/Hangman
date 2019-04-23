@@ -337,10 +337,11 @@ void FriendNameMenu()
                         st = L'Т';
                     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
                         st = L'Ь';
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+                    } else if (sf::Keyboard::isKeyPressed(
+                                       sf::Keyboard::Comma)) {
                         st = L'Б';
                     } else if (sf::Keyboard::isKeyPressed(
-                                       sf::Keyboard::Right)) {
+                                       sf::Keyboard::Period)) {
                         st = L'Ю';
                     } else if (sf::Keyboard::isKeyPressed(
                                        sf::Keyboard::BackSpace)) {
@@ -392,8 +393,8 @@ void FriendWordMenu()
 {
     sf::Sprite spriteback, buttoncontinue;
     sf::Texture textureback, tex_but_cont;
-    unsigned char i;
-    wchar_t st[100] = L"\0";
+    unsigned char i = 0, flag = 1;
+    wchar_t st = L'\0', wrd[100], screenwrd[100];
 
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
@@ -404,8 +405,10 @@ void FriendWordMenu()
     text1.setFont(font);
     text1.setString(L"ВВЕДИТЕ СЛОВО:");
     text1.setCharacterSize(100);
+    word.setFillColor(sf::Color::Black);
+    text1.setFillColor(sf::Color::Black);
     word.setFont(font);
-    word.setString(L"ТЕСТИНГЛОЛ");
+    word.setString(L'\0');
     word.setCharacterSize(100);
 
     spriteback.setTexture(textureback);
@@ -418,143 +421,94 @@ void FriendWordMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+
             if (event.type == sf::Event::TextEntered) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-                    st[i] = L'Й';
-                    word.setString(st);
-                    i++;
+                    st = L'Й';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-                    st[i] = L'Ц';
-                    word.setString(st);
-                    i++;
+                    st = L'Ц';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-                    st[i] = L'У';
-                    i++;
-                    word.setString(st);
+                    st = L'У';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-                    st[i] = L'К';
-                    i++;
-                    word.setString(st);
+                    st = L'К';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
-                    st[i] = L'Е';
-                    i++;
-                    word.setString(st);
-
+                    st = L'Е';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y)) {
-                    st[i] = L'Н';
-                    i++;
-                    word.setString(st);
-
+                    st = L'Н';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
-                    st[i] = L'Г';
-                    word.setString(st);
-                    i++;
+                    st = L'Г';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)) {
-                    st[i] = L'Ш';
-                    word.setString(st);
-
-                    i++;
+                    st = L'Ш';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-                    st[i] = L'Щ';
-                    word.setString(st);
-                    i++;
+                    st = L'Щ';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-                    st[i] = L'З';
-                    word.setString(st);
-
-                    i++;
+                    st = L'З';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::LBracket)) {
-                    st[i] = L'Х';
-                    word.setString(st);
-                    i++;
+                    st = L'Х';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::RBracket)) {
-                    st[i] = L'Ъ';
-                    word.setString(st);
-                    i++;
+                    st = L'Ъ';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-                    st[i] = L'Ф';
-                    word.setString(st);
-
-                    i++;
+                    st = L'Ф';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                    st[i] = L'Ы';
-                    word.setString(st);
-                    i++;
+                    st = L'Ы';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                    st[i] = L'В';
-                    word.setString(st);
-                    i++;
+                    st = L'В';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
-                    st[i] = L'А';
-                    word.setString(st);
-                    i++;
+                    st = L'А';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
-                    st[i] = L'П';
-                    word.setString(st);
-
-                    i++;
+                    st = L'П';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
-                    st[i] = L'Р';
-                    word.setString(st);
-                    i++;
+                    st = L'Р';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
-                    st[i] = L'О';
-                    word.setString(st);
-                    i++;
+                    st = L'О';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
-                    st[i] = L'Л';
-                    word.setString(st);
-                    i++;
+                    st = L'Л';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)) {
-                    st[i] = L'Д';
-                    word.setString(st);
-                    i++;
+                    st = L'Д';
                 } else if (sf::Keyboard::isKeyPressed(
                                    sf::Keyboard::SemiColon)) {
-                    st[i] = L'Ж';
-                    i++;
-                    word.setString(st);
+                    st = L'Ж';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Quote)) {
-                    st[i] = L'Э';
-                    i++;
-                    word.setString(st);
+                    st = L'Э';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-                    st[i] = L'Я';
-                    i++;
-                    word.setString(st);
+                    st = L'Я';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
-                    st[i] = L'Ч';
-                    i++;
-                    word.setString(st);
+                    st = L'Ч';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
-                    st[i] = L'С';
-                    i++;
-                    word.setString(st);
+                    st = L'С';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::V)) {
-                    st[i] = L'М';
-                    i++;
-                    word.setString(st);
+                    st = L'М';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                    st[i] = L'И';
-                    i++;
-                    word.setString(st);
+                    st = L'И';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
-                    st[i] = L'Т';
-                    i++;
-                    word.setString(st);
+                    st = L'Т';
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
-                    st[i] = L'Ь';
-                    i++;
-                    word.setString(st);
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-                    st[i] = L'Б';
-                    i++;
-                    word.setString(st);
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-                    st[i] = L'Ю';
-                    i++;
-                    word.setString(st);
+                    st = L'Ь';
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Comma)) {
+                    st = L'Б';
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Period)) {
+                    st = L'Ю';
+                } else if (sf::Keyboard::isKeyPressed(
+                                   sf::Keyboard::BackSpace)) {
+                    st = L'\0';
+                    flag = 2;
+                } else
+                    flag = 0;
+                if (flag) {
+                    if (flag == 2 && i) {
+                        wrd[i - 1] = L'\0';
+                        screenwrd[i - 1] = L'\0';
+                        i--;
+                    }
+                    if (flag == 1 && i < 32) {
+                        wrd[i] = st;
+                        screenwrd[i] = '*';
+                        i++;
+                    }
+                    word.setString(screenwrd);
                 }
+
+                flag = 1;
             }
         }
 
@@ -565,8 +519,5 @@ void FriendWordMenu()
         window.draw(word);
         window.display();
     }
-    while ((unsigned char)st[i] != '\0') {
-        printf("%c", (unsigned char)st[i]);
-        i++;
-    }
+    std::wcout << wrd << std::endl;
 }
