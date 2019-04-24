@@ -2,8 +2,7 @@ dist: trusty
 sudo: required 
 language: cpp 
 compiler: g++ 
-addons:
-  apt_packages:
-    - libsfml-dev && clang-6.0
+    apt-get install libsfml-dev
+    apt-get install clang-6.0
 script: 
 - git ls-files src/ | xargs clang-format -i && git diff --exit-code && make
