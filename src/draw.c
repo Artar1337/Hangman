@@ -5,6 +5,7 @@
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
 {
+    window.setTitle("Hangman");
     sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers,
             buttonsettings;
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
@@ -46,6 +47,7 @@ void MainMenu()
 
 void StartGameMenu()
 {
+    window.setTitle("Choose a gamemode");
     sf::Sprite spriteback, buttonfriend, buttonmainmenu, buttoncomp;
     sf::Texture textureback, tex_but_friend, tex_but_mainmenu, tex_but_comp;
 
@@ -81,6 +83,7 @@ void StartGameMenu()
 
 void SettingsMenu()
 {
+    window.setTitle("Settings");
     sf::Sprite spriteback, buttonsound, buttonprogress, buttonmainmenu;
     sf::Texture textureback, tex_but_sound, tex_but_progress, tex_but_mainmenu;
 
@@ -116,6 +119,7 @@ void SettingsMenu()
 
 void DevelopersMenu()
 {
+    window.setTitle("Developers");
     sf::Sprite spriteback, buttonmainmenu;
     sf::Texture textureback, tex_but_mainmenu;
 
@@ -142,6 +146,7 @@ void DevelopersMenu()
 
 void CategoryMenu()
 {
+    window.setTitle("Choose a category");
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
@@ -204,6 +209,7 @@ void CategoryMenu()
 
 void FriendNameMenu()
 {
+    window.setTitle("Input your names");
     sf::Sprite spriteback, buttoncontinue, buttonmainmenu;
     sf::Texture textureback, tex_but_mainmenu, tex_but_cont;
     unsigned char i1 = 0, i2 = 0, flag = 1, textfield1_pressed = 0,
@@ -233,10 +239,11 @@ void FriendNameMenu()
 
     name1.setCharacterSize(100);
     name2.setCharacterSize(100);
-    /* text1.setColor(sf::Color::Red);
-     text2.setColor(sf::Color::Red);
-     name2.setColor(sf::Color::Black);
-     name1.setColor(sf::Color::Black);*/
+
+    text1.setFillColor(sf::Color::Red);
+    text2.setFillColor(sf::Color::Red);
+    name2.setFillColor(sf::Color::Black);
+    name1.setFillColor(sf::Color::Black);
 
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
@@ -391,6 +398,7 @@ void FriendNameMenu()
 }
 void FriendWordMenu()
 {
+    window.setTitle("Input a word");
     sf::Sprite spriteback, buttoncontinue;
     sf::Texture textureback, tex_but_cont;
     unsigned char i = 0, flag = 1;
@@ -405,8 +413,10 @@ void FriendWordMenu()
     text1.setFont(font);
     text1.setString(L"ВВЕДИТЕ СЛОВО:");
     text1.setCharacterSize(100);
-    /*  word.setColor(sf::Color::Black);
-      text1.setColor(sf::Color::Black);*/
+
+    word.setFillColor(sf::Color::Black);
+    text1.setFillColor(sf::Color::Black);
+
     word.setFont(font);
     word.setString(L'\0');
     word.setCharacterSize(100);
