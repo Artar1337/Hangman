@@ -240,11 +240,11 @@ void FriendNameMenu()
     name1.setCharacterSize(100);
     name2.setCharacterSize(100);
 
-    text1.setFillColor(sf::Color::Red);
-    text2.setFillColor(sf::Color::Red);
-    name2.setFillColor(sf::Color::Black);
-    name1.setFillColor(sf::Color::Black);
-
+    /*   text1.setFillColor(sf::Color::Red);
+       text2.setFillColor(sf::Color::Red);
+       name2.setFillColor(sf::Color::Black);
+       name1.setFillColor(sf::Color::Black);
+   */
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttoncontinue.setTexture(tex_but_cont);
@@ -414,9 +414,9 @@ void FriendWordMenu()
     text1.setString(L"ВВЕДИТЕ СЛОВО:");
     text1.setCharacterSize(100);
 
-    word.setFillColor(sf::Color::Black);
-    text1.setFillColor(sf::Color::Black);
-
+    /*  word.setFillColor(sf::Color::Black);
+      text1.setFillColor(sf::Color::Black);
+  */
     word.setFont(font);
     word.setString(L'\0');
     word.setCharacterSize(100);
