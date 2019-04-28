@@ -213,12 +213,13 @@ void DevelopersMenu()
 void CategoryMenu()
 {
     window.setTitle("Choose a category");
+    unsigned int x, y;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
             tex_but_math, tex_but_bio, tex_but_stuff, tex_but_sport,
             tex_but_food, tex_but_mainmenu;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_allthemes.loadFromFile("src/img/allthemes.png");
     tex_but_food.loadFromFile("src/img/food.png");
@@ -256,6 +257,15 @@ void CategoryMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 340 && x < 940 && y > 530 && y < 719) {
+                    return;
+                }
+            }
         }
 
         window.clear();
