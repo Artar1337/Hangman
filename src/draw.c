@@ -343,6 +343,12 @@ void FriendNameMenu()
                     textfield2_pressed = 1;
                 else
                     textfield2_pressed = 0;
+                if (x > 1 && x < 601 && y > 559 && y < 719)
+                    return;
+                if (x > 679 && x < 1279 && y > 559 && y < 719) {
+                    FriendWordMenu();
+                    break;
+                }
             }
             if (textfield1_pressed || textfield2_pressed) {
                 if (event.type == sf::Event::TextEntered) {
