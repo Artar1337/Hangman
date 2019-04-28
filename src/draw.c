@@ -72,9 +72,10 @@ void MainMenu()
 void StartGameMenu()
 {
     window.setTitle("Choose a gamemode");
+    unsigned x, y;
     sf::Sprite spriteback, buttonfriend, buttonmainmenu, buttoncomp;
     sf::Texture textureback, tex_but_friend, tex_but_mainmenu, tex_but_comp;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/mainmenu.png");
     tex_but_comp.loadFromFile("src/img/buttoncomp.png");
     tex_but_friend.loadFromFile("src/img/buttonfriend.png");
@@ -94,6 +95,23 @@ void StartGameMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 340 && x < 940 && y > 30 && y < 230) {
+                    CategoryMenu();
+                    break;
+                }
+                if (x > 340 && x < 940 && y > 250 && y < 450) {
+                    FriendNameMenu();
+                    break;
+                }
+                if (x > 340 && x < 940 && y > 470 && y < 670) {
+                    return;
+                }
+            }
         }
 
         window.clear();
