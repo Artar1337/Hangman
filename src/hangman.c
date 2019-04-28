@@ -3,6 +3,6 @@
 #include <stdio.h>
 int main()
 {
-    StartGameMenu();
+    MainMenu();
     return 0;
 }

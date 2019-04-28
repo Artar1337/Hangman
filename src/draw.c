@@ -1,3 +1,4 @@
+#include "draw.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
@@ -10,7 +11,8 @@ void MainMenu()
             buttonsettings;
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
             tex_but_settings;
-
+    unsigned int x, y;
+    sf::Vector2i mousexy;
     texture1.loadFromFile("src/img/mainmenu.png");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
     tex_but_settings.loadFromFile("src/img/buttonsettings.png");
@@ -33,6 +35,28 @@ void MainMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 640 && x < 1240 && y > 20 && y < 160) {
+                    StartGameMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 190 && y < 330) {
+                    SettingsMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 360 && y < 500) {
+                    DevelopersMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 530 && y < 640) {
+                    window.close();
+                }
+            }
         }
 
         window.clear();
@@ -48,9 +72,10 @@ void MainMenu()
 void StartGameMenu()
 {
     window.setTitle("Choose a gamemode");
+    unsigned x, y;
     sf::Sprite spriteback, buttonfriend, buttonmainmenu, buttoncomp;
     sf::Texture textureback, tex_but_friend, tex_but_mainmenu, tex_but_comp;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/mainmenu.png");
     tex_but_comp.loadFromFile("src/img/buttoncomp.png");
     tex_but_friend.loadFromFile("src/img/buttonfriend.png");
@@ -70,6 +95,23 @@ void StartGameMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 340 && x < 940 && y > 30 && y < 230) {
+                    CategoryMenu();
+                    break;
+                }
+                if (x > 340 && x < 940 && y > 250 && y < 450) {
+                    FriendNameMenu();
+                    break;
+                }
+                if (x > 340 && x < 940 && y > 470 && y < 670) {
+                    return;
+                }
+            }
         }
 
         window.clear();
@@ -84,9 +126,10 @@ void StartGameMenu()
 void SettingsMenu()
 {
     window.setTitle("Settings");
+    unsigned int x, y;
     sf::Sprite spriteback, buttonsound, buttonprogress, buttonmainmenu;
     sf::Texture textureback, tex_but_sound, tex_but_progress, tex_but_mainmenu;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/settings.png");
     tex_but_sound.loadFromFile("src/img/buttonsoundON.png");
     tex_but_progress.loadFromFile("src/img/buttonprogress.png");
@@ -106,6 +149,19 @@ void SettingsMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 340 && x < 940 && y > 30 && y < 230)
+                    ;
+                if (x > 340 && x < 940 && y > 250 && y < 450)
+                    ;
+                if (x > 340 && x < 940 && y > 470 && y < 670) {
+                    return;
+                }
+            }
         }
 
         window.clear();
@@ -120,9 +176,10 @@ void SettingsMenu()
 void DevelopersMenu()
 {
     window.setTitle("Developers");
+    unsigned int x, y;
     sf::Sprite spriteback, buttonmainmenu;
     sf::Texture textureback, tex_but_mainmenu;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
 
@@ -135,6 +192,15 @@ void DevelopersMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 679 && x < 1279 && y > 579 && y < 719) {
+                    return;
+                }
+            }
         }
 
         window.clear();
@@ -147,12 +213,13 @@ void DevelopersMenu()
 void CategoryMenu()
 {
     window.setTitle("Choose a category");
+    unsigned int x, y;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
             tex_but_math, tex_but_bio, tex_but_stuff, tex_but_sport,
             tex_but_food, tex_but_mainmenu;
-
+    sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_allthemes.loadFromFile("src/img/allthemes.png");
     tex_but_food.loadFromFile("src/img/food.png");
@@ -190,6 +257,15 @@ void CategoryMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 340 && x < 940 && y > 530 && y < 719) {
+                    return;
+                }
+            }
         }
 
         window.clear();
@@ -277,6 +353,12 @@ void FriendNameMenu()
                     textfield2_pressed = 1;
                 else
                     textfield2_pressed = 0;
+                if (x > 1 && x < 601 && y > 559 && y < 719)
+                    return;
+                if (x > 679 && x < 1279 && y > 559 && y < 719) {
+                    FriendWordMenu();
+                    break;
+                }
             }
             if (textfield1_pressed || textfield2_pressed) {
                 if (event.type == sf::Event::TextEntered) {
