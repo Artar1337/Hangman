@@ -1,3 +1,4 @@
+#include "draw.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
@@ -10,7 +11,8 @@ void MainMenu()
             buttonsettings;
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
             tex_but_settings;
-
+    unsigned int x, y;
+    sf::Vector2i mousexy;
     texture1.loadFromFile("src/img/mainmenu.png");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
     tex_but_settings.loadFromFile("src/img/buttonsettings.png");
@@ -33,6 +35,28 @@ void MainMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 640 && x < 1240 && y > 20 && y < 160) {
+                    StartGameMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 190 && y < 330) {
+                    SettingsMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 360 && y < 500) {
+                    DevelopersMenu();
+                    break;
+                }
+                if (x > 640 && x < 1240 && y > 530 && y < 640) {
+                    window.close();
+                }
+            }
         }
 
         window.clear();
