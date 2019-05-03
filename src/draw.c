@@ -613,3 +613,35 @@ void FriendWordMenu()
     }
     std::wcout << wrd << std::endl;
 }
+void ComputerGame()
+{
+    window.setTitle("Game with computer");
+    //   unsigned int x, y;
+    sf::Sprite spriteback, interface;
+    sf::Texture textureback, tex_interface;
+    // sf::Vector2i mousexy;
+    textureback.loadFromFile("src/img/gameback.png");
+    tex_interface.loadFromFile("src/img/gamescreen.png");
+    spriteback.setTexture(textureback);
+    interface.setTexture(tex_interface);
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+            /*  if (event.type == sf::Event::MouseButtonPressed
+                  && event.mouseButton.button == sf::Mouse::Left) {
+                  mousexy = sf::Mouse::getPosition(window);
+                  x = mousexy.x;
+                  y = mousexy.y;
+                  if (x > 679 && x < 1279 && y > 579 && y < 719) {
+                      return;
+                  }
+              }*/
+        }
+        window.clear();
+        window.draw(spriteback);
+        window.draw(interface);
+        window.display();
+    }
+}

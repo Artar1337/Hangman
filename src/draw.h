@@ -7,4 +7,5 @@ void DevelopersMenu();
 void CategoryMenu();
 void FriendNameMenu();
 void FriendWordMenu();
+void ComputerGame();
 #endif
