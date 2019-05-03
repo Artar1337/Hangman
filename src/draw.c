@@ -1,5 +1,5 @@
 #include "draw.h"
-#include "logich.h"
+#include "logick.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
@@ -265,6 +265,27 @@ void CategoryMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 530 && y < 719) {
                     return;
+                }
+                if (x > 10 && x < 590 && y > 140 && y < 260) {
+                    ComputerGame();
+                }
+                if (x > 10 && x < 590 && y > 270 && y < 390) {
+                    ComputerGame();
+                }
+                if (x > 10 && x < 590 && y > 400 && y < 520) {
+                    ComputerGame();
+                }
+                if (x > 690 && x < 1270 && y > 10 && y < 130) {
+                    ComputerGame();
+                }
+                if (x > 690 && x < 1270 && y > 140 && y < 260) {
+                    ComputerGame();
+                }
+                if (x > 690 && x < 1270 && y > 270 && y < 390) {
+                    ComputerGame();
+                }
+                if (x > 690 && x < 1270 && y > 400 && y < 520) {
+                    ComputerGame();
                 }
             }
         }
@@ -618,7 +639,7 @@ void ComputerGame()
 {
     window.setTitle("Game with computer");
     //   unsigned int x, y;
-    char word[20];
+    //    char word[20];
     sf::Sprite spriteback, interface;
     sf::Texture textureback, tex_interface;
     // sf::Vector2i mousexy;
