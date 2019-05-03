@@ -3,6 +3,6 @@
 #include <stdio.h>
 int main()
 {
-    ComputerGame();
+    MainMenu();
     return 0;
 }
