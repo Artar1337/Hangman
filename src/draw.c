@@ -1,4 +1,5 @@
 #include "draw.h"
+#include "logich.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
@@ -617,6 +618,7 @@ void ComputerGame()
 {
     window.setTitle("Game with computer");
     //   unsigned int x, y;
+    char word[20];
     sf::Sprite spriteback, interface;
     sf::Texture textureback, tex_interface;
     // sf::Vector2i mousexy;
