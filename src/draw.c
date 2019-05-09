@@ -103,11 +103,11 @@ void StartGameMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230) {
                     CategoryMenu();
-                    break;
+                    return;
                 }
                 if (x > 340 && x < 940 && y > 250 && y < 450) {
                     FriendNameMenu();
-                    break;
+                    return;
                 }
                 if (x > 340 && x < 940 && y > 470 && y < 670) {
                     return;
@@ -277,6 +277,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 10 && x < 590 && y > 140 && y < 260) {
                     t = logickGameComputer(1, word, &rand_print);
@@ -284,6 +285,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 10 && x < 590 && y > 270 && y < 390) {
                     t = logickGameComputer(2, word, &rand_print);
@@ -291,6 +293,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 10 && x < 590 && y > 400 && y < 520) {
                     t = logickGameComputer(3, word, &rand_print);
@@ -298,6 +301,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 690 && x < 1270 && y > 10 && y < 130) {
                     t = logickGameComputer(4, word, &rand_print);
@@ -305,6 +309,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 690 && x < 1270 && y > 140 && y < 260) {
                     t = logickGameComputer(5, word, &rand_print);
@@ -312,6 +317,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 690 && x < 1270 && y > 270 && y < 390) {
                     t = logickGameComputer(6, word, &rand_print);
@@ -319,6 +325,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
                 if (x > 690 && x < 1270 && y > 400 && y < 520) {
                     t = logickGameComputer(7, word, &rand_print);
@@ -326,6 +333,7 @@ void CategoryMenu()
                     FormatWord(t, word, format_word);
                     ComputerGame(word, format_word, &rand_print);
                     Free(t, format_word);
+                    return;
                 }
             }
         }
