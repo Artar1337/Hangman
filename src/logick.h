@@ -1,5 +1,6 @@
 #ifndef LOGICK_GUARD
 #define LOGICK_GUARD
-void logickGameComputer(int flag, char word[]);
-void Null(char A[]);
+int logickGameComputer(int flag, wchar_t word[], int* rand_print);
+void FormatWord(int kol, wchar_t word[], wchar_t format_word[]);
+void Free(int kol, wchar_t format_word[]);
 #endif

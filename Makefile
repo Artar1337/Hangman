@@ -14,6 +14,6 @@ $(OD)hangman.o: $(SD)hangman.c
 $(OD)draw.o: $(SD)draw.c
 	$(CC) $(CFLAGS) -c -o $(OD)draw.o $(SD)draw.c $(SFMLFIX)
 $(OD)logick.o: $(SD)logick.c
-	 $(CC) $(CFLAGS) -c -o $(OD)logick.o $(SD)logick.c $(SFMLFIX)
+	 $(CC) $(CFLAGS) -c -o $(OD)logick.o $(SD)logick.c
 clean:
 	rm -rf $(EXECUTABLE) $(OD)*.o
