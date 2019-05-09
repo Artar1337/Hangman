@@ -1,4 +1,5 @@
 #include "draw.h"
+#include "logick.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
@@ -214,6 +215,11 @@ void CategoryMenu()
 {
     window.setTitle("Choose a category");
     unsigned int x, y;
+    int t = 0;
+    int rand_print;
+    rand_print = 0;
+    wchar_t word[50];
+    wchar_t* format_word;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
@@ -264,6 +270,62 @@ void CategoryMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 530 && y < 719) {
                     return;
+                }
+                if (x > 10 && x < 590 && y > 10 && y < 130) {
+                    t = logickGameComputer(8, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 10 && x < 590 && y > 140 && y < 260) {
+                    t = logickGameComputer(1, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 10 && x < 590 && y > 270 && y < 390) {
+                    t = logickGameComputer(2, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 10 && x < 590 && y > 400 && y < 520) {
+                    t = logickGameComputer(3, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 690 && x < 1270 && y > 10 && y < 130) {
+                    t = logickGameComputer(4, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 690 && x < 1270 && y > 140 && y < 260) {
+                    t = logickGameComputer(5, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 690 && x < 1270 && y > 270 && y < 390) {
+                    t = logickGameComputer(6, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
+                }
+                if (x > 690 && x < 1270 && y > 400 && y < 520) {
+                    t = logickGameComputer(7, word, &rand_print);
+                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    FormatWord(t, word, format_word);
+                    ComputerGame(word, format_word, &rand_print);
+                    Free(t, format_word);
                 }
             }
         }
@@ -613,35 +675,79 @@ void FriendWordMenu()
     }
     std::wcout << wrd << std::endl;
 }
-void ComputerGame()
+void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print)
 {
     window.setTitle("Game with computer");
-    //   unsigned int x, y;
+    unsigned int x, y;
     sf::Sprite spriteback, interface;
     sf::Texture textureback, tex_interface;
-    // sf::Vector2i mousexy;
+    sf::Vector2i mousexy;
+    sf::Font font;
+    sf::Text slovo, tema;
+    sf::RectangleShape rectangle(sf::Vector2f(908, 231));
+    rectangle.setFillColor(sf::Color::Red);
+    rectangle.setPosition(372, 1);
+    font.loadFromFile("src/pricedown.ttf");
     textureback.loadFromFile("src/img/gameback.png");
     tex_interface.loadFromFile("src/img/gamescreen.png");
     spriteback.setTexture(textureback);
     interface.setTexture(tex_interface);
+    slovo.setFont(font);
+    tema.setFont(font);
+    if (*rand_print == 1) {
+        tema.setString(L"География");
+        tema.setPosition(98, 150);
+    }
+    if (*rand_print == 2) {
+        tema.setString(L"Физика");
+        tema.setPosition(120, 150);
+    }
+    if (*rand_print == 3) {
+        tema.setString(L"Математика");
+        tema.setPosition(75, 150);
+    }
+    if (*rand_print == 4) {
+        tema.setString(L"Биология");
+        tema.setPosition(100, 150);
+    }
+    if (*rand_print == 5) {
+        tema.setString(L"Предметы быта");
+        tema.setPosition(49, 150);
+    }
+    if (*rand_print == 6) {
+        tema.setString(L"Еда");
+        tema.setPosition(150, 150);
+    }
+    if (*rand_print == 7) {
+        tema.setString(L"Спорт");
+        tema.setPosition(130, 150);
+    }
+
+    slovo.setString(format_word);
+    slovo.setCharacterSize(45);
+    tema.setCharacterSize(45);
+    slovo.setPosition(550, 100);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
-            /*  if (event.type == sf::Event::MouseButtonPressed
-                  && event.mouseButton.button == sf::Mouse::Left) {
-                  mousexy = sf::Mouse::getPosition(window);
-                  x = mousexy.x;
-                  y = mousexy.y;
-                  if (x > 679 && x < 1279 && y > 579 && y < 719) {
-                      return;
-                  }
-              }*/
+            if (event.type == sf::Event::MouseButtonPressed
+                && event.mouseButton.button == sf::Mouse::Left) {
+                mousexy = sf::Mouse::getPosition(window);
+                x = mousexy.x;
+                y = mousexy.y;
+                if (x > 1 && x < 375 && y > 1 && y < 94) {
+                    return;
+                }
+            }
         }
         window.clear();
         window.draw(spriteback);
         window.draw(interface);
+        window.draw(rectangle);
+        window.draw(tema);
+        window.draw(slovo);
         window.display();
     }
 }
