@@ -747,6 +747,70 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print)
                 y = mousexy.y;
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
                     return;
+                } else if (x > 410 && x < 488 && y > 297 && y < 435) {
+                    printf("\n1\n");
+                } else if (x > 488 && x < 566 && y > 297 && y < 435) {
+                    printf("\n2\n");
+                } else if (x > 566 && x < 644 && y > 297 && y < 435) {
+                    printf("\n3\n");
+                } else if (x > 644 && x < 722 && y > 297 && y < 435) {
+                    printf("\n4\n");
+                } else if (x > 722 && x < 800 && y > 297 && y < 435) {
+                    printf("\n5\n");
+                } else if (x > 800 && x < 878 && y > 297 && y < 435) {
+                    printf("\n6\n");
+                } else if (x > 878 && x < 956 && y > 297 && y < 435) {
+                    printf("\n7\n");
+                } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
+                    printf("\n8\n");
+                } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
+                    printf("\n9\n");
+                } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
+                    printf("\n10\n");
+                } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
+                    printf("\n11\n");
+                } else if (x > 410 && x < 488 && y > 439 && y < 576) {
+                    printf("\n12\n");
+                } else if (x > 488 && x < 566 && y > 439 && y < 576) {
+                    printf("\n13\n");
+                } else if (x > 566 && x < 644 && y > 439 && y < 576) {
+                    printf("\n14\n");
+                } else if (x > 644 && x < 722 && y > 439 && y < 576) {
+                    printf("\n15\n");
+                } else if (x > 722 && x < 800 && y > 439 && y < 576) {
+                    printf("\n16\n");
+                } else if (x > 800 && x < 878 && y > 439 && y < 576) {
+                    printf("\n17\n");
+                } else if (x > 878 && x < 956 && y > 439 && y < 576) {
+                    printf("\n18\n");
+                } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
+                    printf("\n19\n");
+                } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
+                    printf("\n20\n");
+                } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
+                    printf("\n21\n");
+                } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
+                    printf("\n22\n");
+                } else if (x > 410 && x < 488 && y > 580 && y < 717) {
+                    printf("\n23\n");
+                } else if (x > 488 && x < 566 && y > 580 && y < 717) {
+                    printf("\n24\n");
+                } else if (x > 566 && x < 644 && y > 580 && y < 717) {
+                    printf("\n25\n");
+                } else if (x > 644 && x < 722 && y > 580 && y < 717) {
+                    printf("\n26\n");
+                } else if (x > 722 && x < 800 && y > 580 && y < 717) {
+                    printf("\n27\n");
+                } else if (x > 800 && x < 878 && y > 580 && y < 717) {
+                    printf("\n28\n");
+                } else if (x > 878 && x < 956 && y > 580 && y < 717) {
+                    printf("\n29\n");
+                } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
+                    printf("\n30\n");
+                } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
+                    printf("\n31\n");
+                } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
+                    printf("\n32\n");
                 }
             }
         }
