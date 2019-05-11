@@ -275,7 +275,7 @@ void CategoryMenu()
                     t = logickGameComputer(8, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -283,7 +283,7 @@ void CategoryMenu()
                     t = logickGameComputer(1, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -291,7 +291,7 @@ void CategoryMenu()
                     t = logickGameComputer(2, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -299,7 +299,7 @@ void CategoryMenu()
                     t = logickGameComputer(3, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -307,7 +307,7 @@ void CategoryMenu()
                     t = logickGameComputer(4, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -315,7 +315,7 @@ void CategoryMenu()
                     t = logickGameComputer(5, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -323,7 +323,7 @@ void CategoryMenu()
                     t = logickGameComputer(6, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -331,7 +331,7 @@ void CategoryMenu()
                     t = logickGameComputer(7, word, &rand_print);
                     format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print);
+                    ComputerGame(word, format_word, &rand_print, t);
                     Free(t, format_word);
                     return;
                 }
@@ -683,10 +683,11 @@ void FriendWordMenu()
     }
     std::wcout << wrd << std::endl;
 }
-void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print)
+void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
 {
     window.setTitle("Game with computer");
-    unsigned int x, y;
+    unsigned int x, y, win=1;
+    int i;
     sf::Sprite spriteback, interface;
     sf::Texture textureback, tex_interface;
     sf::Vector2i mousexy;
@@ -747,7 +748,108 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print)
                 y = mousexy.y;
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
                     return;
+                } else if (x > 410 && x < 488 && y > 297 && y < 435) {
+                    for(i=0;i<t;i++)
+if(word[i]==1072) format_word[i]=L'А';
+                } else if (x > 488 && x < 566 && y > 297 && y < 435) {
+                     for(i=0;i<t;i++)
+if(word[i]==1073) format_word[i]=L'Б';
+                } else if (x > 566 && x < 644 && y > 297 && y < 435) {
+                     for(i=0;i<t;i++)
+if(word[i]==1074) format_word[i]=L'В';
+                } else if (x > 644 && x < 722 && y > 297 && y < 435) {
+                     for(i=0;i<t;i++)
+if(word[i]==1075) format_word[i]=L'Г';
+                } else if (x > 722 && x < 800 && y > 297 && y < 435) {
+                    for(i=0;i<t;i++)
+if(word[i]==1076) format_word[i]=L'Д';
+                } else if (x > 800 && x < 878 && y > 297 && y < 435) {
+                    for(i=0;i<t;i++)
+if(word[i]==1077) format_word[i]=L'Е';
+                } else if (x > 878 && x < 956 && y > 297 && y < 435) {
+                    for(i=0;i<t;i++)
+if(word[i]==1078) format_word[i]=L'Ж';
+                } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
+                   for(i=0;i<t;i++)
+if(word[i]==1079) format_word[i]=L'З';
+                } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
+                    for(i=0;i<t;i++)
+if(word[i]==1080) format_word[i]=L'И';
+                } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
+                   for(i=0;i<t;i++)
+if(word[i]==1081) format_word[i]=L'Й';
+                } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
+                   for(i=0;i<t;i++)
+if(word[i]==1082) format_word[i]=L'К';
+                } else if (x > 410 && x < 488 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1083) format_word[i]=L'Л';
+                } else if (x > 488 && x < 566 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1084) format_word[i]=L'М';
+                } else if (x > 566 && x < 644 && y > 439 && y < 576) {
+                    for(i=0;i<t;i++)
+if(word[i]==1085) format_word[i]=L'Н';
+                } else if (x > 644 && x < 722 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1086) format_word[i]=L'О';
+                } else if (x > 722 && x < 800 && y > 439 && y < 576) {
+                    for(i=0;i<t;i++)
+if(word[i]==1087) format_word[i]=L'П';
+                } else if (x > 800 && x < 878 && y > 439 && y < 576) {
+                    for(i=0;i<t;i++)
+if(word[i]==1088) format_word[i]=L'Р';
+                } else if (x > 878 && x < 956 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1089) format_word[i]=L'С';
+                } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1090) format_word[i]=L'Т';
+                } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1091) format_word[i]=L'У';
+                } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
+                   for(i=0;i<t;i++)
+if(word[i]==1092) format_word[i]=L'Ф';
+                } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
+                  for(i=0;i<t;i++)
+if(word[i]==1093) format_word[i]=L'Х';
+                } else if (x > 410 && x < 488 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1094) format_word[i]=L'Ц';
+                } else if (x > 488 && x < 566 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1095) format_word[i]=L'Ч';
+                } else if (x > 566 && x < 644 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1096) format_word[i]=L'Ш';
+                } else if (x > 644 && x < 722 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1097) format_word[i]=L'Щ';
+                } else if (x > 722 && x < 800 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1098) format_word[i]=L'Ъ';
+                } else if (x > 800 && x < 878 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1099) format_word[i]=L'Ы';
+                } else if (x > 878 && x < 956 && y > 580 && y < 717) {
+                  for(i=0;i<t;i++)
+if(word[i]==1100) format_word[i]=L'Ь';
+                } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1101) format_word[i]=L'Э';
+                } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1102) format_word[i]=L'Ю';
+                } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
+                   for(i=0;i<t;i++)
+if(word[i]==1103) format_word[i]=L'Я';
                 }
+slovo.setString(format_word);
+for(i=0;i<t;i++)
+if(format_word[i]==42) {win=0;break;}
+if (i==t-1) win=1;
+if(win) printf("WIN");
             }
         }
         window.clear();

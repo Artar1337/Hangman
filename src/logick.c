@@ -170,10 +170,14 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print)
 void FormatWord(int kol, wchar_t word[], wchar_t format_word[])
 {
     int i;
-    format_word[0] = word[0];
-    format_word[kol - 1] = word[kol - 1];
-    for (i = 1; i < kol - 1; i++) {
+    format_word[0]=word[0]-32;
+format_word[kol-1]=word[kol-1]-32;
+    for (i = 1; i < kol-1; i++) {
         format_word[i] = L'*';
+if(word[i]==word[0])
+format_word[i]=word[0];
+else if(word[i]==word[kol-1])
+format_word[i]=word[kol-1];
     }
     for (i = 0; i < kol; i++)
         printf("%d,", format_word[i]);

@@ -7,5 +7,5 @@ void DevelopersMenu();
 void CategoryMenu();
 void FriendNameMenu();
 void FriendWordMenu();
-void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print);
+void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print,int t);
 #endif
