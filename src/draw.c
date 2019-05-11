@@ -686,14 +686,14 @@ void FriendWordMenu()
 void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
 {
     window.setTitle("Game with computer");
-    unsigned int x, y, win = 1, flag = 0, mistake = 0;
-    int i, ans[32];
+    unsigned int x, y, flag = 0, mistake = 0;
+    int i, ans[32], win = 1;
     sf::Sprite spriteback, interface, hangman, l1, l2, l3, l4, l5, l6, l7, l8,
             l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22,
-            l23, l24, l25, l26, l27, l28, l29, l30, l31, l32;
+            l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, endgame;
     sf::Texture textureback, tex_interface, tex_0mistake, tex_1mistake,
             tex_2mistake, tex_3mistake, tex_4mistake, tex_5mistake,
-            tex_6mistake, tex_incorrect, tex_correct;
+            tex_6mistake, tex_incorrect, tex_correct, tex_win, tex_lose;
     sf::Vector2i mousexy;
     sf::Font font;
     sf::Text slovo, tema;
@@ -712,6 +712,8 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
     tex_4mistake.loadFromFile("src/img/4mistake.png");
     tex_5mistake.loadFromFile("src/img/5mistake.png");
     tex_6mistake.loadFromFile("src/img/6mistake.png");
+    tex_win.loadFromFile("src/img/win.png");
+    tex_lose.loadFromFile("src/img/lose.png");
     spriteback.setTexture(textureback);
     interface.setTexture(tex_interface);
     hangman.setTexture(tex_0mistake);
@@ -748,6 +750,7 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
     l30.setPosition(956, 580);
     l31.setPosition(1034, 580);
     l32.setPosition(1112, 580);
+    endgame.setPosition(300, 200);
     slovo.setFont(font);
     tema.setFont(font);
     if (*rand_print == 1) {
@@ -1294,8 +1297,6 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                         }
                     if (i == t - 1)
                         win = 1;
-                    if (win)
-                        printf("WIN");
                     if (ans[0] > 0)
                         l1.setTexture(tex_correct);
                     else if (ans[0] < 0)
@@ -1453,10 +1454,15 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                     }
                     case 6: {
                         hangman.setTexture(tex_6mistake);
+                        win = -1;
                         break;
                     }
                     }
                     flag = 0;
+                    if (win == -1)
+                        endgame.setTexture(tex_lose);
+                    else if (win == 1)
+                        endgame.setTexture(tex_win);
                 }
             }
         }
@@ -1499,6 +1505,7 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
         window.draw(rectangle);
         window.draw(tema);
         window.draw(slovo);
+        window.draw(endgame);
         window.display();
     }
 }
