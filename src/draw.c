@@ -778,137 +778,136 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
     slovo.setPosition(550, 100);
     for (i = 0; i < 32; i++)
         ans[i] = 0;
-ans[word[0]-1072]=1;
-ans[word[t-1]-1072]=1;
-printf("%d %d",word[0]-1072,word[t-1]-1072);
+    ans[word[0] - 1072] = 1;
+    ans[word[t - 1] - 1072] = 1;
     if (ans[0] > 0)
-                    l1.setTexture(tex_correct);
-                else if (ans[0] < 0)
-                    l1.setTexture(tex_incorrect);
-                if (ans[1] > 0)
-                    l2.setTexture(tex_correct);
-                else if (ans[1] < 0)
-                    l2.setTexture(tex_incorrect);
-                if (ans[2] > 0)
-                    l3.setTexture(tex_correct);
-                else if (ans[2] < 0)
-                    l3.setTexture(tex_incorrect);
-                if (ans[3] > 0)
-                    l4.setTexture(tex_correct);
-                else if (ans[3] < 0)
-                    l4.setTexture(tex_incorrect);
-                if (ans[4] > 0)
-                    l5.setTexture(tex_correct);
-                else if (ans[4] < 0)
-                    l5.setTexture(tex_incorrect);
-                if (ans[5] > 0)
-                    l6.setTexture(tex_correct);
-                else if (ans[5] < 0)
-                    l6.setTexture(tex_incorrect);
-                if (ans[6] > 0)
-                    l7.setTexture(tex_correct);
-                else if (ans[6] < 0)
-                    l7.setTexture(tex_incorrect);
-                if (ans[7] > 0)
-                    l8.setTexture(tex_correct);
-                else if (ans[7] < 0)
-                    l8.setTexture(tex_incorrect);
-                if (ans[8] > 0)
-                    l9.setTexture(tex_correct);
-                else if (ans[8] < 0)
-                    l9.setTexture(tex_incorrect);
-                if (ans[9] > 0)
-                    l10.setTexture(tex_correct);
-                else if (ans[9] < 0)
-                    l10.setTexture(tex_incorrect);
-                if (ans[10] > 0)
-                    l11.setTexture(tex_correct);
-                else if (ans[10] < 0)
-                    l11.setTexture(tex_incorrect);
-                if (ans[11] > 0)
-                    l12.setTexture(tex_correct);
-                else if (ans[11] < 0)
-                    l12.setTexture(tex_incorrect);
-                if (ans[12] > 0)
-                    l13.setTexture(tex_correct);
-                else if (ans[12] < 0)
-                    l13.setTexture(tex_incorrect);
-                if (ans[13] > 0)
-                    l14.setTexture(tex_correct);
-                else if (ans[13] < 0)
-                    l14.setTexture(tex_incorrect);
-                if (ans[14] > 0)
-                    l15.setTexture(tex_correct);
-                else if (ans[14] < 0)
-                    l15.setTexture(tex_incorrect);
-                if (ans[15] > 0)
-                    l16.setTexture(tex_correct);
-                else if (ans[15] < 0)
-                    l16.setTexture(tex_incorrect);
-                if (ans[16] > 0)
-                    l17.setTexture(tex_correct);
-                else if (ans[16] < 0)
-                    l17.setTexture(tex_incorrect);
-                if (ans[17] > 0)
-                    l18.setTexture(tex_correct);
-                else if (ans[17] < 0)
-                    l18.setTexture(tex_incorrect);
-                if (ans[18] > 0)
-                    l19.setTexture(tex_correct);
-                else if (ans[18] < 0)
-                    l19.setTexture(tex_incorrect);
-                if (ans[19] > 0)
-                    l20.setTexture(tex_correct);
-                else if (ans[19] < 0)
-                    l20.setTexture(tex_incorrect);
-                if (ans[20] > 0)
-                    l21.setTexture(tex_correct);
-                else if (ans[20] < 0)
-                    l21.setTexture(tex_incorrect);
-                if (ans[21] > 0)
-                    l22.setTexture(tex_correct);
-                else if (ans[21] < 0)
-                    l22.setTexture(tex_incorrect);
-                if (ans[22] > 0)
-                    l23.setTexture(tex_correct);
-                else if (ans[22] < 0)
-                    l23.setTexture(tex_incorrect);
-                if (ans[23] > 0)
-                    l24.setTexture(tex_correct);
-                else if (ans[23] < 0)
-                    l24.setTexture(tex_incorrect);
-                if (ans[24] > 0)
-                    l25.setTexture(tex_correct);
-                else if (ans[24] < 0)
-                    l25.setTexture(tex_incorrect);
-                if (ans[25] > 0)
-                    l26.setTexture(tex_correct);
-                else if (ans[25] < 0)
-                    l26.setTexture(tex_incorrect);
-                if (ans[26] > 0)
-                    l27.setTexture(tex_correct);
-                else if (ans[26] < 0)
-                    l27.setTexture(tex_incorrect);
-                if (ans[27] > 0)
-                    l28.setTexture(tex_correct);
-                else if (ans[27] < 0)
-                    l28.setTexture(tex_incorrect);
-                if (ans[28] > 0)
-                    l29.setTexture(tex_correct);
-                else if (ans[28] < 0)
-                    l29.setTexture(tex_incorrect);
-                if (ans[29] > 0)
-                    l30.setTexture(tex_correct);
-                else if (ans[29] < 0)
-                    l30.setTexture(tex_incorrect);
-                if (ans[30] > 0)
-                    l31.setTexture(tex_correct);
-                else if (ans[30] < 0)
-                    l31.setTexture(tex_incorrect);
-                if (ans[31] > 0)
-                    l32.setTexture(tex_correct);
-                else if (ans[31] < 0)
-                    l32.setTexture(tex_incorrect);
+        l1.setTexture(tex_correct);
+    else if (ans[0] < 0)
+        l1.setTexture(tex_incorrect);
+    if (ans[1] > 0)
+        l2.setTexture(tex_correct);
+    else if (ans[1] < 0)
+        l2.setTexture(tex_incorrect);
+    if (ans[2] > 0)
+        l3.setTexture(tex_correct);
+    else if (ans[2] < 0)
+        l3.setTexture(tex_incorrect);
+    if (ans[3] > 0)
+        l4.setTexture(tex_correct);
+    else if (ans[3] < 0)
+        l4.setTexture(tex_incorrect);
+    if (ans[4] > 0)
+        l5.setTexture(tex_correct);
+    else if (ans[4] < 0)
+        l5.setTexture(tex_incorrect);
+    if (ans[5] > 0)
+        l6.setTexture(tex_correct);
+    else if (ans[5] < 0)
+        l6.setTexture(tex_incorrect);
+    if (ans[6] > 0)
+        l7.setTexture(tex_correct);
+    else if (ans[6] < 0)
+        l7.setTexture(tex_incorrect);
+    if (ans[7] > 0)
+        l8.setTexture(tex_correct);
+    else if (ans[7] < 0)
+        l8.setTexture(tex_incorrect);
+    if (ans[8] > 0)
+        l9.setTexture(tex_correct);
+    else if (ans[8] < 0)
+        l9.setTexture(tex_incorrect);
+    if (ans[9] > 0)
+        l10.setTexture(tex_correct);
+    else if (ans[9] < 0)
+        l10.setTexture(tex_incorrect);
+    if (ans[10] > 0)
+        l11.setTexture(tex_correct);
+    else if (ans[10] < 0)
+        l11.setTexture(tex_incorrect);
+    if (ans[11] > 0)
+        l12.setTexture(tex_correct);
+    else if (ans[11] < 0)
+        l12.setTexture(tex_incorrect);
+    if (ans[12] > 0)
+        l13.setTexture(tex_correct);
+    else if (ans[12] < 0)
+        l13.setTexture(tex_incorrect);
+    if (ans[13] > 0)
+        l14.setTexture(tex_correct);
+    else if (ans[13] < 0)
+        l14.setTexture(tex_incorrect);
+    if (ans[14] > 0)
+        l15.setTexture(tex_correct);
+    else if (ans[14] < 0)
+        l15.setTexture(tex_incorrect);
+    if (ans[15] > 0)
+        l16.setTexture(tex_correct);
+    else if (ans[15] < 0)
+        l16.setTexture(tex_incorrect);
+    if (ans[16] > 0)
+        l17.setTexture(tex_correct);
+    else if (ans[16] < 0)
+        l17.setTexture(tex_incorrect);
+    if (ans[17] > 0)
+        l18.setTexture(tex_correct);
+    else if (ans[17] < 0)
+        l18.setTexture(tex_incorrect);
+    if (ans[18] > 0)
+        l19.setTexture(tex_correct);
+    else if (ans[18] < 0)
+        l19.setTexture(tex_incorrect);
+    if (ans[19] > 0)
+        l20.setTexture(tex_correct);
+    else if (ans[19] < 0)
+        l20.setTexture(tex_incorrect);
+    if (ans[20] > 0)
+        l21.setTexture(tex_correct);
+    else if (ans[20] < 0)
+        l21.setTexture(tex_incorrect);
+    if (ans[21] > 0)
+        l22.setTexture(tex_correct);
+    else if (ans[21] < 0)
+        l22.setTexture(tex_incorrect);
+    if (ans[22] > 0)
+        l23.setTexture(tex_correct);
+    else if (ans[22] < 0)
+        l23.setTexture(tex_incorrect);
+    if (ans[23] > 0)
+        l24.setTexture(tex_correct);
+    else if (ans[23] < 0)
+        l24.setTexture(tex_incorrect);
+    if (ans[24] > 0)
+        l25.setTexture(tex_correct);
+    else if (ans[24] < 0)
+        l25.setTexture(tex_incorrect);
+    if (ans[25] > 0)
+        l26.setTexture(tex_correct);
+    else if (ans[25] < 0)
+        l26.setTexture(tex_incorrect);
+    if (ans[26] > 0)
+        l27.setTexture(tex_correct);
+    else if (ans[26] < 0)
+        l27.setTexture(tex_incorrect);
+    if (ans[27] > 0)
+        l28.setTexture(tex_correct);
+    else if (ans[27] < 0)
+        l28.setTexture(tex_incorrect);
+    if (ans[28] > 0)
+        l29.setTexture(tex_correct);
+    else if (ans[28] < 0)
+        l29.setTexture(tex_incorrect);
+    if (ans[29] > 0)
+        l30.setTexture(tex_correct);
+    else if (ans[29] < 0)
+        l30.setTexture(tex_incorrect);
+    if (ans[30] > 0)
+        l31.setTexture(tex_correct);
+    else if (ans[30] < 0)
+        l31.setTexture(tex_incorrect);
+    if (ans[31] > 0)
+        l32.setTexture(tex_correct);
+    else if (ans[31] < 0)
+        l32.setTexture(tex_incorrect);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -1417,48 +1416,48 @@ printf("%d %d",word[0]-1072,word[t-1]-1072);
                     l32.setTexture(tex_correct);
                 else if (ans[31] < 0)
                     l32.setTexture(tex_incorrect);
-flag=0;
+                flag = 0;
             }
+        }
+        window.clear();
+        window.draw(spriteback);
+        window.draw(interface);
+        window.draw(hangman);
+        window.draw(l1);
+        window.draw(l2);
+        window.draw(l3);
+        window.draw(l4);
+        window.draw(l5);
+        window.draw(l6);
+        window.draw(l7);
+        window.draw(l8);
+        window.draw(l9);
+        window.draw(l10);
+        window.draw(l11);
+        window.draw(l12);
+        window.draw(l13);
+        window.draw(l14);
+        window.draw(l15);
+        window.draw(l16);
+        window.draw(l17);
+        window.draw(l18);
+        window.draw(l19);
+        window.draw(l20);
+        window.draw(l21);
+        window.draw(l22);
+        window.draw(l23);
+        window.draw(l24);
+        window.draw(l25);
+        window.draw(l26);
+        window.draw(l27);
+        window.draw(l28);
+        window.draw(l29);
+        window.draw(l30);
+        window.draw(l31);
+        window.draw(l32);
+        window.draw(rectangle);
+        window.draw(tema);
+        window.draw(slovo);
+        window.display();
+    }
 }
-            window.clear();
-            window.draw(spriteback);
-            window.draw(interface);
-            window.draw(hangman);
-            window.draw(l1);
-            window.draw(l2);
-            window.draw(l3);
-            window.draw(l4);
-            window.draw(l5);
-            window.draw(l6);
-            window.draw(l7);
-            window.draw(l8);
-            window.draw(l9);
-            window.draw(l10);
-            window.draw(l11);
-            window.draw(l12);
-            window.draw(l13);
-            window.draw(l14);
-            window.draw(l15);
-            window.draw(l16);
-            window.draw(l17);
-            window.draw(l18);
-            window.draw(l19);
-            window.draw(l20);
-            window.draw(l21);
-            window.draw(l22);
-            window.draw(l23);
-            window.draw(l24);
-            window.draw(l25);
-            window.draw(l26);
-            window.draw(l27);
-            window.draw(l28);
-            window.draw(l29);
-            window.draw(l30);
-            window.draw(l31);
-            window.draw(l32);
-            window.draw(rectangle);
-            window.draw(tema);
-            window.draw(slovo);
-            window.display();
-        
-    }}
