@@ -179,14 +179,13 @@ void FormatWord(int kol, wchar_t word[], wchar_t format_word[])
         else if (word[i] == word[kol - 1])
             format_word[i] = word[kol - 1] - 32;
     }
-    for (i = 0; i < kol; i++)
+    /*for (i = 0; i < kol; i++)
         printf("%d,", format_word[i]);
-    printf("\n");
+    printf("\n");*/
 }
 void Free(int kol, wchar_t format_word[])
 {
-    int i;
-    for (i = 0; i < kol; i++)
+    
         free(format_word);
     format_word = NULL;
 }
