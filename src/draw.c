@@ -214,7 +214,7 @@ void DevelopersMenu()
 void CategoryMenu()
 {
     window.setTitle("Choose a category");
-    unsigned int x, y,p;
+    unsigned int x, y, p;
     int t = 0;
     int rand_print;
     rand_print = 0;
@@ -272,88 +272,125 @@ void CategoryMenu()
                     return;
                 }
                 if (x > 10 && x < 590 && y > 10 && y < 130) {
-while(1){
-                    t = logickGameComputer(8, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-}
+                    while (1) {
+                        t = logickGameComputer(8, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
                 }
                 if (x > 10 && x < 590 && y > 140 && y < 260) {
-while(1){
-                    t = logickGameComputer(1, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 10 && x < 590 && y > 270 && y < 390) {while(1){
-                    t = logickGameComputer(2, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 10 && x < 590 && y > 400 && y < 520) {while(1){
-                    t = logickGameComputer(3, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 690 && x < 1270 && y > 10 && y < 130) {while(1){
-                    t = logickGameComputer(4, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 690 && x < 1270 && y > 140 && y < 260) {while(1){
-                    t = logickGameComputer(5, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 690 && x < 1270 && y > 270 && y < 390) {while(1){
-                    t = logickGameComputer(6, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
-                if (x > 690 && x < 1270 && y > 400 && y < 520) {while(1){
-                    t = logickGameComputer(7, word, &rand_print);
-                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
-                    FormatWord(t, word, format_word);
-                    p=ComputerGame(word, format_word, &rand_print, t);
-                    free(format_word);
-                    if(p==0)return;
-else if (p==1) continue;
-else if(p==2) break;
-                }}
+                    while (1) {
+                        t = logickGameComputer(1, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 10 && x < 590 && y > 270 && y < 390) {
+                    while (1) {
+                        t = logickGameComputer(2, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 10 && x < 590 && y > 400 && y < 520) {
+                    while (1) {
+                        t = logickGameComputer(3, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 690 && x < 1270 && y > 10 && y < 130) {
+                    while (1) {
+                        t = logickGameComputer(4, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 690 && x < 1270 && y > 140 && y < 260) {
+                    while (1) {
+                        t = logickGameComputer(5, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 690 && x < 1270 && y > 270 && y < 390) {
+                    while (1) {
+                        t = logickGameComputer(6, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
+                if (x > 690 && x < 1270 && y > 400 && y < 520) {
+                    while (1) {
+                        t = logickGameComputer(7, word, &rand_print);
+                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FormatWord(t, word, format_word);
+                        p = ComputerGame(word, format_word, &rand_print, t);
+                        free(format_word);
+                        if (p == 0)
+                            return;
+                        else if (p == 1)
+                            continue;
+                        else if (p == 2)
+                            break;
+                    }
+                }
             }
         }
 
@@ -800,7 +837,7 @@ int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
         tema.setString(L"Спорт");
         tema.setPosition(130, 150);
     }
-     format_word[t] = '\0';
+    format_word[t] = '\0';
     slovo.setString(format_word);
     slovo.setCharacterSize(60);
     tema.setCharacterSize(45);
@@ -950,7 +987,7 @@ int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                 y = mousexy.y;
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
                     return 0;
-                } else if (mistake < 6 && win==0) {
+                } else if (mistake < 6 && win == 0) {
                     if (x > 410 && x < 488 && y > 297 && y < 435) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1072) {
@@ -1480,12 +1517,17 @@ int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                         endgame.setTexture(tex_lose);
                     else if (win == 1)
                         endgame.setTexture(tex_win);
-                } else if (win!=0)
-{
-if (x > 377 && x < 906 && y > 318 && y < 416 ) {return 1;}//again
-else if (x > 300 && x < 591 && y > 435 && y < 520 ) {return 2;}//cat
-else if (x > 689 && x < 720 && y > 435 && y < 520 ) {return 0;}//menu
-}
+                } else if (win != 0) {
+                    if (x > 377 && x < 906 && y > 318 && y < 416) {
+                        return 1;
+                    } // again
+                    else if (x > 300 && x < 591 && y > 435 && y < 520) {
+                        return 2;
+                    } // cat
+                    else if (x > 689 && x < 720 && y > 435 && y < 520) {
+                        return 0;
+                    } // menu
+                }
             }
         }
         window.clear();
@@ -1530,5 +1572,5 @@ else if (x > 689 && x < 720 && y > 435 && y < 520 ) {return 0;}//menu
         window.draw(endgame);
         window.display();
     }
-return 0;
+    return 0;
 }
