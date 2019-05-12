@@ -183,9 +183,4 @@ void FormatWord(int kol, wchar_t word[], wchar_t format_word[])
         printf("%d,", format_word[i]);
     printf("\n");*/
 }
-void Free(int kol, wchar_t format_word[])
-{
-    
-        free(format_word);
-    format_word = NULL;
-}
+

@@ -274,10 +274,10 @@ void CategoryMenu()
                 if (x > 10 && x < 590 && y > 10 && y < 130) {
 while(1){
                     t = logickGameComputer(8, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
@@ -286,70 +286,70 @@ else if(p==2) break;
                 if (x > 10 && x < 590 && y > 140 && y < 260) {
 while(1){
                     t = logickGameComputer(1, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 10 && x < 590 && y > 270 && y < 390) {while(1){
                     t = logickGameComputer(2, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 10 && x < 590 && y > 400 && y < 520) {while(1){
                     t = logickGameComputer(3, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 690 && x < 1270 && y > 10 && y < 130) {while(1){
                     t = logickGameComputer(4, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 690 && x < 1270 && y > 140 && y < 260) {while(1){
                     t = logickGameComputer(5, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 690 && x < 1270 && y > 270 && y < 390) {while(1){
                     t = logickGameComputer(6, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
                 }}
                 if (x > 690 && x < 1270 && y > 400 && y < 520) {while(1){
                     t = logickGameComputer(7, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
                     p=ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
+                    free(format_word);
                     if(p==0)return;
 else if (p==1) continue;
 else if(p==2) break;
