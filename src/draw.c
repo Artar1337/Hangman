@@ -214,11 +214,11 @@ void DevelopersMenu()
 void CategoryMenu()
 {
     window.setTitle("Choose a category");
-    unsigned int x, y;
+    unsigned int x, y,p;
     int t = 0;
     int rand_print;
     rand_print = 0;
-    wchar_t word[50];
+    wchar_t word[100];
     wchar_t* format_word;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
@@ -272,69 +272,88 @@ void CategoryMenu()
                     return;
                 }
                 if (x > 10 && x < 590 && y > 10 && y < 130) {
+while(1){
                     t = logickGameComputer(8, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+}
                 }
                 if (x > 10 && x < 590 && y > 140 && y < 260) {
+while(1){
                     t = logickGameComputer(1, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 10 && x < 590 && y > 270 && y < 390) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 10 && x < 590 && y > 270 && y < 390) {while(1){
                     t = logickGameComputer(2, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 10 && x < 590 && y > 400 && y < 520) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 10 && x < 590 && y > 400 && y < 520) {while(1){
                     t = logickGameComputer(3, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 690 && x < 1270 && y > 10 && y < 130) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 690 && x < 1270 && y > 10 && y < 130) {while(1){
                     t = logickGameComputer(4, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 690 && x < 1270 && y > 140 && y < 260) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 690 && x < 1270 && y > 140 && y < 260) {while(1){
                     t = logickGameComputer(5, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 690 && x < 1270 && y > 270 && y < 390) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 690 && x < 1270 && y > 270 && y < 390) {while(1){
                     t = logickGameComputer(6, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
-                if (x > 690 && x < 1270 && y > 400 && y < 520) {
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
+                if (x > 690 && x < 1270 && y > 400 && y < 520) {while(1){
                     t = logickGameComputer(7, word, &rand_print);
-                    format_word = (wchar_t*)calloc(t, sizeof(wchar_t));
+                    format_word = (wchar_t*)malloc(t*sizeof(wchar_t));
                     FormatWord(t, word, format_word);
-                    ComputerGame(word, format_word, &rand_print, t);
-                    Free(t, format_word);
-                    return;
-                }
+                    p=ComputerGame(word, format_word, &rand_print, t);
+                    free(format_word);
+                    if(p==0)return;
+else if (p==1) continue;
+else if(p==2) break;
+                }}
             }
         }
 
@@ -683,13 +702,17 @@ void FriendWordMenu()
     }
     std::wcout << wrd << std::endl;
 }
-void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
+int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
 {
     window.setTitle("Game with computer");
-    unsigned int x, y, win=1;
-    int i;
-    sf::Sprite spriteback, interface;
-    sf::Texture textureback, tex_interface;
+    unsigned int x, y, flag = 0, mistake = 0;
+    int i, ans[32], win = 0;
+    sf::Sprite spriteback, interface, hangman, l1, l2, l3, l4, l5, l6, l7, l8,
+            l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22,
+            l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, endgame;
+    sf::Texture textureback, tex_interface, tex_0mistake, tex_1mistake,
+            tex_2mistake, tex_3mistake, tex_4mistake, tex_5mistake,
+            tex_6mistake, tex_incorrect, tex_correct, tex_win, tex_lose;
     sf::Vector2i mousexy;
     sf::Font font;
     sf::Text slovo, tema;
@@ -699,8 +722,54 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
     font.loadFromFile("src/pricedown.ttf");
     textureback.loadFromFile("src/img/gameback.png");
     tex_interface.loadFromFile("src/img/gamescreen.png");
+    tex_correct.loadFromFile("src/img/correct.png");
+    tex_incorrect.loadFromFile("src/img/incorrect.png");
+    tex_0mistake.loadFromFile("src/img/0mistake.png");
+    tex_1mistake.loadFromFile("src/img/1mistake.png");
+    tex_2mistake.loadFromFile("src/img/2mistake.png");
+    tex_3mistake.loadFromFile("src/img/3mistake.png");
+    tex_4mistake.loadFromFile("src/img/4mistake.png");
+    tex_5mistake.loadFromFile("src/img/5mistake.png");
+    tex_6mistake.loadFromFile("src/img/6mistake.png");
+    tex_win.loadFromFile("src/img/win.png");
+    tex_lose.loadFromFile("src/img/lose.png");
     spriteback.setTexture(textureback);
     interface.setTexture(tex_interface);
+    hangman.setTexture(tex_0mistake);
+    hangman.setPosition(0, 237);
+    l1.setPosition(410, 297);
+    l2.setPosition(488, 297);
+    l3.setPosition(566, 297);
+    l4.setPosition(644, 297);
+    l5.setPosition(722, 297);
+    l6.setPosition(800, 297);
+    l7.setPosition(878, 297);
+    l8.setPosition(956, 297);
+    l9.setPosition(1034, 297);
+    l10.setPosition(1112, 297);
+    l11.setPosition(1190, 297);
+    l12.setPosition(410, 439);
+    l13.setPosition(488, 439);
+    l14.setPosition(566, 439);
+    l15.setPosition(644, 439);
+    l16.setPosition(722, 439);
+    l17.setPosition(800, 439);
+    l18.setPosition(878, 439);
+    l19.setPosition(956, 439);
+    l20.setPosition(1034, 439);
+    l21.setPosition(1112, 439);
+    l22.setPosition(1190, 439);
+    l23.setPosition(410, 580);
+    l24.setPosition(488, 580);
+    l25.setPosition(566, 580);
+    l26.setPosition(644, 580);
+    l27.setPosition(722, 580);
+    l28.setPosition(800, 580);
+    l29.setPosition(878, 580);
+    l30.setPosition(956, 580);
+    l31.setPosition(1034, 580);
+    l32.setPosition(1112, 580);
+    endgame.setPosition(300, 200);
     slovo.setFont(font);
     tema.setFont(font);
     if (*rand_print == 1) {
@@ -731,11 +800,144 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
         tema.setString(L"Спорт");
         tema.setPosition(130, 150);
     }
-
+     format_word[t] = '\0';
     slovo.setString(format_word);
-    slovo.setCharacterSize(45);
+    slovo.setCharacterSize(60);
     tema.setCharacterSize(45);
     slovo.setPosition(550, 100);
+    for (i = 0; i < 32; i++)
+        ans[i] = 0;
+    ans[word[0] - 1072] = 1;
+    ans[word[t - 1] - 1072] = 1;
+    if (ans[0] > 0)
+        l1.setTexture(tex_correct);
+    else if (ans[0] < 0)
+        l1.setTexture(tex_incorrect);
+    if (ans[1] > 0)
+        l2.setTexture(tex_correct);
+    else if (ans[1] < 0)
+        l2.setTexture(tex_incorrect);
+    if (ans[2] > 0)
+        l3.setTexture(tex_correct);
+    else if (ans[2] < 0)
+        l3.setTexture(tex_incorrect);
+    if (ans[3] > 0)
+        l4.setTexture(tex_correct);
+    else if (ans[3] < 0)
+        l4.setTexture(tex_incorrect);
+    if (ans[4] > 0)
+        l5.setTexture(tex_correct);
+    else if (ans[4] < 0)
+        l5.setTexture(tex_incorrect);
+    if (ans[5] > 0)
+        l6.setTexture(tex_correct);
+    else if (ans[5] < 0)
+        l6.setTexture(tex_incorrect);
+    if (ans[6] > 0)
+        l7.setTexture(tex_correct);
+    else if (ans[6] < 0)
+        l7.setTexture(tex_incorrect);
+    if (ans[7] > 0)
+        l8.setTexture(tex_correct);
+    else if (ans[7] < 0)
+        l8.setTexture(tex_incorrect);
+    if (ans[8] > 0)
+        l9.setTexture(tex_correct);
+    else if (ans[8] < 0)
+        l9.setTexture(tex_incorrect);
+    if (ans[9] > 0)
+        l10.setTexture(tex_correct);
+    else if (ans[9] < 0)
+        l10.setTexture(tex_incorrect);
+    if (ans[10] > 0)
+        l11.setTexture(tex_correct);
+    else if (ans[10] < 0)
+        l11.setTexture(tex_incorrect);
+    if (ans[11] > 0)
+        l12.setTexture(tex_correct);
+    else if (ans[11] < 0)
+        l12.setTexture(tex_incorrect);
+    if (ans[12] > 0)
+        l13.setTexture(tex_correct);
+    else if (ans[12] < 0)
+        l13.setTexture(tex_incorrect);
+    if (ans[13] > 0)
+        l14.setTexture(tex_correct);
+    else if (ans[13] < 0)
+        l14.setTexture(tex_incorrect);
+    if (ans[14] > 0)
+        l15.setTexture(tex_correct);
+    else if (ans[14] < 0)
+        l15.setTexture(tex_incorrect);
+    if (ans[15] > 0)
+        l16.setTexture(tex_correct);
+    else if (ans[15] < 0)
+        l16.setTexture(tex_incorrect);
+    if (ans[16] > 0)
+        l17.setTexture(tex_correct);
+    else if (ans[16] < 0)
+        l17.setTexture(tex_incorrect);
+    if (ans[17] > 0)
+        l18.setTexture(tex_correct);
+    else if (ans[17] < 0)
+        l18.setTexture(tex_incorrect);
+    if (ans[18] > 0)
+        l19.setTexture(tex_correct);
+    else if (ans[18] < 0)
+        l19.setTexture(tex_incorrect);
+    if (ans[19] > 0)
+        l20.setTexture(tex_correct);
+    else if (ans[19] < 0)
+        l20.setTexture(tex_incorrect);
+    if (ans[20] > 0)
+        l21.setTexture(tex_correct);
+    else if (ans[20] < 0)
+        l21.setTexture(tex_incorrect);
+    if (ans[21] > 0)
+        l22.setTexture(tex_correct);
+    else if (ans[21] < 0)
+        l22.setTexture(tex_incorrect);
+    if (ans[22] > 0)
+        l23.setTexture(tex_correct);
+    else if (ans[22] < 0)
+        l23.setTexture(tex_incorrect);
+    if (ans[23] > 0)
+        l24.setTexture(tex_correct);
+    else if (ans[23] < 0)
+        l24.setTexture(tex_incorrect);
+    if (ans[24] > 0)
+        l25.setTexture(tex_correct);
+    else if (ans[24] < 0)
+        l25.setTexture(tex_incorrect);
+    if (ans[25] > 0)
+        l26.setTexture(tex_correct);
+    else if (ans[25] < 0)
+        l26.setTexture(tex_incorrect);
+    if (ans[26] > 0)
+        l27.setTexture(tex_correct);
+    else if (ans[26] < 0)
+        l27.setTexture(tex_incorrect);
+    if (ans[27] > 0)
+        l28.setTexture(tex_correct);
+    else if (ans[27] < 0)
+        l28.setTexture(tex_incorrect);
+    if (ans[28] > 0)
+        l29.setTexture(tex_correct);
+    else if (ans[28] < 0)
+        l29.setTexture(tex_incorrect);
+    if (ans[29] > 0)
+        l30.setTexture(tex_correct);
+    else if (ans[29] < 0)
+        l30.setTexture(tex_incorrect);
+    if (ans[30] > 0)
+        l31.setTexture(tex_correct);
+    else if (ans[30] < 0)
+        l31.setTexture(tex_incorrect);
+    if (ans[31] > 0)
+        l32.setTexture(tex_correct);
+    else if (ans[31] < 0)
+        l32.setTexture(tex_incorrect);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -747,117 +949,586 @@ void ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
-                    return;
-                } else if (x > 410 && x < 488 && y > 297 && y < 435) {
-                    for(i=0;i<t;i++)
-if(word[i]==1072) format_word[i]=L'А';
-                } else if (x > 488 && x < 566 && y > 297 && y < 435) {
-                     for(i=0;i<t;i++)
-if(word[i]==1073) format_word[i]=L'Б';
-                } else if (x > 566 && x < 644 && y > 297 && y < 435) {
-                     for(i=0;i<t;i++)
-if(word[i]==1074) format_word[i]=L'В';
-                } else if (x > 644 && x < 722 && y > 297 && y < 435) {
-                     for(i=0;i<t;i++)
-if(word[i]==1075) format_word[i]=L'Г';
-                } else if (x > 722 && x < 800 && y > 297 && y < 435) {
-                    for(i=0;i<t;i++)
-if(word[i]==1076) format_word[i]=L'Д';
-                } else if (x > 800 && x < 878 && y > 297 && y < 435) {
-                    for(i=0;i<t;i++)
-if(word[i]==1077) format_word[i]=L'Е';
-                } else if (x > 878 && x < 956 && y > 297 && y < 435) {
-                    for(i=0;i<t;i++)
-if(word[i]==1078) format_word[i]=L'Ж';
-                } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
-                   for(i=0;i<t;i++)
-if(word[i]==1079) format_word[i]=L'З';
-                } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
-                    for(i=0;i<t;i++)
-if(word[i]==1080) format_word[i]=L'И';
-                } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
-                   for(i=0;i<t;i++)
-if(word[i]==1081) format_word[i]=L'Й';
-                } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
-                   for(i=0;i<t;i++)
-if(word[i]==1082) format_word[i]=L'К';
-                } else if (x > 410 && x < 488 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1083) format_word[i]=L'Л';
-                } else if (x > 488 && x < 566 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1084) format_word[i]=L'М';
-                } else if (x > 566 && x < 644 && y > 439 && y < 576) {
-                    for(i=0;i<t;i++)
-if(word[i]==1085) format_word[i]=L'Н';
-                } else if (x > 644 && x < 722 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1086) format_word[i]=L'О';
-                } else if (x > 722 && x < 800 && y > 439 && y < 576) {
-                    for(i=0;i<t;i++)
-if(word[i]==1087) format_word[i]=L'П';
-                } else if (x > 800 && x < 878 && y > 439 && y < 576) {
-                    for(i=0;i<t;i++)
-if(word[i]==1088) format_word[i]=L'Р';
-                } else if (x > 878 && x < 956 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1089) format_word[i]=L'С';
-                } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1090) format_word[i]=L'Т';
-                } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1091) format_word[i]=L'У';
-                } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
-                   for(i=0;i<t;i++)
-if(word[i]==1092) format_word[i]=L'Ф';
-                } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
-                  for(i=0;i<t;i++)
-if(word[i]==1093) format_word[i]=L'Х';
-                } else if (x > 410 && x < 488 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1094) format_word[i]=L'Ц';
-                } else if (x > 488 && x < 566 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1095) format_word[i]=L'Ч';
-                } else if (x > 566 && x < 644 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1096) format_word[i]=L'Ш';
-                } else if (x > 644 && x < 722 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1097) format_word[i]=L'Щ';
-                } else if (x > 722 && x < 800 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1098) format_word[i]=L'Ъ';
-                } else if (x > 800 && x < 878 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1099) format_word[i]=L'Ы';
-                } else if (x > 878 && x < 956 && y > 580 && y < 717) {
-                  for(i=0;i<t;i++)
-if(word[i]==1100) format_word[i]=L'Ь';
-                } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1101) format_word[i]=L'Э';
-                } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1102) format_word[i]=L'Ю';
-                } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
-                   for(i=0;i<t;i++)
-if(word[i]==1103) format_word[i]=L'Я';
-                }
-slovo.setString(format_word);
-for(i=0;i<t;i++)
-if(format_word[i]==42) {win=0;break;}
-if (i==t-1) win=1;
-if(win) printf("WIN");
+                    return 0;
+                } else if (mistake < 6 && win==0) {
+                    if (x > 410 && x < 488 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1072) {
+                                format_word[i] = L'А';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[0] = 1;
+                        else
+                            ans[0] = -1;
+                    } else if (x > 488 && x < 566 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1073) {
+                                format_word[i] = L'Б';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[1] = 1;
+                        else
+                            ans[1] = -1;
+                    } else if (x > 566 && x < 644 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1074) {
+                                format_word[i] = L'В';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[2] = 1;
+                        else
+                            ans[2] = -1;
+                    } else if (x > 644 && x < 722 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1075) {
+                                format_word[i] = L'Г';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[3] = 1;
+                        else
+                            ans[3] = -1;
+                    } else if (x > 722 && x < 800 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1076) {
+                                format_word[i] = L'Д';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[4] = 1;
+                        else
+                            ans[4] = -1;
+                    } else if (x > 800 && x < 878 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1077) {
+                                format_word[i] = L'Е';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[5] = 1;
+                        else
+                            ans[5] = -1;
+                    } else if (x > 878 && x < 956 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1078) {
+                                format_word[i] = L'Ж';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[6] = 1;
+                        else
+                            ans[6] = -1;
+                    } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1079) {
+                                format_word[i] = L'З';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[7] = 1;
+                        else
+                            ans[7] = -1;
+                    } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1080) {
+                                format_word[i] = L'И';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[8] = 1;
+                        else
+                            ans[8] = -1;
+                    } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1081) {
+                                format_word[i] = L'Й';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[9] = 1;
+                        else
+                            ans[9] = -1;
+                    } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1082) {
+                                format_word[i] = L'К';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[10] = 1;
+                        else
+                            ans[10] = -1;
+                    } else if (x > 410 && x < 488 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1083) {
+                                format_word[i] = L'Л';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[11] = 1;
+                        else
+                            ans[11] = -1;
+                    } else if (x > 488 && x < 566 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1084) {
+                                format_word[i] = L'М';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[12] = 1;
+                        else
+                            ans[12] = -1;
+                    } else if (x > 566 && x < 644 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1085) {
+                                format_word[i] = L'Н';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[13] = 1;
+                        else
+                            ans[13] = -1;
+                    } else if (x > 644 && x < 722 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1086) {
+                                format_word[i] = L'О';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[14] = 1;
+                        else
+                            ans[14] = -1;
+                    } else if (x > 722 && x < 800 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1087) {
+                                format_word[i] = L'П';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[15] = 1;
+                        else
+                            ans[15] = -1;
+                    } else if (x > 800 && x < 878 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1088) {
+                                format_word[i] = L'Р';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[16] = 1;
+                        else
+                            ans[16] = -1;
+                    } else if (x > 878 && x < 956 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1089) {
+                                format_word[i] = L'С';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[17] = 1;
+                        else
+                            ans[17] = -1;
+                    } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1090) {
+                                format_word[i] = L'Т';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[18] = 1;
+                        else
+                            ans[18] = -1;
+                    } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1091) {
+                                format_word[i] = L'У';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[19] = 1;
+                        else
+                            ans[19] = -1;
+                    } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1092) {
+                                format_word[i] = L'Ф';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[20] = 1;
+                        else
+                            ans[20] = -1;
+                    } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1093) {
+                                format_word[i] = L'Х';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[21] = 1;
+                        else
+                            ans[21] = -1;
+                    } else if (x > 410 && x < 488 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1094) {
+                                format_word[i] = L'Ц';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[22] = 1;
+                        else
+                            ans[22] = -1;
+                    } else if (x > 488 && x < 566 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1095) {
+                                format_word[i] = L'Ч';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[23] = 1;
+                        else
+                            ans[23] = -1;
+                    } else if (x > 566 && x < 644 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1096) {
+                                format_word[i] = L'Ш';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[24] = 1;
+                        else
+                            ans[24] = -1;
+                    } else if (x > 644 && x < 722 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1097) {
+                                format_word[i] = L'Щ';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[25] = 1;
+                        else
+                            ans[25] = -1;
+                    } else if (x > 722 && x < 800 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1098) {
+                                format_word[i] = L'Ъ';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[26] = 1;
+                        else
+                            ans[26] = -1;
+                    } else if (x > 800 && x < 878 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1099) {
+                                format_word[i] = L'Ы';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[27] = 1;
+                        else
+                            ans[27] = -1;
+                    } else if (x > 878 && x < 956 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1100) {
+                                format_word[i] = L'Ь';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[28] = 1;
+                        else
+                            ans[28] = -1;
+                    } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1101) {
+                                format_word[i] = L'Э';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[29] = 1;
+                        else
+                            ans[29] = -1;
+
+                    } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1102) {
+                                format_word[i] = L'Ю';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[30] = 1;
+                        else
+                            ans[30] = -1;
+
+                    } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
+                        for (i = 0; i < t; i++) {
+                            if (word[i] == 1103) {
+                                format_word[i] = L'Я';
+                                flag = 1;
+                            }
+                        }
+                        if (flag)
+                            ans[31] = 1;
+                        else
+                            ans[31] = -1;
+                    }
+                    slovo.setString(format_word);
+                    for (i = 1; i < t - 1; i++)
+                        if (format_word[i] == 42) {
+                            win = 0;
+                            break;
+                        }
+                    if (i == t - 1)
+                        win = 1;
+                    if (ans[0] > 0)
+                        l1.setTexture(tex_correct);
+                    else if (ans[0] < 0)
+                        l1.setTexture(tex_incorrect);
+                    if (ans[1] > 0)
+                        l2.setTexture(tex_correct);
+                    else if (ans[1] < 0)
+                        l2.setTexture(tex_incorrect);
+                    if (ans[2] > 0)
+                        l3.setTexture(tex_correct);
+                    else if (ans[2] < 0)
+                        l3.setTexture(tex_incorrect);
+                    if (ans[3] > 0)
+                        l4.setTexture(tex_correct);
+                    else if (ans[3] < 0)
+                        l4.setTexture(tex_incorrect);
+                    if (ans[4] > 0)
+                        l5.setTexture(tex_correct);
+                    else if (ans[4] < 0)
+                        l5.setTexture(tex_incorrect);
+                    if (ans[5] > 0)
+                        l6.setTexture(tex_correct);
+                    else if (ans[5] < 0)
+                        l6.setTexture(tex_incorrect);
+                    if (ans[6] > 0)
+                        l7.setTexture(tex_correct);
+                    else if (ans[6] < 0)
+                        l7.setTexture(tex_incorrect);
+                    if (ans[7] > 0)
+                        l8.setTexture(tex_correct);
+                    else if (ans[7] < 0)
+                        l8.setTexture(tex_incorrect);
+                    if (ans[8] > 0)
+                        l9.setTexture(tex_correct);
+                    else if (ans[8] < 0)
+                        l9.setTexture(tex_incorrect);
+                    if (ans[9] > 0)
+                        l10.setTexture(tex_correct);
+                    else if (ans[9] < 0)
+                        l10.setTexture(tex_incorrect);
+                    if (ans[10] > 0)
+                        l11.setTexture(tex_correct);
+                    else if (ans[10] < 0)
+                        l11.setTexture(tex_incorrect);
+                    if (ans[11] > 0)
+                        l12.setTexture(tex_correct);
+                    else if (ans[11] < 0)
+                        l12.setTexture(tex_incorrect);
+                    if (ans[12] > 0)
+                        l13.setTexture(tex_correct);
+                    else if (ans[12] < 0)
+                        l13.setTexture(tex_incorrect);
+                    if (ans[13] > 0)
+                        l14.setTexture(tex_correct);
+                    else if (ans[13] < 0)
+                        l14.setTexture(tex_incorrect);
+                    if (ans[14] > 0)
+                        l15.setTexture(tex_correct);
+                    else if (ans[14] < 0)
+                        l15.setTexture(tex_incorrect);
+                    if (ans[15] > 0)
+                        l16.setTexture(tex_correct);
+                    else if (ans[15] < 0)
+                        l16.setTexture(tex_incorrect);
+                    if (ans[16] > 0)
+                        l17.setTexture(tex_correct);
+                    else if (ans[16] < 0)
+                        l17.setTexture(tex_incorrect);
+                    if (ans[17] > 0)
+                        l18.setTexture(tex_correct);
+                    else if (ans[17] < 0)
+                        l18.setTexture(tex_incorrect);
+                    if (ans[18] > 0)
+                        l19.setTexture(tex_correct);
+                    else if (ans[18] < 0)
+                        l19.setTexture(tex_incorrect);
+                    if (ans[19] > 0)
+                        l20.setTexture(tex_correct);
+                    else if (ans[19] < 0)
+                        l20.setTexture(tex_incorrect);
+                    if (ans[20] > 0)
+                        l21.setTexture(tex_correct);
+                    else if (ans[20] < 0)
+                        l21.setTexture(tex_incorrect);
+                    if (ans[21] > 0)
+                        l22.setTexture(tex_correct);
+                    else if (ans[21] < 0)
+                        l22.setTexture(tex_incorrect);
+                    if (ans[22] > 0)
+                        l23.setTexture(tex_correct);
+                    else if (ans[22] < 0)
+                        l23.setTexture(tex_incorrect);
+                    if (ans[23] > 0)
+                        l24.setTexture(tex_correct);
+                    else if (ans[23] < 0)
+                        l24.setTexture(tex_incorrect);
+                    if (ans[24] > 0)
+                        l25.setTexture(tex_correct);
+                    else if (ans[24] < 0)
+                        l25.setTexture(tex_incorrect);
+                    if (ans[25] > 0)
+                        l26.setTexture(tex_correct);
+                    else if (ans[25] < 0)
+                        l26.setTexture(tex_incorrect);
+                    if (ans[26] > 0)
+                        l27.setTexture(tex_correct);
+                    else if (ans[26] < 0)
+                        l27.setTexture(tex_incorrect);
+                    if (ans[27] > 0)
+                        l28.setTexture(tex_correct);
+                    else if (ans[27] < 0)
+                        l28.setTexture(tex_incorrect);
+                    if (ans[28] > 0)
+                        l29.setTexture(tex_correct);
+                    else if (ans[28] < 0)
+                        l29.setTexture(tex_incorrect);
+                    if (ans[29] > 0)
+                        l30.setTexture(tex_correct);
+                    else if (ans[29] < 0)
+                        l30.setTexture(tex_incorrect);
+                    if (ans[30] > 0)
+                        l31.setTexture(tex_correct);
+                    else if (ans[30] < 0)
+                        l31.setTexture(tex_incorrect);
+                    if (ans[31] > 0)
+                        l32.setTexture(tex_correct);
+                    else if (ans[31] < 0)
+                        l32.setTexture(tex_incorrect);
+                    if (flag == 0)
+                        mistake++;
+                    switch (mistake) {
+                    case 0: {
+                        hangman.setTexture(tex_0mistake);
+                        break;
+                    }
+                    case 1: {
+                        hangman.setTexture(tex_1mistake);
+                        break;
+                    }
+                    case 2: {
+                        hangman.setTexture(tex_2mistake);
+                        break;
+                    }
+                    case 3: {
+                        hangman.setTexture(tex_3mistake);
+                        break;
+                    }
+                    case 4: {
+                        hangman.setTexture(tex_4mistake);
+                        break;
+                    }
+                    case 5: {
+                        hangman.setTexture(tex_5mistake);
+                        break;
+                    }
+                    case 6: {
+                        hangman.setTexture(tex_6mistake);
+                        win = -1;
+                        break;
+                    }
+                    }
+                    flag = 0;
+                    if (win == -1)
+                        endgame.setTexture(tex_lose);
+                    else if (win == 1)
+                        endgame.setTexture(tex_win);
+                } else if (win!=0)
+{
+if (x > 377 && x < 906 && y > 318 && y < 416 ) {return 1;}//again
+else if (x > 300 && x < 591 && y > 435 && y < 520 ) {return 2;}//cat
+else if (x > 689 && x < 720 && y > 435 && y < 520 ) {return 0;}//menu
+}
             }
         }
         window.clear();
         window.draw(spriteback);
         window.draw(interface);
+        window.draw(hangman);
+        window.draw(l1);
+        window.draw(l2);
+        window.draw(l3);
+        window.draw(l4);
+        window.draw(l5);
+        window.draw(l6);
+        window.draw(l7);
+        window.draw(l8);
+        window.draw(l9);
+        window.draw(l10);
+        window.draw(l11);
+        window.draw(l12);
+        window.draw(l13);
+        window.draw(l14);
+        window.draw(l15);
+        window.draw(l16);
+        window.draw(l17);
+        window.draw(l18);
+        window.draw(l19);
+        window.draw(l20);
+        window.draw(l21);
+        window.draw(l22);
+        window.draw(l23);
+        window.draw(l24);
+        window.draw(l25);
+        window.draw(l26);
+        window.draw(l27);
+        window.draw(l28);
+        window.draw(l29);
+        window.draw(l30);
+        window.draw(l31);
+        window.draw(l32);
         window.draw(rectangle);
         window.draw(tema);
         window.draw(slovo);
+        window.draw(endgame);
         window.display();
     }
+return 0;
 }
