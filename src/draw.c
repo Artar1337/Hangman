@@ -4,6 +4,17 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+ struct scores{
+unsigned short all;
+unsigned char geo;
+unsigned char phys;
+unsigned char math;
+unsigned char bio;
+unsigned char stuff;
+unsigned char food;
+unsigned char sport;
+}s;
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
 {
@@ -36,7 +47,6 @@ void MainMenu()
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
-
             if (event.type == sf::Event::MouseButtonPressed
                 && event.mouseButton.button == sf::Mouse::Left) {
                 mousexy = sf::Mouse::getPosition(window);
@@ -216,16 +226,21 @@ void CategoryMenu()
     window.setTitle("Choose a category");
     unsigned int x, y, p;
     int t = 0;
-    int rand_print;
-    rand_print = 0;
+    char buf[10];
+    int rand_print=0;
     wchar_t word[100];
     wchar_t* format_word;
+FILE* f;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
             tex_but_math, tex_but_bio, tex_but_stuff, tex_but_sport,
             tex_but_food, tex_but_mainmenu;
-    sf::Vector2i mousexy;
+sf::Text tall,tbio,tgeo,tmath,tphys,tstuff,tsport,tfood;
+sf::Font font;
+sf::Vector2i mousexy;
+font.loadFromFile("src/pricedown.ttf");
+    
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_allthemes.loadFromFile("src/img/allthemes.png");
     tex_but_food.loadFromFile("src/img/food.png");
@@ -257,7 +272,57 @@ void CategoryMenu()
     buttonfood.setPosition(690, 270);
     buttonsport.setPosition(690, 400);
     buttonmainmenu.setPosition(340, 530);
-
+    tall.setPosition(470,34);
+ tgeo.setPosition(500,164);
+ tmath.setPosition(500,418);
+ tphys.setPosition(500,292);
+ tbio.setPosition(1180,34);
+ tstuff.setPosition(1224,164);
+ tfood.setPosition(1180,292);
+ tsport.setPosition(1180,418);
+tall.setCharacterSize(45);
+tbio.setCharacterSize(45);
+tgeo.setCharacterSize(45);
+tfood.setCharacterSize(45);
+tphys.setCharacterSize(45);
+tmath.setCharacterSize(45);
+tstuff.setCharacterSize(45);
+tsport.setCharacterSize(45);
+tall.setFont(font);
+tbio.setFont(font);
+tgeo.setFont(font);
+tmath.setFont(font);
+tphys.setFont(font);
+tfood.setFont(font);
+tstuff.setFont(font);
+tsport.setFont(font);
+    f=fopen("scores.dat","rb");
+    fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.geo,buf);
+strcat(buf,"/60");
+tgeo.setString(buf);
+inttostr(s.math,buf);
+strcat(buf,"/60");
+tmath.setString(buf);
+inttostr(s.phys,buf);
+strcat(buf,"/60");
+tphys.setString(buf);
+inttostr(s.bio,buf);
+strcat(buf,"/60");
+tbio.setString(buf);
+inttostr(s.stuff,buf);
+strcat(buf,"\n/60");
+tstuff.setString(buf);
+inttostr(s.food,buf);
+strcat(buf,"/60");
+tfood.setString(buf);
+inttostr(s.sport,buf);
+strcat(buf,"/60");
+tsport.setString(buf);
+    fclose(f);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -405,6 +470,14 @@ void CategoryMenu()
         window.draw(buttonsport);
         window.draw(buttonfood);
         window.draw(buttonmainmenu);
+        window.draw(tall);
+        window.draw(tbio);
+        window.draw(tgeo);
+        window.draw(tphys);
+        window.draw(tmath);
+        window.draw(tfood);
+        window.draw(tstuff);
+        window.draw(tsport);
         window.display();
     }
 }

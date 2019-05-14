@@ -4,6 +4,80 @@
 #include <string.h>
 #include <time.h>
 #include <wchar.h>
+
+ struct scores{
+unsigned short all;
+unsigned char geo;
+unsigned char phys;
+unsigned char math;
+unsigned char bio;
+unsigned char stuff;
+unsigned char food;
+unsigned char sport;
+}S;
+
+void ResetProgress()
+{
+FILE* f;
+f=fopen("scores.dat","wb+");
+S.all=0;
+S.geo=0;
+S.phys=0;
+S.math=0;
+S.bio=0;
+S.stuff=0;
+S.food=0;
+S.sport=0;
+fwrite(&S,sizeof(scores),1,f);
+fclose(f);
+}
+
+bool inttostr(unsigned short n, char buf[])
+{
+    unsigned short i=n%10,temp;
+if(n>420) return 1;
+    if(i==0) buf[1]='0';
+else if(i==1) buf[1]='1';
+else if(i==2) buf[1]='2';
+else if(i==3) buf[1]='3';
+else if(i==4) buf[1]='4';
+else if(i==5) buf[1]='5';
+else if(i==6) buf[1]='6';
+else if(i==7) buf[1]='7';
+else if(i==8) buf[1]='8';
+else if(i==9) buf[1]='9';
+i=n/10;
+i=i%10;
+if(i==0) {buf[0]=buf[1];buf[1]='\0';}
+else if(i==1) buf[0]='1';
+else if(i==2) buf[0]='2';
+else if(i==3) buf[0]='3';
+else if(i==4) buf[0]='4';
+else if(i==5) buf[0]='5';
+else if(i==6) buf[0]='6';
+else if(i==7) buf[0]='7';
+else if(i==8) buf[0]='8';
+else if(i==9) buf[0]='9';
+if(n/100)
+{
+	i=n/100;
+	i=i%10;
+if(i==1) buf[2]='1';
+else if(i==2) buf[2]='2';
+else if(i==3) buf[2]='3';
+else if(i==4) buf[2]='4';
+temp=buf[0];
+buf[0]=buf[2];
+buf[2]=temp;
+temp=buf[1];
+buf[1]=buf[2];
+buf[2]=temp;
+buf[3]='\0';
+}
+else buf[2]='\0';
+return 0;
+}
+
 int logickGameComputer(int flag, wchar_t word[], int* rand_print)
 {
     int choose, i = 0, c = 0, flg = 1;
@@ -167,6 +241,7 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print)
         printf("\n");*/
     return i;
 }
+
 void FormatWord(int kol, wchar_t word[], wchar_t format_word[])
 {
     int i;
