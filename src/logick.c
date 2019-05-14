@@ -6,28 +6,20 @@
 #include <wchar.h>
 
  struct scores{
-unsigned short all;
-unsigned char geo;
-unsigned char phys;
-unsigned char math;
-unsigned char bio;
-unsigned char stuff;
-unsigned char food;
-unsigned char sport;
+unsigned short all=0;
+unsigned char geo=0;
+unsigned char phys=0;
+unsigned char math=0;
+unsigned char bio=0;
+unsigned char stuff=0;
+unsigned char food=0;
+unsigned char sport=0;
 }S;
 
 void ResetProgress()
 {
 FILE* f;
 f=fopen("scores.dat","wb+");
-S.all=0;
-S.geo=0;
-S.phys=0;
-S.math=0;
-S.bio=0;
-S.stuff=0;
-S.food=0;
-S.sport=0;
 fwrite(&S,sizeof(scores),1,f);
 fclose(f);
 }
