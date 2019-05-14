@@ -18,12 +18,91 @@ unsigned char sport=0;
 
 void ResetProgress()
 {
-FILE* f;
+FILE* f,*fr;
+wchar_t ch;
 f=fopen("scores.dat","wb+");
 fwrite(&S,sizeof(scores),1,f);
 fclose(f);
+f=fopen("src/TXT/backup.txt","rt");
+fr=fopen("src/TXT/biology.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
 }
-
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/food.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/geography.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/houseware.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/maths.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/physics.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fr=fopen("src/TXT/sport.txt","wt+");
+while(1)
+{
+ch=getc(f);
+if(ch=='*') break;
+putc(ch,fr);
+}
+putc('\\',fr);
+putc('0',fr);
+ch=getc(f);
+fclose(fr);
+fclose(f);
+}
 bool inttostr(unsigned short n, char buf[])
 {
     unsigned short i=n%10,temp;
