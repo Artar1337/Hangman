@@ -36,7 +36,6 @@ void MainMenu()
     buttondevelopers.setTexture(tex_but_developers);
     buttonsettings.setTexture(tex_but_settings);
     buttonexit.setTexture(tex_but_exit);
-
     buttonstart.setPosition(640, 20);
     buttonsettings.setPosition(640, 190);
     buttondevelopers.setPosition(640, 360);
@@ -96,7 +95,6 @@ void StartGameMenu()
     buttoncomp.setTexture(tex_but_comp);
     buttonfriend.setTexture(tex_but_friend);
     buttonmainmenu.setTexture(tex_but_mainmenu);
-
     buttoncomp.setPosition(340, 30);
     buttonfriend.setPosition(340, 250);
     buttonmainmenu.setPosition(340, 470);
@@ -150,11 +148,9 @@ void SettingsMenu()
     buttonsound.setTexture(tex_but_sound);
     buttonprogress.setTexture(tex_but_progress);
     buttonmainmenu.setTexture(tex_but_mainmenu);
-
     buttonsound.setPosition(340, 30);
     buttonprogress.setPosition(340, 250);
     buttonmainmenu.setPosition(340, 470);
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -194,11 +190,9 @@ void DevelopersMenu()
     sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
-
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttonmainmenu.setPosition(679, 579);
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -241,7 +235,6 @@ void CategoryMenu()
     sf::Font font;
     sf::Vector2i mousexy;
     font.loadFromFile("src/pricedown.ttf");
-
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_allthemes.loadFromFile("src/img/allthemes.png");
     tex_but_food.loadFromFile("src/img/food.png");
@@ -263,7 +256,6 @@ void CategoryMenu()
     buttonstuff.setTexture(tex_but_stuff);
     buttonsport.setTexture(tex_but_sport);
     buttonmainmenu.setTexture(tex_but_mainmenu);
-
     buttonallthemes.setPosition(10, 10);
     buttongeo.setPosition(10, 140);
     buttonphys.setPosition(10, 270);
@@ -592,8 +584,8 @@ void CategoryMenu()
 void FriendNameMenu()
 {
     window.setTitle("Input your names");
-    sf::Sprite spriteback, buttoncontinue, buttonmainmenu;
-    sf::Texture textureback, tex_but_mainmenu, tex_but_cont;
+    sf::Sprite spriteback, buttoncontinue, buttonmainmenu, friendback;
+    sf::Texture textureback, tex_but_mainmenu, tex_but_cont, tex_friendback;
     unsigned char i1 = 0, i2 = 0, flag = 1, textfield1_pressed = 0,
                   textfield2_pressed = 0;
     wchar_t st = L'0', st1[100] = L"\0", st2[100] = L"\0";
@@ -601,45 +593,31 @@ void FriendNameMenu()
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
+    tex_friendback.loadFromFile("src/img/friendback.png");
     sf::Font font;
-    sf::Text text1, text2, name1, name2;
+    sf::Text name1, name2;
     sf::Vector2i mousexy;
     font.loadFromFile("src/pricedown.ttf");
-    text1.setFont(font);
-    text2.setFont(font);
-    text1.setString(L"ИГРОК 1:");
-    sf::RectangleShape textfield1(sf::Vector2f(700, 200));
-    sf::RectangleShape textfield2(sf::Vector2f(700, 200));
-    text2.setString(L"ИГРОК 2:");
-
-    text2.setCharacterSize(100);
-    text1.setCharacterSize(100);
+    sf::RectangleShape textfield1(sf::Vector2f(740, 80));
+    sf::RectangleShape textfield2(sf::Vector2f(740, 80));
     name1.setFont(font);
     name2.setFont(font);
     name1.setString(L"Игрок1");
     name2.setString(L"Игрок2");
-
     name1.setCharacterSize(100);
     name2.setCharacterSize(100);
-
-    /*   text1.setFillColor(sf::Color::Red);
-       text2.setFillColor(sf::Color::Red);
-       name2.setFillColor(sf::Color::Black);
-       name1.setFillColor(sf::Color::Black);
-   */
+    textfield1.setFillColor(sf::Color::Black);
+    textfield2.setFillColor(sf::Color::Black);
     spriteback.setTexture(textureback);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttoncontinue.setTexture(tex_but_cont);
-
-    text1.setPosition(20, 20);
-    text2.setPosition(20, 240);
+    friendback.setTexture(tex_friendback);
     name1.setPosition(340, 25);
     name2.setPosition(340, 245);
-
     buttonmainmenu.setPosition(1, 559);
     buttoncontinue.setPosition(679, 559);
-    textfield1.setPosition(340, 20);
-    textfield2.setPosition(340, 240);
+    textfield1.setPosition(340, 60);
+    textfield2.setPosition(340, 280);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -773,8 +751,7 @@ void FriendNameMenu()
 
         window.clear();
         window.draw(spriteback);
-        window.draw(text1);
-        window.draw(text2);
+        window.draw(friendback);
         window.draw(textfield1);
         window.draw(textfield2);
         window.draw(name1);
@@ -787,33 +764,28 @@ void FriendNameMenu()
 void FriendWordMenu()
 {
     window.setTitle("Input a word");
-    sf::Sprite spriteback, buttoncontinue;
-    sf::Texture textureback, tex_but_cont;
+    sf::Sprite spriteback, buttoncontinue, wordback;
+    sf::Texture textureback, tex_but_cont, tex_wordback;
+    sf::RectangleShape textfield(sf::Vector2f(1050, 80));
+    sf::Text word;
+    sf::Font font;
     unsigned char i = 0, flag = 1;
     wchar_t st = L'\0', wrd[100], screenwrd[100];
 
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
-    sf::Font font;
+    tex_wordback.loadFromFile("src/img/wordback.png");
     font.loadFromFile("src/pricedown.ttf");
-    sf::Text text1, word;
-
-    text1.setFont(font);
-    text1.setString(L"ВВЕДИТЕ СЛОВО:");
-    text1.setCharacterSize(100);
-
-    /*  word.setFillColor(sf::Color::Black);
-      text1.setFillColor(sf::Color::Black);
-  */
     word.setFont(font);
     word.setString(L'\0');
     word.setCharacterSize(100);
-
+    textfield.setFillColor(sf::Color::Black);
+    wordback.setTexture(tex_wordback);
     spriteback.setTexture(textureback);
     buttoncontinue.setTexture(tex_but_cont);
-    text1.setPosition(340, 20);
     word.setPosition(100, 120);
     buttoncontinue.setPosition(340, 559);
+    textfield.setPosition(80, 155);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -898,7 +870,7 @@ void FriendWordMenu()
                         screenwrd[i - 1] = L'\0';
                         i--;
                     }
-                    if (flag == 1 && i < 32) {
+                    if (flag == 1 && i < 20) {
                         wrd[i] = st;
                         screenwrd[i] = '*';
                         i++;
@@ -912,8 +884,9 @@ void FriendWordMenu()
 
         window.clear();
         window.draw(spriteback);
+        window.draw(wordback);
         window.draw(buttoncontinue);
-        window.draw(text1);
+        window.draw(textfield);
         window.draw(word);
         window.display();
     }
