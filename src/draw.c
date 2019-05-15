@@ -3,18 +3,18 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
- struct scores{
-unsigned short all;
-unsigned char geo;
-unsigned char phys;
-unsigned char math;
-unsigned char bio;
-unsigned char stuff;
-unsigned char food;
-unsigned char sport;
-}s;
+#include <string.h>
+struct scores {
+    unsigned short all;
+    unsigned char geo;
+    unsigned char phys;
+    unsigned char math;
+    unsigned char bio;
+    unsigned char stuff;
+    unsigned char food;
+    unsigned char sport;
+} s;
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
 void MainMenu()
 {
@@ -167,7 +167,9 @@ void SettingsMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230)
                     ;
-                if (x > 340 && x < 940 && y > 250 && y < 450){ResetProgress();}
+                if (x > 340 && x < 940 && y > 250 && y < 450) {
+                    ResetProgress();
+                }
                 if (x > 340 && x < 940 && y > 470 && y < 670) {
                     return;
                 }
@@ -225,21 +227,21 @@ void CategoryMenu()
     window.setTitle("Choose a category");
     unsigned int x, y, p;
     int t = 0;
-    char buf[10];
-    int rand_print=0;
+    char buf[10], wordnum;
+    int rand_print = 0;
     wchar_t word[100];
     wchar_t* format_word;
-FILE* f;
+    FILE* f;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
     sf::Texture textureback, tex_but_allthemes, tex_but_geo, tex_but_phys,
             tex_but_math, tex_but_bio, tex_but_stuff, tex_but_sport,
             tex_but_food, tex_but_mainmenu;
-sf::Text tall,tbio,tgeo,tmath,tphys,tstuff,tsport,tfood;
-sf::Font font;
-sf::Vector2i mousexy;
-font.loadFromFile("src/pricedown.ttf");
-    
+    sf::Text tall, tbio, tgeo, tmath, tphys, tstuff, tsport, tfood;
+    sf::Font font;
+    sf::Vector2i mousexy;
+    font.loadFromFile("src/pricedown.ttf");
+
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_allthemes.loadFromFile("src/img/allthemes.png");
     tex_but_food.loadFromFile("src/img/food.png");
@@ -271,56 +273,56 @@ font.loadFromFile("src/pricedown.ttf");
     buttonfood.setPosition(690, 270);
     buttonsport.setPosition(690, 400);
     buttonmainmenu.setPosition(340, 530);
-    tall.setPosition(470,34);
- tgeo.setPosition(500,164);
- tmath.setPosition(500,418);
- tphys.setPosition(500,292);
- tbio.setPosition(1180,34);
- tstuff.setPosition(1224,164);
- tfood.setPosition(1180,292);
- tsport.setPosition(1180,418);
-tall.setCharacterSize(45);
-tbio.setCharacterSize(45);
-tgeo.setCharacterSize(45);
-tfood.setCharacterSize(45);
-tphys.setCharacterSize(45);
-tmath.setCharacterSize(45);
-tstuff.setCharacterSize(45);
-tsport.setCharacterSize(45);
-tall.setFont(font);
-tbio.setFont(font);
-tgeo.setFont(font);
-tmath.setFont(font);
-tphys.setFont(font);
-tfood.setFont(font);
-tstuff.setFont(font);
-tsport.setFont(font);
-    f=fopen("scores.dat","rb");
-    fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.geo,buf);
-strcat(buf,"/60");
-tgeo.setString(buf);
-inttostr(s.math,buf);
-strcat(buf,"/60");
-tmath.setString(buf);
-inttostr(s.phys,buf);
-strcat(buf,"/60");
-tphys.setString(buf);
-inttostr(s.bio,buf);
-strcat(buf,"/60");
-tbio.setString(buf);
-inttostr(s.stuff,buf);
-strcat(buf,"\n/60");
-tstuff.setString(buf);
-inttostr(s.food,buf);
-strcat(buf,"/60");
-tfood.setString(buf);
-inttostr(s.sport,buf);
-strcat(buf,"/60");
-tsport.setString(buf);
+    tall.setPosition(470, 34);
+    tgeo.setPosition(500, 164);
+    tmath.setPosition(500, 418);
+    tphys.setPosition(500, 292);
+    tbio.setPosition(1180, 34);
+    tstuff.setPosition(1224, 164);
+    tfood.setPosition(1180, 292);
+    tsport.setPosition(1180, 418);
+    tall.setCharacterSize(45);
+    tbio.setCharacterSize(45);
+    tgeo.setCharacterSize(45);
+    tfood.setCharacterSize(45);
+    tphys.setCharacterSize(45);
+    tmath.setCharacterSize(45);
+    tstuff.setCharacterSize(45);
+    tsport.setCharacterSize(45);
+    tall.setFont(font);
+    tbio.setFont(font);
+    tgeo.setFont(font);
+    tmath.setFont(font);
+    tphys.setFont(font);
+    tfood.setFont(font);
+    tstuff.setFont(font);
+    tsport.setFont(font);
+    f = fopen("scores.dat", "rb");
+    fread(&s, sizeof(scores), 1, f);
+    inttostr(s.all, buf);
+    strcat(buf, "/420");
+    tall.setString(buf);
+    inttostr(s.geo, buf);
+    strcat(buf, "/60");
+    tgeo.setString(buf);
+    inttostr(s.math, buf);
+    strcat(buf, "/60");
+    tmath.setString(buf);
+    inttostr(s.phys, buf);
+    strcat(buf, "/60");
+    tphys.setString(buf);
+    inttostr(s.bio, buf);
+    strcat(buf, "/60");
+    tbio.setString(buf);
+    inttostr(s.stuff, buf);
+    strcat(buf, "\n/60");
+    tstuff.setString(buf);
+    inttostr(s.food, buf);
+    strcat(buf, "/60");
+    tfood.setString(buf);
+    inttostr(s.sport, buf);
+    strcat(buf, "/60");
+    tsport.setString(buf);
     fclose(f);
     while (window.isOpen()) {
         sf::Event event;
@@ -335,231 +337,230 @@ tsport.setString(buf);
                 if (x > 340 && x < 940 && y > 530 && y < 719) {
                     return;
                 }
-                if (x > 10 && x < 590 && y > 10 && y < 130) {
+                if (x > 10 && x < 590 && y > 10 && y < 130 && s.all < 420) {
                     while (1) {
-                        t = logickGameComputer(8, word, &rand_print);
+                        t = logickGameComputer(8, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-fclose(f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.geo,buf);
-strcat(buf,"/60");
-tgeo.setString(buf);
-inttostr(s.math,buf);
-strcat(buf,"/60");
-tmath.setString(buf);
-inttostr(s.phys,buf);
-strcat(buf,"/60");
-tphys.setString(buf);
-inttostr(s.bio,buf);
-strcat(buf,"/60");
-tbio.setString(buf);
-inttostr(s.stuff,buf);
-strcat(buf,"\n/60");
-tstuff.setString(buf);
-inttostr(s.food,buf);
-strcat(buf,"/60");
-tfood.setString(buf);
-inttostr(s.sport,buf);
-strcat(buf,"/60");
-tsport.setString(buf);
-
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            fclose(f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.geo, buf);
+                            strcat(buf, "/60");
+                            tgeo.setString(buf);
+                            inttostr(s.math, buf);
+                            strcat(buf, "/60");
+                            tmath.setString(buf);
+                            inttostr(s.phys, buf);
+                            strcat(buf, "/60");
+                            tphys.setString(buf);
+                            inttostr(s.bio, buf);
+                            strcat(buf, "/60");
+                            tbio.setString(buf);
+                            inttostr(s.stuff, buf);
+                            strcat(buf, "\n/60");
+                            tstuff.setString(buf);
+                            inttostr(s.food, buf);
+                            strcat(buf, "/60");
+                            tfood.setString(buf);
+                            inttostr(s.sport, buf);
+                            strcat(buf, "/60");
+                            tsport.setString(buf);
+                            break;
+                        }
                     }
                 }
-                if (x > 10 && x < 590 && y > 140 && y < 260) {
+                if (x > 10 && x < 590 && y > 140 && y < 260 && s.geo < 60) {
                     while (1) {
-                        t = logickGameComputer(1, word, &rand_print);
+                        t = logickGameComputer(1, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.geo,buf);
-strcat(buf,"/60");
-tgeo.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.geo, buf);
+                            strcat(buf, "/60");
+                            tgeo.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 10 && x < 590 && y > 270 && y < 390) {
+                if (x > 10 && x < 590 && y > 270 && y < 390 && s.phys < 60) {
                     while (1) {
-                        t = logickGameComputer(2, word, &rand_print);
+                        t = logickGameComputer(2, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.phys,buf);
-strcat(buf,"/60");
-tphys.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.phys, buf);
+                            strcat(buf, "/60");
+                            tphys.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 10 && x < 590 && y > 400 && y < 520) {
+                if (x > 10 && x < 590 && y > 400 && y < 520 && s.math < 60) {
                     while (1) {
-                        t = logickGameComputer(3, word, &rand_print);
+                        t = logickGameComputer(3, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.math,buf);
-strcat(buf,"/60");
-tmath.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.math, buf);
+                            strcat(buf, "/60");
+                            tmath.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 690 && x < 1270 && y > 10 && y < 130) {
+                if (x > 690 && x < 1270 && y > 10 && y < 130 && s.bio < 60) {
                     while (1) {
-                        t = logickGameComputer(4, word, &rand_print);
+                        t = logickGameComputer(4, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.bio,buf);
-strcat(buf,"/60");
-tbio.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.bio, buf);
+                            strcat(buf, "/60");
+                            tbio.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 690 && x < 1270 && y > 140 && y < 260) {
+                if (x > 690 && x < 1270 && y > 140 && y < 260 && s.stuff < 60) {
                     while (1) {
-                        t = logickGameComputer(5, word, &rand_print);
+                        t = logickGameComputer(5, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.stuff,buf);
-strcat(buf,"/60");
-tstuff.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.stuff, buf);
+                            strcat(buf, "/60");
+                            tstuff.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 690 && x < 1270 && y > 270 && y < 390) {
+                if (x > 690 && x < 1270 && y > 270 && y < 390 && s.food < 60) {
                     while (1) {
-                        t = logickGameComputer(6, word, &rand_print);
+                        t = logickGameComputer(6, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                            {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.food,buf);
-strcat(buf,"/60");
-tfood.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.food, buf);
+                            strcat(buf, "/60");
+                            tfood.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
-                if (x > 690 && x < 1270 && y > 400 && y < 520) {
+                if (x > 690 && x < 1270 && y > 400 && y < 520 && s.sport < 60) {
                     while (1) {
-                        t = logickGameComputer(7, word, &rand_print);
+                        t = logickGameComputer(7, word, &rand_print, &wordnum);
                         format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
                         FormatWord(t, word, format_word);
-                        p = ComputerGame(word, format_word, &rand_print, t);
+                        p = ComputerGame(
+                                word, format_word, &rand_print, t, &wordnum);
                         free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
                             continue;
-                        else if (p == 2)
-                           {
-f=fopen("scores.dat","rb");
-fread(&s,sizeof(scores),1,f);
-inttostr(s.all,buf);
-strcat(buf,"/420");
-tall.setString(buf);
-inttostr(s.sport,buf);
-strcat(buf,"/60");
-tsport.setString(buf);
-fclose(f);
-break;
-}
+                        else if (p == 2) {
+                            f = fopen("scores.dat", "rb");
+                            fread(&s, sizeof(scores), 1, f);
+                            inttostr(s.all, buf);
+                            strcat(buf, "/420");
+                            tall.setString(buf);
+                            inttostr(s.sport, buf);
+                            strcat(buf, "/60");
+                            tsport.setString(buf);
+                            fclose(f);
+                            break;
+                        }
                     }
                 }
             }
@@ -918,7 +919,12 @@ void FriendWordMenu()
     }
     std::wcout << wrd << std::endl;
 }
-int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
+int ComputerGame(
+        wchar_t word[],
+        wchar_t format_word[],
+        int* rand_print,
+        int t,
+        char* wordnum)
 {
     window.setTitle("Game with computer");
     unsigned int x, y, flag = 0, mistake = 0;
@@ -1698,17 +1704,20 @@ int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                         endgame.setTexture(tex_win);
                 } else if (win) {
                     if (x > 377 && x < 906 && y > 318 && y < 416) {
-                      if(win==1) Winner(*rand_print); 
-return 1;        
+                        if (win == 1)
+                            Winner(*rand_print, *wordnum);
+                        return 1;
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {
-                       if(win==1) Winner(*rand_print);
-return 2;
-                        
+                        if (win == 1)
+                            Winner(*rand_print, *wordnum);
+                        return 2;
+
                     } // cat
                     if (x > 689 && x < 981 && y > 435 && y < 520) {
-                        if(win==1)Winner(*rand_print);
-return 0;
+                        if (win == 1)
+                            Winner(*rand_print, *wordnum);
+                        return 0;
                     } // menu
                 }
             }
