@@ -167,8 +167,7 @@ void SettingsMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230)
                     ;
-                if (x > 340 && x < 940 && y > 250 && y < 450)
-                    ;
+                if (x > 340 && x < 940 && y > 250 && y < 450){ResetProgress();}
                 if (x > 340 && x < 940 && y > 470 && y < 670) {
                     return;
                 }
@@ -348,7 +347,37 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+fclose(f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.geo,buf);
+strcat(buf,"/60");
+tgeo.setString(buf);
+inttostr(s.math,buf);
+strcat(buf,"/60");
+tmath.setString(buf);
+inttostr(s.phys,buf);
+strcat(buf,"/60");
+tphys.setString(buf);
+inttostr(s.bio,buf);
+strcat(buf,"/60");
+tbio.setString(buf);
+inttostr(s.stuff,buf);
+strcat(buf,"\n/60");
+tstuff.setString(buf);
+inttostr(s.food,buf);
+strcat(buf,"/60");
+tfood.setString(buf);
+inttostr(s.sport,buf);
+strcat(buf,"/60");
+tsport.setString(buf);
+
+break;
+}
                     }
                 }
                 if (x > 10 && x < 590 && y > 140 && y < 260) {
@@ -363,7 +392,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.geo,buf);
+strcat(buf,"/60");
+tgeo.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 10 && x < 590 && y > 270 && y < 390) {
@@ -378,7 +418,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.phys,buf);
+strcat(buf,"/60");
+tphys.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 10 && x < 590 && y > 400 && y < 520) {
@@ -393,7 +444,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.math,buf);
+strcat(buf,"/60");
+tmath.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 690 && x < 1270 && y > 10 && y < 130) {
@@ -408,7 +470,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.bio,buf);
+strcat(buf,"/60");
+tbio.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 690 && x < 1270 && y > 140 && y < 260) {
@@ -423,7 +496,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.stuff,buf);
+strcat(buf,"/60");
+tstuff.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 690 && x < 1270 && y > 270 && y < 390) {
@@ -438,7 +522,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                            {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.food,buf);
+strcat(buf,"/60");
+tfood.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
                 if (x > 690 && x < 1270 && y > 400 && y < 520) {
@@ -453,7 +548,18 @@ tsport.setString(buf);
                         else if (p == 1)
                             continue;
                         else if (p == 2)
-                            break;
+                           {
+f=fopen("scores.dat","rb");
+fread(&s,sizeof(scores),1,f);
+inttostr(s.all,buf);
+strcat(buf,"/420");
+tall.setString(buf);
+inttostr(s.sport,buf);
+strcat(buf,"/60");
+tsport.setString(buf);
+fclose(f);
+break;
+}
                     }
                 }
             }
@@ -1590,15 +1696,19 @@ int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t)
                         endgame.setTexture(tex_lose);
                     else if (win == 1)
                         endgame.setTexture(tex_win);
-                } else if (win != 0) {
+                } else if (win) {
                     if (x > 377 && x < 906 && y > 318 && y < 416) {
-                        return 1;
+                      if(win==1) Winner(*rand_print); 
+return 1;        
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {
-                        return 2;
+                       if(win==1) Winner(*rand_print);
+return 2;
+                        
                     } // cat
-                    else if (x > 689 && x < 720 && y > 435 && y < 520) {
-                        return 0;
+                    if (x > 689 && x < 981 && y > 435 && y < 520) {
+                        if(win==1)Winner(*rand_print);
+return 0;
                     } // menu
                 }
             }

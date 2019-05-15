@@ -6,21 +6,44 @@
 #include <wchar.h>
 
  struct scores{
-unsigned short all=0;
-unsigned char geo=0;
-unsigned char phys=0;
-unsigned char math=0;
-unsigned char bio=0;
-unsigned char stuff=0;
-unsigned char food=0;
-unsigned char sport=0;
-}S;
+unsigned short all;
+unsigned char geo;
+unsigned char phys;
+unsigned char math;
+unsigned char bio;
+unsigned char stuff;
+unsigned char food;
+unsigned char sport;
+}S,st;
+
+void Winner(int cat)
+{
+FILE* f;
+f=fopen("scores.dat","rb");
+fread(&st,sizeof(scores),1,f);
+fclose(f);
+switch(cat)
+{
+case 1: {st.geo++;break;}
+case 2: {st.phys++;break;}
+case 3: {st.math++;break;}
+case 4: {st.bio++;break;}
+case 5: {st.stuff++;break;}
+case 6: {st.food++;break;}
+case 7: {st.sport++;break;}
+}
+st.all++;
+f=fopen("scores.dat","wb+");
+fwrite(&st,sizeof(scores),1,f);
+fclose(f);
+}
 
 void ResetProgress()
 {
 FILE* f,*fr;
 wchar_t ch;
 f=fopen("scores.dat","wb+");
+S.all=S.geo=S.phys=S.math=S.bio=S.stuff=S.food=S.sport=0;
 fwrite(&S,sizeof(scores),1,f);
 fclose(f);
 f=fopen("src/TXT/backup.txt","rt");
@@ -151,44 +174,63 @@ return 0;
 
 int logickGameComputer(int flag, wchar_t word[], int* rand_print)
 {
-    int choose, i = 0, c = 0, flg = 1;
+    int choose, i = 0, c = 0, flg = 1,k;
     wchar_t ch_1, ch_2;
     FILE* pf;
     srand(time(0));
-    choose = rand() % 60;
+    pf=fopen("scores.dat","rb");
+    fread(&st,sizeof(scores),1,pf);
+    fclose(pf);
     //    printf("SLOVO N%d\n", 1 + choose);
     if (flag == 8) {
+        while(1){
         flag = rand() % 7 + 1;
+        if (flag==1 && 60-st.geo>0) break;
+else if(flag==2 && 60-st.phys>0) break;
+else if(flag==3 && 60-st.math>0) break;
+else if(flag==4 && 60-st.bio>0) break;
+else if(flag==5 && 60-st.stuff>0) break;
+else if(flag==6 && 60-st.food>0) break;
+else if(flag==7 && 60-st.sport>0) break;
+}
         *rand_print = flag;
     }
     if (flag == 1) {
         pf = fopen("src/TXT/geography.txt", "r");
         *rand_print = flag;
+        k=60-st.geo;
     }
-    if (flag == 2) {
+    else if (flag == 2) {
         pf = fopen("src/TXT/physics.txt", "r");
         *rand_print = flag;
+k=60-st.phys;
     }
-    if (flag == 3) {
+    else if (flag == 3) {
         pf = fopen("src/TXT/maths.txt", "r");
         *rand_print = flag;
+k=60-st.math;
     }
-    if (flag == 4) {
+    else if (flag == 4) {
         pf = fopen("src/TXT/biology.txt", "r");
         *rand_print = flag;
+k=60-st.bio;
     }
-    if (flag == 5) {
+    else if (flag == 5) {
         pf = fopen("src/TXT/houseware.txt", "r");
         *rand_print = flag;
+k=60-st.stuff;
     }
-    if (flag == 6) {
+    else if (flag == 6) {
         pf = fopen("src/TXT/food.txt", "r");
         *rand_print = flag;
+k=60-st.food;
     }
-    if (flag == 7) {
+    else if (flag == 7) {
         pf = fopen("src/TXT/sport.txt", "r");
         *rand_print = flag;
+k=60-st.sport;
     }
+    choose = rand() % k;
     while (1) {
         if (flg)
             ch_1 = getc(pf);
@@ -313,7 +355,7 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print)
     return i;
 }
 
-void FormatWord(int kol, wchar_t word[], wchar_t format_word[])
+void FormatWord(int kol, wchar_t word[], wchar_t* format_word)
 {
     int i;
     format_word[0] = word[0] - 32;
