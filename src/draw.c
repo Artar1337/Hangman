@@ -1859,7 +1859,8 @@ int FriendGame(
             tex_6mistake, tex_incorrect, tex_correct, tex_win, tex_lose;
     sf::Vector2i mousexy;
     sf::Font font;
-    sf::Text slovo, tema, gamer_a, gamer_b, scores1_text, scores2_text;
+    sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text,
+            player_g;
     sf::RectangleShape rectangle(sf::Vector2f(908, 231));
     rectangle.setFillColor(sf::Color::Red);
     rectangle.setPosition(372, 1);
@@ -1915,27 +1916,32 @@ int FriendGame(
     l32.setPosition(1112, 580);
     endgame.setPosition(300, 200);
     slovo.setFont(font);
-    tema.setFont(font);
+    player_g.setFont(font);
     gamer_a.setFont(font);
     gamer_b.setFont(font);
-
+    responder.setFont(font);
     format_word[t] = '\0';
     slovo.setString(format_word);
-
+    responder.setString(L"ОТВЕЧАЕТ:");
     slovo.setCharacterSize(60);
+    player_g.setCharacterSize(60);
     gamer_a.setCharacterSize(45);
     gamer_b.setCharacterSize(45);
+    responder.setCharacterSize(60);
     if (*flag_name == 1) {
-        gamer_a.setString(name1);
-        gamer_b.setString(name2);
+        player_g.setString(name1);
+        *flag_name = 2;
     } else if (*flag_name == 2) {
-        gamer_a.setString(name2);
-        gamer_b.setString(name1);
+        player_g.setString(name2);
+        *flag_name = 1;
     }
-
+    gamer_a.setString(name1);
+    gamer_b.setString(name2);
+    player_g.setPosition(650, 15);
     gamer_a.setPosition(15, 100);
     gamer_b.setPosition(15, 150);
     slovo.setPosition(550, 100);
+    responder.setPosition(400, 15);
     for (i = 0; i < 32; i++)
         ans[i] = 0;
     ans[word[0] - 1040] = 1;
@@ -2670,7 +2676,9 @@ int FriendGame(
         window.draw(rectangle);
         window.draw(gamer_a);
         window.draw(gamer_b);
+        window.draw(player_g);
         window.draw(slovo);
+        window.draw(responder);
         window.draw(endgame);
         window.display();
     }
