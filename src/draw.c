@@ -1853,14 +1853,14 @@ int FriendGame(
     int i, ans[32], win = 0;
     sf::Sprite spriteback, interface, hangman, l1, l2, l3, l4, l5, l6, l7, l8,
             l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22,
-            l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, endgame;
+            l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, end;
     sf::Texture textureback, tex_interface, tex_0mistake, tex_1mistake,
             tex_2mistake, tex_3mistake, tex_4mistake, tex_5mistake,
-            tex_6mistake, tex_incorrect, tex_correct, tex_win, tex_lose;
+            tex_6mistake, tex_incorrect, tex_correct, endgame;
     sf::Vector2i mousexy;
     sf::Font font;
-    sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text,
-            player_g;
+    sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text, text_win,
+            player_g, player_win;
     sf::RectangleShape rectangle(sf::Vector2f(908, 231));
     rectangle.setFillColor(sf::Color::Red);
     rectangle.setPosition(372, 1);
@@ -1876,8 +1876,7 @@ int FriendGame(
     tex_4mistake.loadFromFile("src/img/4mistake.png");
     tex_5mistake.loadFromFile("src/img/5mistake.png");
     tex_6mistake.loadFromFile("src/img/6mistake.png");
-    tex_win.loadFromFile("src/img/win.png");
-    tex_lose.loadFromFile("src/img/lose.png");
+    endgame.loadFromFile("src/img/endgame.png");
     spriteback.setTexture(textureback);
     interface.setTexture(tex_interface);
     hangman.setTexture(tex_0mistake);
@@ -1914,26 +1913,30 @@ int FriendGame(
     l30.setPosition(956, 580);
     l31.setPosition(1034, 580);
     l32.setPosition(1112, 580);
-    endgame.setPosition(300, 200);
+    end.setPosition(300, 200);
     slovo.setFont(font);
+    player_win.setFont(font);
     player_g.setFont(font);
     gamer_a.setFont(font);
     gamer_b.setFont(font);
+    text_win.setFont(font);
     responder.setFont(font);
     format_word[t] = '\0';
     slovo.setString(format_word);
     responder.setString(L"ОТВЕЧАЕТ:");
+    text_win.setString(L"ВЫИГРАЛ:");
     slovo.setCharacterSize(60);
     player_g.setCharacterSize(60);
+    
     gamer_a.setCharacterSize(45);
     gamer_b.setCharacterSize(45);
     responder.setCharacterSize(60);
-    if (*flag_name == 1) {
+    if (*flag_name == 2) {
         player_g.setString(name1);
-        *flag_name = 2;
-    } else if (*flag_name == 2) {
-        player_g.setString(name2);
         *flag_name = 1;
+    } else if (*flag_name == 1) {
+        player_g.setString(name2);
+        *flag_name = 2;
     }
     gamer_a.setString(name1);
     gamer_b.setString(name2);
@@ -1942,6 +1945,8 @@ int FriendGame(
     gamer_b.setPosition(15, 150);
     slovo.setPosition(550, 100);
     responder.setPosition(400, 15);
+    text_win.setPosition(340,230);
+    player_win.setPosition(510,230);
     for (i = 0; i < 32; i++)
         ans[i] = 0;
     ans[word[0] - 1040] = 1;
@@ -2613,28 +2618,21 @@ int FriendGame(
                     }
                     }
                     flag = 0;
-                    if (win == -1)
-                        endgame.setTexture(tex_lose);
-                    else if (win == 1)
-                        endgame.setTexture(tex_win);
-                } /*else if (win) {
-                    if (x > 377 && x < 906 && y > 318 && y < 416) {
-                        if (win == 1)
-                            Winner(*rand_print, *wordnum);
-                        return 1;
-                    } // again
-                    else if (x > 300 && x < 591 && y > 435 && y < 520) {
-                        if (win == 1)
-                            Winner(*rand_print, *wordnum);
-                        return 2;
-
-                    } // cat
-                    if (x > 689 && x < 981 && y > 435 && y < 520) {
-                        if (win == 1)
-                            Winner(*rand_print, *wordnum);
-                        return 0;
-                    } // menu
-                }*/
+                    if (win == -1){
+                        end.setTexture(endgame);
+if(*flag_name == 1) player_win.setString(name2);
+if(*flag_name == 2) player_win.setString(name1);
+                        text_win.setCharacterSize(45);
+                       player_win.setCharacterSize(45);
+}
+                    else if (win == 1){
+                        end.setTexture(endgame);
+if(*flag_name == 1) player_win.setString(name1);
+if(*flag_name == 2) player_win.setString(name2);
+                        text_win.setCharacterSize(45);
+                        player_win.setCharacterSize(45);
+}
+                }
             }
         }
         window.clear();
@@ -2679,7 +2677,9 @@ int FriendGame(
         window.draw(player_g);
         window.draw(slovo);
         window.draw(responder);
-        window.draw(endgame);
+        window.draw(end);
+        window.draw(text_win);
+        window.draw(player_win);
         window.display();
     }
     return 0;
