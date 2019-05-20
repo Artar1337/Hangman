@@ -838,28 +838,48 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
     window.setTitle("Input a word");
     sf::Sprite spriteback, buttoncontinue, wordback;
     sf::Texture textureback, tex_but_cont, tex_wordback;
-    sf::RectangleShape textfield(sf::Vector2f(1050, 80));
-    sf::Text word;
+    sf::RectangleShape textfield(sf::Vector2f(1050, 80)),
+            errorfield(sf::Vector2f(1050, 80)),
+            greetingfield(sf::Vector2f(1220, 80));
+    sf::Text word, word_error, text_greeting, gamer;
     sf::Font font;
     unsigned char flag = 1;
     unsigned int x, y, i = 0, c;
+    bool flag_error = 0;
     wchar_t st = L'\0', wrd[100], screenwrd[100];
     int flag_name = 1;
+    wrd[0] = L'\0';
+    screenwrd[0] = L'\0';
     sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_cont.loadFromFile("src/img/buttoncont.png");
     tex_wordback.loadFromFile("src/img/wordback.png");
     font.loadFromFile("src/pricedown.ttf");
     word.setFont(font);
+    gamer.setFont(font);
+    text_greeting.setFont(font);
+    word_error.setFont(font);
     word.setString(L'\0');
+    word_error.setString(L"ВВЕДИ СЛОВО МИНИМУМ ИЗ ТРЕХ БУКВ!");
+    text_greeting.setString(L"ВВОДИТ СЛОВО");
+    gamer.setString(name1);
     word.setCharacterSize(100);
+    text_greeting.setCharacterSize(80);
+    gamer.setCharacterSize(80);
     textfield.setFillColor(sf::Color::Black);
+    greetingfield.setFillColor(sf::Color::Red);
+    errorfield.setFillColor(sf::Color::Black);
     wordback.setTexture(tex_wordback);
     spriteback.setTexture(textureback);
     buttoncontinue.setTexture(tex_but_cont);
     word.setPosition(100, 120);
+    text_greeting.setPosition(150, 7);
+    gamer.setPosition(580, 7);
     buttoncontinue.setPosition(340, 559);
     textfield.setPosition(80, 155);
+    greetingfield.setPosition(30, 20);
+    errorfield.setPosition(80, 245);
+    word_error.setPosition(80, 235);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -871,10 +891,17 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 559 && y < 759) {
+                    if (i <= 2) {
+                        word_error.setCharacterSize(80);
+                        flag_error = 1;
+                        break;
+                    } else if (i > 2)
+                        flag_error = 0;
                     wrd[i] = L'\0';
                     screenwrd[i] = L'\0';
                     screenwrd[0] = wrd[0];
                     screenwrd[i - 1] = wrd[i - 1];
+
                     for (c = 0; c < i; c++)
                         printf("%d,", wrd[c]);
                     printf("\n");
@@ -889,6 +916,17 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                             screenwrd[c] = wrd[i - 1];
                     }
                     FriendGame(wrd, screenwrd, i, name1, name2, &flag_name);
+                    for (c = 0; c < i; c++) {
+                        wrd[c] = L'\0';
+                        screenwrd[c] = L'\0';
+                    }
+                    if (flag_name == 1) {
+                        gamer.setString(name1);
+                    } else if (flag_name == 2) {
+                        gamer.setString(name2);
+                    }
+                    word.setString(screenwrd);
+                    i = 0;
                 }
             }
             if (event.type == sf::Event::TextEntered) {
@@ -985,8 +1023,15 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
         window.draw(spriteback);
         window.draw(wordback);
         window.draw(buttoncontinue);
+        window.draw(greetingfield);
+        window.draw(text_greeting);
         window.draw(textfield);
         window.draw(word);
+        window.draw(gamer);
+        if (flag_error) {
+            window.draw(errorfield);
+            window.draw(word_error);
+        }
         window.display();
     }
     // printf("kek=%d",i);
@@ -1859,8 +1904,8 @@ int FriendGame(
             tex_6mistake, tex_incorrect, tex_correct, endgame;
     sf::Vector2i mousexy;
     sf::Font font;
-    sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text, text_win,
-            player_g, player_win;
+    sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text,
+            text_win, player_g, player_win;
     sf::RectangleShape rectangle(sf::Vector2f(908, 231));
     rectangle.setFillColor(sf::Color::Red);
     rectangle.setPosition(372, 1);
@@ -1927,7 +1972,7 @@ int FriendGame(
     text_win.setString(L"ВЫИГРАЛ:");
     slovo.setCharacterSize(60);
     player_g.setCharacterSize(60);
-    
+
     gamer_a.setCharacterSize(45);
     gamer_b.setCharacterSize(45);
     responder.setCharacterSize(60);
@@ -1945,8 +1990,8 @@ int FriendGame(
     gamer_b.setPosition(15, 150);
     slovo.setPosition(550, 100);
     responder.setPosition(400, 15);
-    text_win.setPosition(340,230);
-    player_win.setPosition(510,230);
+    text_win.setPosition(340, 230);
+    player_win.setPosition(560, 230);
     for (i = 0; i < 32; i++)
         ans[i] = 0;
     ans[word[0] - 1040] = 1;
@@ -2618,20 +2663,23 @@ int FriendGame(
                     }
                     }
                     flag = 0;
-                    if (win == -1){
+                    if (win == -1) {
                         end.setTexture(endgame);
-if(*flag_name == 1) player_win.setString(name2);
-if(*flag_name == 2) player_win.setString(name1);
-                        text_win.setCharacterSize(45);
-                       player_win.setCharacterSize(45);
-}
-                    else if (win == 1){
+                        if (*flag_name == 1)
+                            player_win.setString(name2);
+                        if (*flag_name == 2)
+                            player_win.setString(name1);
+                        text_win.setCharacterSize(65);
+                        player_win.setCharacterSize(65);
+                    } else if (win == 1) {
                         end.setTexture(endgame);
-if(*flag_name == 1) player_win.setString(name1);
-if(*flag_name == 2) player_win.setString(name2);
-                        text_win.setCharacterSize(45);
-                        player_win.setCharacterSize(45);
-}
+                        if (*flag_name == 1)
+                            player_win.setString(name1);
+                        if (*flag_name == 2)
+                            player_win.setString(name2);
+                        text_win.setCharacterSize(65);
+                        player_win.setCharacterSize(65);
+                    }
                 }
             }
         }
