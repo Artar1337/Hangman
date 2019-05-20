@@ -713,7 +713,7 @@ void FriendNameMenu()
                         }
                     }
                     FriendWordMenu(st1, st2);
-                    break;
+                    return;
                 }
             }
             if (textfield1_pressed || textfield2_pressed) {
@@ -847,7 +847,7 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
     unsigned int x, y, i = 0, c;
     bool flag_error = 0;
     wchar_t st = L'\0', wrd[100], screenwrd[100];
-    int flag_name = 1;
+    int flag_name = 1, result = 4;
     wrd[0] = L'\0';
     screenwrd[0] = L'\0';
     sf::Vector2i mousexy;
@@ -915,7 +915,8 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                         else if (wrd[c] == wrd[i - 1])
                             screenwrd[c] = wrd[i - 1];
                     }
-                    FriendGame(wrd, screenwrd, i, name1, name2, &flag_name);
+                    result = FriendGame(
+                            wrd, screenwrd, i, name1, name2, &flag_name);
                     for (c = 0; c < i; c++) {
                         wrd[c] = L'\0';
                         screenwrd[c] = L'\0';
@@ -927,6 +928,8 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                     }
                     word.setString(screenwrd);
                     i = 0;
+                    if (result == 0)
+                        return;
                 }
             }
             if (event.type == sf::Event::TextEntered) {
@@ -2679,6 +2682,16 @@ int FriendGame(
                             player_win.setString(name2);
                         text_win.setCharacterSize(65);
                         player_win.setCharacterSize(65);
+                    }
+
+                } else if (win) {
+                    if (x > 301 && x < 524 && y > 464 && y < 518) {
+                        return 0;
+                    } else if (x > 756 && x < 980 && y > 464 && y < 518) {
+                        if (win == 1)
+                            return 1;
+                        if (win == -1)
+                            return 2;
                     }
                 }
             }
