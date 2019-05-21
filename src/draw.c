@@ -1294,7 +1294,7 @@ int ComputerGame(
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
                     return 0;
                 } else if (mistake < 6 && win == 0) {
-                    if (x > 410 && x < 488 && y > 297 && y < 435) {
+                    if (x > 410 && x < 488 && y > 297 && y < 435 && !ans[0]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1072) {
                                 format_word[i] = L'А';
@@ -1305,7 +1305,9 @@ int ComputerGame(
                             ans[0] = 1;
                         else
                             ans[0] = -1;
-                    } else if (x > 488 && x < 566 && y > 297 && y < 435) {
+                    } else if (
+                            x > 488 && x < 566 && y > 297 && y < 435
+                            && !ans[1]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1073) {
                                 format_word[i] = L'Б';
@@ -1316,7 +1318,9 @@ int ComputerGame(
                             ans[1] = 1;
                         else
                             ans[1] = -1;
-                    } else if (x > 566 && x < 644 && y > 297 && y < 435) {
+                    } else if (
+                            x > 566 && x < 644 && y > 297 && y < 435
+                            && !ans[2]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1074) {
                                 format_word[i] = L'В';
@@ -1327,7 +1331,9 @@ int ComputerGame(
                             ans[2] = 1;
                         else
                             ans[2] = -1;
-                    } else if (x > 644 && x < 722 && y > 297 && y < 435) {
+                    } else if (
+                            x > 644 && x < 722 && y > 297 && y < 435
+                            && !ans[3]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1075) {
                                 format_word[i] = L'Г';
@@ -1338,7 +1344,9 @@ int ComputerGame(
                             ans[3] = 1;
                         else
                             ans[3] = -1;
-                    } else if (x > 722 && x < 800 && y > 297 && y < 435) {
+                    } else if (
+                            x > 722 && x < 800 && y > 297 && y < 435
+                            && !ans[4]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1076) {
                                 format_word[i] = L'Д';
@@ -1349,7 +1357,9 @@ int ComputerGame(
                             ans[4] = 1;
                         else
                             ans[4] = -1;
-                    } else if (x > 800 && x < 878 && y > 297 && y < 435) {
+                    } else if (
+                            x > 800 && x < 878 && y > 297 && y < 435
+                            && !ans[5]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1077) {
                                 format_word[i] = L'Е';
@@ -1360,7 +1370,9 @@ int ComputerGame(
                             ans[5] = 1;
                         else
                             ans[5] = -1;
-                    } else if (x > 878 && x < 956 && y > 297 && y < 435) {
+                    } else if (
+                            x > 878 && x < 956 && y > 297 && y < 435
+                            && !ans[6]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1078) {
                                 format_word[i] = L'Ж';
@@ -1371,7 +1383,9 @@ int ComputerGame(
                             ans[6] = 1;
                         else
                             ans[6] = -1;
-                    } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 297 && y < 435
+                            && !ans[7]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1079) {
                                 format_word[i] = L'З';
@@ -1382,7 +1396,9 @@ int ComputerGame(
                             ans[7] = 1;
                         else
                             ans[7] = -1;
-                    } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 297 && y < 435
+                            && !ans[8]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1080) {
                                 format_word[i] = L'И';
@@ -1393,7 +1409,9 @@ int ComputerGame(
                             ans[8] = 1;
                         else
                             ans[8] = -1;
-                    } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 297 && y < 435
+                            && !ans[9]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1081) {
                                 format_word[i] = L'Й';
@@ -1404,7 +1422,9 @@ int ComputerGame(
                             ans[9] = 1;
                         else
                             ans[9] = -1;
-                    } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1190 && x < 1268 && y > 297 && y < 435
+                            && !ans[10]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1082) {
                                 format_word[i] = L'К';
@@ -1415,7 +1435,9 @@ int ComputerGame(
                             ans[10] = 1;
                         else
                             ans[10] = -1;
-                    } else if (x > 410 && x < 488 && y > 439 && y < 576) {
+                    } else if (
+                            x > 410 && x < 488 && y > 439 && y < 576
+                            && !ans[11]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1083) {
                                 format_word[i] = L'Л';
@@ -1426,7 +1448,9 @@ int ComputerGame(
                             ans[11] = 1;
                         else
                             ans[11] = -1;
-                    } else if (x > 488 && x < 566 && y > 439 && y < 576) {
+                    } else if (
+                            x > 488 && x < 566 && y > 439 && y < 576
+                            && !ans[12]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1084) {
                                 format_word[i] = L'М';
@@ -1437,7 +1461,9 @@ int ComputerGame(
                             ans[12] = 1;
                         else
                             ans[12] = -1;
-                    } else if (x > 566 && x < 644 && y > 439 && y < 576) {
+                    } else if (
+                            x > 566 && x < 644 && y > 439 && y < 576
+                            && !ans[13]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1085) {
                                 format_word[i] = L'Н';
@@ -1448,7 +1474,9 @@ int ComputerGame(
                             ans[13] = 1;
                         else
                             ans[13] = -1;
-                    } else if (x > 644 && x < 722 && y > 439 && y < 576) {
+                    } else if (
+                            x > 644 && x < 722 && y > 439 && y < 576
+                            && !ans[14]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1086) {
                                 format_word[i] = L'О';
@@ -1459,7 +1487,9 @@ int ComputerGame(
                             ans[14] = 1;
                         else
                             ans[14] = -1;
-                    } else if (x > 722 && x < 800 && y > 439 && y < 576) {
+                    } else if (
+                            x > 722 && x < 800 && y > 439 && y < 576
+                            && !ans[15]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1087) {
                                 format_word[i] = L'П';
@@ -1470,7 +1500,9 @@ int ComputerGame(
                             ans[15] = 1;
                         else
                             ans[15] = -1;
-                    } else if (x > 800 && x < 878 && y > 439 && y < 576) {
+                    } else if (
+                            x > 800 && x < 878 && y > 439 && y < 576
+                            && !ans[16]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1088) {
                                 format_word[i] = L'Р';
@@ -1481,7 +1513,9 @@ int ComputerGame(
                             ans[16] = 1;
                         else
                             ans[16] = -1;
-                    } else if (x > 878 && x < 956 && y > 439 && y < 576) {
+                    } else if (
+                            x > 878 && x < 956 && y > 439 && y < 576
+                            && !ans[17]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1089) {
                                 format_word[i] = L'С';
@@ -1492,7 +1526,9 @@ int ComputerGame(
                             ans[17] = 1;
                         else
                             ans[17] = -1;
-                    } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 439 && y < 576
+                            && !ans[18]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1090) {
                                 format_word[i] = L'Т';
@@ -1503,7 +1539,9 @@ int ComputerGame(
                             ans[18] = 1;
                         else
                             ans[18] = -1;
-                    } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 439 && y < 576
+                            && !ans[19]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1091) {
                                 format_word[i] = L'У';
@@ -1514,7 +1552,9 @@ int ComputerGame(
                             ans[19] = 1;
                         else
                             ans[19] = -1;
-                    } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 439 && y < 576
+                            && !ans[20]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1092) {
                                 format_word[i] = L'Ф';
@@ -1525,7 +1565,9 @@ int ComputerGame(
                             ans[20] = 1;
                         else
                             ans[20] = -1;
-                    } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1190 && x < 1268 && y > 439 && y < 576
+                            && !ans[21]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1093) {
                                 format_word[i] = L'Х';
@@ -1536,7 +1578,9 @@ int ComputerGame(
                             ans[21] = 1;
                         else
                             ans[21] = -1;
-                    } else if (x > 410 && x < 488 && y > 580 && y < 717) {
+                    } else if (
+                            x > 410 && x < 488 && y > 580 && y < 717
+                            && !ans[22]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1094) {
                                 format_word[i] = L'Ц';
@@ -1547,7 +1591,9 @@ int ComputerGame(
                             ans[22] = 1;
                         else
                             ans[22] = -1;
-                    } else if (x > 488 && x < 566 && y > 580 && y < 717) {
+                    } else if (
+                            x > 488 && x < 566 && y > 580 && y < 717
+                            && !ans[23]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1095) {
                                 format_word[i] = L'Ч';
@@ -1558,7 +1604,9 @@ int ComputerGame(
                             ans[23] = 1;
                         else
                             ans[23] = -1;
-                    } else if (x > 566 && x < 644 && y > 580 && y < 717) {
+                    } else if (
+                            x > 566 && x < 644 && y > 580 && y < 717
+                            && !ans[24]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1096) {
                                 format_word[i] = L'Ш';
@@ -1569,7 +1617,9 @@ int ComputerGame(
                             ans[24] = 1;
                         else
                             ans[24] = -1;
-                    } else if (x > 644 && x < 722 && y > 580 && y < 717) {
+                    } else if (
+                            x > 644 && x < 722 && y > 580 && y < 717
+                            && !ans[25]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1097) {
                                 format_word[i] = L'Щ';
@@ -1580,7 +1630,9 @@ int ComputerGame(
                             ans[25] = 1;
                         else
                             ans[25] = -1;
-                    } else if (x > 722 && x < 800 && y > 580 && y < 717) {
+                    } else if (
+                            x > 722 && x < 800 && y > 580 && y < 717
+                            && !ans[26]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1098) {
                                 format_word[i] = L'Ъ';
@@ -1591,7 +1643,9 @@ int ComputerGame(
                             ans[26] = 1;
                         else
                             ans[26] = -1;
-                    } else if (x > 800 && x < 878 && y > 580 && y < 717) {
+                    } else if (
+                            x > 800 && x < 878 && y > 580 && y < 717
+                            && !ans[27]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1099) {
                                 format_word[i] = L'Ы';
@@ -1602,7 +1656,9 @@ int ComputerGame(
                             ans[27] = 1;
                         else
                             ans[27] = -1;
-                    } else if (x > 878 && x < 956 && y > 580 && y < 717) {
+                    } else if (
+                            x > 878 && x < 956 && y > 580 && y < 717
+                            && !ans[28]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1100) {
                                 format_word[i] = L'Ь';
@@ -1613,7 +1669,9 @@ int ComputerGame(
                             ans[28] = 1;
                         else
                             ans[28] = -1;
-                    } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 580 && y < 717
+                            && !ans[29]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1101) {
                                 format_word[i] = L'Э';
@@ -1625,7 +1683,9 @@ int ComputerGame(
                         else
                             ans[29] = -1;
 
-                    } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 580 && y < 717
+                            && !ans[30]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1102) {
                                 format_word[i] = L'Ю';
@@ -1637,7 +1697,9 @@ int ComputerGame(
                         else
                             ans[30] = -1;
 
-                    } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 580 && y < 717
+                            && !ans[31]) {
                         for (i = 0; i < t; i++) {
                             if (word[i] == 1103) {
                                 format_word[i] = L'Я';
@@ -1648,7 +1710,8 @@ int ComputerGame(
                             ans[31] = 1;
                         else
                             ans[31] = -1;
-                    }
+                    } else
+                        flag = -1;
                     slovo.setString(format_word);
                     for (i = 1; i < t - 1; i++)
                         if (format_word[i] == 42) {
@@ -2140,9 +2203,9 @@ int FriendGame(
                 if (x > 1 && x < 375 && y > 1 && y < 94) {
                     return 0;
                 } else if (mistake < 6 && win == 0) {
-                    if (x > 410 && x < 488 && y > 297 && y < 435) {
+                    if (x > 410 && x < 488 && y > 297 && y < 435 && !ans[0]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1040) {
+                            if (word[i] == 1072) {
                                 format_word[i] = L'А';
                                 flag = 1;
                             }
@@ -2151,9 +2214,11 @@ int FriendGame(
                             ans[0] = 1;
                         else
                             ans[0] = -1;
-                    } else if (x > 488 && x < 566 && y > 297 && y < 435) {
+                    } else if (
+                            x > 488 && x < 566 && y > 297 && y < 435
+                            && !ans[1]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1041) {
+                            if (word[i] == 1073) {
                                 format_word[i] = L'Б';
                                 flag = 1;
                             }
@@ -2162,9 +2227,11 @@ int FriendGame(
                             ans[1] = 1;
                         else
                             ans[1] = -1;
-                    } else if (x > 566 && x < 644 && y > 297 && y < 435) {
+                    } else if (
+                            x > 566 && x < 644 && y > 297 && y < 435
+                            && !ans[2]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1042) {
+                            if (word[i] == 1074) {
                                 format_word[i] = L'В';
                                 flag = 1;
                             }
@@ -2173,9 +2240,11 @@ int FriendGame(
                             ans[2] = 1;
                         else
                             ans[2] = -1;
-                    } else if (x > 644 && x < 722 && y > 297 && y < 435) {
+                    } else if (
+                            x > 644 && x < 722 && y > 297 && y < 435
+                            && !ans[3]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1043) {
+                            if (word[i] == 1075) {
                                 format_word[i] = L'Г';
                                 flag = 1;
                             }
@@ -2184,9 +2253,11 @@ int FriendGame(
                             ans[3] = 1;
                         else
                             ans[3] = -1;
-                    } else if (x > 722 && x < 800 && y > 297 && y < 435) {
+                    } else if (
+                            x > 722 && x < 800 && y > 297 && y < 435
+                            && !ans[4]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1044) {
+                            if (word[i] == 1076) {
                                 format_word[i] = L'Д';
                                 flag = 1;
                             }
@@ -2195,9 +2266,11 @@ int FriendGame(
                             ans[4] = 1;
                         else
                             ans[4] = -1;
-                    } else if (x > 800 && x < 878 && y > 297 && y < 435) {
+                    } else if (
+                            x > 800 && x < 878 && y > 297 && y < 435
+                            && !ans[5]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1045) {
+                            if (word[i] == 1077) {
                                 format_word[i] = L'Е';
                                 flag = 1;
                             }
@@ -2206,9 +2279,11 @@ int FriendGame(
                             ans[5] = 1;
                         else
                             ans[5] = -1;
-                    } else if (x > 878 && x < 956 && y > 297 && y < 435) {
+                    } else if (
+                            x > 878 && x < 956 && y > 297 && y < 435
+                            && !ans[6]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1046) {
+                            if (word[i] == 1078) {
                                 format_word[i] = L'Ж';
                                 flag = 1;
                             }
@@ -2217,9 +2292,11 @@ int FriendGame(
                             ans[6] = 1;
                         else
                             ans[6] = -1;
-                    } else if (x > 956 && x < 1034 && y > 297 && y < 435) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 297 && y < 435
+                            && !ans[7]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1047) {
+                            if (word[i] == 1079) {
                                 format_word[i] = L'З';
                                 flag = 1;
                             }
@@ -2228,9 +2305,11 @@ int FriendGame(
                             ans[7] = 1;
                         else
                             ans[7] = -1;
-                    } else if (x > 1034 && x < 1112 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 297 && y < 435
+                            && !ans[8]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1048) {
+                            if (word[i] == 1080) {
                                 format_word[i] = L'И';
                                 flag = 1;
                             }
@@ -2239,9 +2318,11 @@ int FriendGame(
                             ans[8] = 1;
                         else
                             ans[8] = -1;
-                    } else if (x > 1112 && x < 1190 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 297 && y < 435
+                            && !ans[9]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1049) {
+                            if (word[i] == 1081) {
                                 format_word[i] = L'Й';
                                 flag = 1;
                             }
@@ -2250,9 +2331,11 @@ int FriendGame(
                             ans[9] = 1;
                         else
                             ans[9] = -1;
-                    } else if (x > 1190 && x < 1268 && y > 297 && y < 435) {
+                    } else if (
+                            x > 1190 && x < 1268 && y > 297 && y < 435
+                            && !ans[10]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1050) {
+                            if (word[i] == 1082) {
                                 format_word[i] = L'К';
                                 flag = 1;
                             }
@@ -2261,9 +2344,11 @@ int FriendGame(
                             ans[10] = 1;
                         else
                             ans[10] = -1;
-                    } else if (x > 410 && x < 488 && y > 439 && y < 576) {
+                    } else if (
+                            x > 410 && x < 488 && y > 439 && y < 576
+                            && !ans[11]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1051) {
+                            if (word[i] == 1083) {
                                 format_word[i] = L'Л';
                                 flag = 1;
                             }
@@ -2272,9 +2357,11 @@ int FriendGame(
                             ans[11] = 1;
                         else
                             ans[11] = -1;
-                    } else if (x > 488 && x < 566 && y > 439 && y < 576) {
+                    } else if (
+                            x > 488 && x < 566 && y > 439 && y < 576
+                            && !ans[12]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1052) {
+                            if (word[i] == 1084) {
                                 format_word[i] = L'М';
                                 flag = 1;
                             }
@@ -2283,9 +2370,11 @@ int FriendGame(
                             ans[12] = 1;
                         else
                             ans[12] = -1;
-                    } else if (x > 566 && x < 644 && y > 439 && y < 576) {
+                    } else if (
+                            x > 566 && x < 644 && y > 439 && y < 576
+                            && !ans[13]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1053) {
+                            if (word[i] == 1085) {
                                 format_word[i] = L'Н';
                                 flag = 1;
                             }
@@ -2294,9 +2383,11 @@ int FriendGame(
                             ans[13] = 1;
                         else
                             ans[13] = -1;
-                    } else if (x > 644 && x < 722 && y > 439 && y < 576) {
+                    } else if (
+                            x > 644 && x < 722 && y > 439 && y < 576
+                            && !ans[14]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1054) {
+                            if (word[i] == 1086) {
                                 format_word[i] = L'О';
                                 flag = 1;
                             }
@@ -2305,9 +2396,11 @@ int FriendGame(
                             ans[14] = 1;
                         else
                             ans[14] = -1;
-                    } else if (x > 722 && x < 800 && y > 439 && y < 576) {
+                    } else if (
+                            x > 722 && x < 800 && y > 439 && y < 576
+                            && !ans[15]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1055) {
+                            if (word[i] == 1087) {
                                 format_word[i] = L'П';
                                 flag = 1;
                             }
@@ -2316,9 +2409,11 @@ int FriendGame(
                             ans[15] = 1;
                         else
                             ans[15] = -1;
-                    } else if (x > 800 && x < 878 && y > 439 && y < 576) {
+                    } else if (
+                            x > 800 && x < 878 && y > 439 && y < 576
+                            && !ans[16]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1056) {
+                            if (word[i] == 1088) {
                                 format_word[i] = L'Р';
                                 flag = 1;
                             }
@@ -2327,9 +2422,11 @@ int FriendGame(
                             ans[16] = 1;
                         else
                             ans[16] = -1;
-                    } else if (x > 878 && x < 956 && y > 439 && y < 576) {
+                    } else if (
+                            x > 878 && x < 956 && y > 439 && y < 576
+                            && !ans[17]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1057) {
+                            if (word[i] == 1089) {
                                 format_word[i] = L'С';
                                 flag = 1;
                             }
@@ -2338,9 +2435,11 @@ int FriendGame(
                             ans[17] = 1;
                         else
                             ans[17] = -1;
-                    } else if (x > 956 && x < 1034 && y > 439 && y < 576) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 439 && y < 576
+                            && !ans[18]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1058) {
+                            if (word[i] == 1090) {
                                 format_word[i] = L'Т';
                                 flag = 1;
                             }
@@ -2349,9 +2448,11 @@ int FriendGame(
                             ans[18] = 1;
                         else
                             ans[18] = -1;
-                    } else if (x > 1034 && x < 1112 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 439 && y < 576
+                            && !ans[19]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1059) {
+                            if (word[i] == 1091) {
                                 format_word[i] = L'У';
                                 flag = 1;
                             }
@@ -2360,9 +2461,11 @@ int FriendGame(
                             ans[19] = 1;
                         else
                             ans[19] = -1;
-                    } else if (x > 1112 && x < 1190 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 439 && y < 576
+                            && !ans[20]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1060) {
+                            if (word[i] == 1092) {
                                 format_word[i] = L'Ф';
                                 flag = 1;
                             }
@@ -2371,9 +2474,11 @@ int FriendGame(
                             ans[20] = 1;
                         else
                             ans[20] = -1;
-                    } else if (x > 1190 && x < 1268 && y > 439 && y < 576) {
+                    } else if (
+                            x > 1190 && x < 1268 && y > 439 && y < 576
+                            && !ans[21]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1061) {
+                            if (word[i] == 1093) {
                                 format_word[i] = L'Х';
                                 flag = 1;
                             }
@@ -2382,9 +2487,11 @@ int FriendGame(
                             ans[21] = 1;
                         else
                             ans[21] = -1;
-                    } else if (x > 410 && x < 488 && y > 580 && y < 717) {
+                    } else if (
+                            x > 410 && x < 488 && y > 580 && y < 717
+                            && !ans[22]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1062) {
+                            if (word[i] == 1094) {
                                 format_word[i] = L'Ц';
                                 flag = 1;
                             }
@@ -2393,9 +2500,11 @@ int FriendGame(
                             ans[22] = 1;
                         else
                             ans[22] = -1;
-                    } else if (x > 488 && x < 566 && y > 580 && y < 717) {
+                    } else if (
+                            x > 488 && x < 566 && y > 580 && y < 717
+                            && !ans[23]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1063) {
+                            if (word[i] == 1095) {
                                 format_word[i] = L'Ч';
                                 flag = 1;
                             }
@@ -2404,9 +2513,11 @@ int FriendGame(
                             ans[23] = 1;
                         else
                             ans[23] = -1;
-                    } else if (x > 566 && x < 644 && y > 580 && y < 717) {
+                    } else if (
+                            x > 566 && x < 644 && y > 580 && y < 717
+                            && !ans[24]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1064) {
+                            if (word[i] == 1096) {
                                 format_word[i] = L'Ш';
                                 flag = 1;
                             }
@@ -2415,9 +2526,11 @@ int FriendGame(
                             ans[24] = 1;
                         else
                             ans[24] = -1;
-                    } else if (x > 644 && x < 722 && y > 580 && y < 717) {
+                    } else if (
+                            x > 644 && x < 722 && y > 580 && y < 717
+                            && !ans[25]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1065) {
+                            if (word[i] == 1097) {
                                 format_word[i] = L'Щ';
                                 flag = 1;
                             }
@@ -2426,9 +2539,11 @@ int FriendGame(
                             ans[25] = 1;
                         else
                             ans[25] = -1;
-                    } else if (x > 722 && x < 800 && y > 580 && y < 717) {
+                    } else if (
+                            x > 722 && x < 800 && y > 580 && y < 717
+                            && !ans[26]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1066) {
+                            if (word[i] == 1098) {
                                 format_word[i] = L'Ъ';
                                 flag = 1;
                             }
@@ -2437,9 +2552,11 @@ int FriendGame(
                             ans[26] = 1;
                         else
                             ans[26] = -1;
-                    } else if (x > 800 && x < 878 && y > 580 && y < 717) {
+                    } else if (
+                            x > 800 && x < 878 && y > 580 && y < 717
+                            && !ans[27]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1067) {
+                            if (word[i] == 1099) {
                                 format_word[i] = L'Ы';
                                 flag = 1;
                             }
@@ -2448,9 +2565,11 @@ int FriendGame(
                             ans[27] = 1;
                         else
                             ans[27] = -1;
-                    } else if (x > 878 && x < 956 && y > 580 && y < 717) {
+                    } else if (
+                            x > 878 && x < 956 && y > 580 && y < 717
+                            && !ans[28]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1068) {
+                            if (word[i] == 1100) {
                                 format_word[i] = L'Ь';
                                 flag = 1;
                             }
@@ -2459,9 +2578,11 @@ int FriendGame(
                             ans[28] = 1;
                         else
                             ans[28] = -1;
-                    } else if (x > 956 && x < 1034 && y > 580 && y < 717) {
+                    } else if (
+                            x > 956 && x < 1034 && y > 580 && y < 717
+                            && !ans[29]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1069) {
+                            if (word[i] == 1101) {
                                 format_word[i] = L'Э';
                                 flag = 1;
                             }
@@ -2471,9 +2592,11 @@ int FriendGame(
                         else
                             ans[29] = -1;
 
-                    } else if (x > 1034 && x < 1112 && y > 580 && y < 717) {
+                    } else if (
+                            x > 1034 && x < 1112 && y > 580 && y < 717
+                            && !ans[30]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1070) {
+                            if (word[i] == 1102) {
                                 format_word[i] = L'Ю';
                                 flag = 1;
                             }
@@ -2483,9 +2606,11 @@ int FriendGame(
                         else
                             ans[30] = -1;
 
-                    } else if (x > 1112 && x < 1190 && y > 580 && y < 717) {
+                    } else if (
+                            x > 1112 && x < 1190 && y > 580 && y < 717
+                            && !ans[31]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1071) {
+                            if (word[i] == 1103) {
                                 format_word[i] = L'Я';
                                 flag = 1;
                             }
@@ -2494,7 +2619,8 @@ int FriendGame(
                             ans[31] = 1;
                         else
                             ans[31] = -1;
-                    }
+                    } else
+                        flag = -1;
                     slovo.setString(format_word);
                     for (i = 1; i < t - 1; i++)
                         if (format_word[i] == 42) {
