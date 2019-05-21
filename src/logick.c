@@ -16,6 +16,13 @@ struct scores {
     unsigned char sport;
 } S, st;
 
+void FreeW(wchar_t mas[])
+{
+    int i;
+    for (i = 0; i < 100; i++)
+        mas[i] = L'\0';
+}
+
 void DelWord(char cat, char num)
 {
     FILE *f, *tf;

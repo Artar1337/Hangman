@@ -223,8 +223,7 @@ void CategoryMenu()
     int t = 0;
     char buf[10], wordnum;
     int rand_print = 0;
-    wchar_t word[100];
-    wchar_t* format_word;
+    wchar_t word[100], format_word[100];
     FILE* f;
     sf::Sprite spriteback, buttonmainmenu, buttonphys, buttonmath, buttonfood,
             buttonbio, buttonsport, buttonstuff, buttongeo, buttonallthemes;
@@ -307,7 +306,8 @@ void CategoryMenu()
     strcat(buf, "/60");
     tbio.setString(buf);
     inttostr(s.stuff, buf);
-    strcat(buf, "\n/60");
+    strcat(buf, "\n");
+    strcat(buf, "/60");
     tstuff.setString(buf);
     inttostr(s.food, buf);
     strcat(buf, "/60");
@@ -332,11 +332,11 @@ void CategoryMenu()
                 if (x > 10 && x < 590 && y > 10 && y < 130 && s.all < 420) {
                     while (1) {
                         t = logickGameComputer(8, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -376,11 +376,10 @@ void CategoryMenu()
                 if (x > 10 && x < 590 && y > 140 && y < 260 && s.geo < 60) {
                     while (1) {
                         t = logickGameComputer(1, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -402,11 +401,11 @@ void CategoryMenu()
                 if (x > 10 && x < 590 && y > 270 && y < 390 && s.phys < 60) {
                     while (1) {
                         t = logickGameComputer(2, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -428,11 +427,11 @@ void CategoryMenu()
                 if (x > 10 && x < 590 && y > 400 && y < 520 && s.math < 60) {
                     while (1) {
                         t = logickGameComputer(3, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -454,11 +453,11 @@ void CategoryMenu()
                 if (x > 690 && x < 1270 && y > 10 && y < 130 && s.bio < 60) {
                     while (1) {
                         t = logickGameComputer(4, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -480,11 +479,11 @@ void CategoryMenu()
                 if (x > 690 && x < 1270 && y > 140 && y < 260 && s.stuff < 60) {
                     while (1) {
                         t = logickGameComputer(5, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -506,11 +505,11 @@ void CategoryMenu()
                 if (x > 690 && x < 1270 && y > 270 && y < 390 && s.food < 60) {
                     while (1) {
                         t = logickGameComputer(6, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -532,11 +531,11 @@ void CategoryMenu()
                 if (x > 690 && x < 1270 && y > 400 && y < 520 && s.sport < 60) {
                     while (1) {
                         t = logickGameComputer(7, word, &rand_print, &wordnum);
-                        format_word = (wchar_t*)malloc(t * sizeof(wchar_t));
+                        FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-                        free(format_word);
+
                         if (p == 0)
                             return;
                         else if (p == 1)
