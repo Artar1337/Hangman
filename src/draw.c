@@ -2207,7 +2207,7 @@ int FriendGame(
                 } else if (mistake < 6 && win == 0) {
                     if (x > 410 && x < 488 && y > 297 && y < 435 && !ans[0]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1072) {
+                            if (word[i] == 1040) {
                                 format_word[i] = L'А';
                                 flag = 1;
                             }
@@ -2220,7 +2220,7 @@ int FriendGame(
                             x > 488 && x < 566 && y > 297 && y < 435
                             && !ans[1]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1073) {
+                            if (word[i] == 1041) {
                                 format_word[i] = L'Б';
                                 flag = 1;
                             }
@@ -2233,7 +2233,7 @@ int FriendGame(
                             x > 566 && x < 644 && y > 297 && y < 435
                             && !ans[2]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1074) {
+                            if (word[i] == 1042) {
                                 format_word[i] = L'В';
                                 flag = 1;
                             }
@@ -2246,7 +2246,7 @@ int FriendGame(
                             x > 644 && x < 722 && y > 297 && y < 435
                             && !ans[3]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1075) {
+                            if (word[i] == 1043) {
                                 format_word[i] = L'Г';
                                 flag = 1;
                             }
@@ -2259,7 +2259,7 @@ int FriendGame(
                             x > 722 && x < 800 && y > 297 && y < 435
                             && !ans[4]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1076) {
+                            if (word[i] == 1044) {
                                 format_word[i] = L'Д';
                                 flag = 1;
                             }
@@ -2272,7 +2272,7 @@ int FriendGame(
                             x > 800 && x < 878 && y > 297 && y < 435
                             && !ans[5]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1077) {
+                            if (word[i] == 1045) {
                                 format_word[i] = L'Е';
                                 flag = 1;
                             }
@@ -2285,7 +2285,7 @@ int FriendGame(
                             x > 878 && x < 956 && y > 297 && y < 435
                             && !ans[6]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1078) {
+                            if (word[i] == 1046) {
                                 format_word[i] = L'Ж';
                                 flag = 1;
                             }
@@ -2298,7 +2298,7 @@ int FriendGame(
                             x > 956 && x < 1034 && y > 297 && y < 435
                             && !ans[7]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1079) {
+                            if (word[i] == 1047) {
                                 format_word[i] = L'З';
                                 flag = 1;
                             }
@@ -2311,7 +2311,7 @@ int FriendGame(
                             x > 1034 && x < 1112 && y > 297 && y < 435
                             && !ans[8]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1080) {
+                            if (word[i] == 1048) {
                                 format_word[i] = L'И';
                                 flag = 1;
                             }
@@ -2324,7 +2324,7 @@ int FriendGame(
                             x > 1112 && x < 1190 && y > 297 && y < 435
                             && !ans[9]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1081) {
+                            if (word[i] == 1049) {
                                 format_word[i] = L'Й';
                                 flag = 1;
                             }
@@ -2337,7 +2337,7 @@ int FriendGame(
                             x > 1190 && x < 1268 && y > 297 && y < 435
                             && !ans[10]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1082) {
+                            if (word[i] == 1050) {
                                 format_word[i] = L'К';
                                 flag = 1;
                             }
@@ -2350,7 +2350,7 @@ int FriendGame(
                             x > 410 && x < 488 && y > 439 && y < 576
                             && !ans[11]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1083) {
+                            if (word[i] == 1051) {
                                 format_word[i] = L'Л';
                                 flag = 1;
                             }
@@ -2363,7 +2363,7 @@ int FriendGame(
                             x > 488 && x < 566 && y > 439 && y < 576
                             && !ans[12]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1084) {
+                            if (word[i] == 1052) {
                                 format_word[i] = L'М';
                                 flag = 1;
                             }
@@ -2376,7 +2376,7 @@ int FriendGame(
                             x > 566 && x < 644 && y > 439 && y < 576
                             && !ans[13]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1085) {
+                            if (word[i] == 1053) {
                                 format_word[i] = L'Н';
                                 flag = 1;
                             }
@@ -2389,7 +2389,7 @@ int FriendGame(
                             x > 644 && x < 722 && y > 439 && y < 576
                             && !ans[14]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1086) {
+                            if (word[i] == 1054) {
                                 format_word[i] = L'О';
                                 flag = 1;
                             }
@@ -2402,7 +2402,7 @@ int FriendGame(
                             x > 722 && x < 800 && y > 439 && y < 576
                             && !ans[15]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1087) {
+                            if (word[i] == 1055) {
                                 format_word[i] = L'П';
                                 flag = 1;
                             }
@@ -2415,7 +2415,7 @@ int FriendGame(
                             x > 800 && x < 878 && y > 439 && y < 576
                             && !ans[16]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1088) {
+                            if (word[i] == 1056) {
                                 format_word[i] = L'Р';
                                 flag = 1;
                             }
@@ -2428,7 +2428,7 @@ int FriendGame(
                             x > 878 && x < 956 && y > 439 && y < 576
                             && !ans[17]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1089) {
+                            if (word[i] == 1057) {
                                 format_word[i] = L'С';
                                 flag = 1;
                             }
@@ -2441,7 +2441,7 @@ int FriendGame(
                             x > 956 && x < 1034 && y > 439 && y < 576
                             && !ans[18]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1090) {
+                            if (word[i] == 1058) {
                                 format_word[i] = L'Т';
                                 flag = 1;
                             }
@@ -2454,7 +2454,7 @@ int FriendGame(
                             x > 1034 && x < 1112 && y > 439 && y < 576
                             && !ans[19]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1091) {
+                            if (word[i] == 1059) {
                                 format_word[i] = L'У';
                                 flag = 1;
                             }
@@ -2467,7 +2467,7 @@ int FriendGame(
                             x > 1112 && x < 1190 && y > 439 && y < 576
                             && !ans[20]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1092) {
+                            if (word[i] == 1060) {
                                 format_word[i] = L'Ф';
                                 flag = 1;
                             }
@@ -2480,7 +2480,7 @@ int FriendGame(
                             x > 1190 && x < 1268 && y > 439 && y < 576
                             && !ans[21]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1093) {
+                            if (word[i] == 1061) {
                                 format_word[i] = L'Х';
                                 flag = 1;
                             }
@@ -2493,7 +2493,7 @@ int FriendGame(
                             x > 410 && x < 488 && y > 580 && y < 717
                             && !ans[22]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1094) {
+                            if (word[i] == 1062) {
                                 format_word[i] = L'Ц';
                                 flag = 1;
                             }
@@ -2506,7 +2506,7 @@ int FriendGame(
                             x > 488 && x < 566 && y > 580 && y < 717
                             && !ans[23]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1095) {
+                            if (word[i] == 1063) {
                                 format_word[i] = L'Ч';
                                 flag = 1;
                             }
@@ -2519,7 +2519,7 @@ int FriendGame(
                             x > 566 && x < 644 && y > 580 && y < 717
                             && !ans[24]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1096) {
+                            if (word[i] == 1064) {
                                 format_word[i] = L'Ш';
                                 flag = 1;
                             }
@@ -2532,7 +2532,7 @@ int FriendGame(
                             x > 644 && x < 722 && y > 580 && y < 717
                             && !ans[25]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1097) {
+                            if (word[i] == 1065) {
                                 format_word[i] = L'Щ';
                                 flag = 1;
                             }
@@ -2545,7 +2545,7 @@ int FriendGame(
                             x > 722 && x < 800 && y > 580 && y < 717
                             && !ans[26]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1098) {
+                            if (word[i] == 1066) {
                                 format_word[i] = L'Ъ';
                                 flag = 1;
                             }
@@ -2558,7 +2558,7 @@ int FriendGame(
                             x > 800 && x < 878 && y > 580 && y < 717
                             && !ans[27]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1099) {
+                            if (word[i] == 1067) {
                                 format_word[i] = L'Ы';
                                 flag = 1;
                             }
@@ -2571,7 +2571,7 @@ int FriendGame(
                             x > 878 && x < 956 && y > 580 && y < 717
                             && !ans[28]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1100) {
+                            if (word[i] == 1068) {
                                 format_word[i] = L'Ь';
                                 flag = 1;
                             }
@@ -2584,7 +2584,7 @@ int FriendGame(
                             x > 956 && x < 1034 && y > 580 && y < 717
                             && !ans[29]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1101) {
+                            if (word[i] == 1069) {
                                 format_word[i] = L'Э';
                                 flag = 1;
                             }
@@ -2598,7 +2598,7 @@ int FriendGame(
                             x > 1034 && x < 1112 && y > 580 && y < 717
                             && !ans[30]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1102) {
+                            if (word[i] == 1070) {
                                 format_word[i] = L'Ю';
                                 flag = 1;
                             }
@@ -2612,7 +2612,7 @@ int FriendGame(
                             x > 1112 && x < 1190 && y > 580 && y < 717
                             && !ans[31]) {
                         for (i = 0; i < t; i++) {
-                            if (word[i] == 1103) {
+                            if (word[i] == 1071) {
                                 format_word[i] = L'Я';
                                 flag = 1;
                             }
