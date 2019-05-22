@@ -15,7 +15,7 @@ struct scores {
     unsigned char food;
     unsigned char sport;
 } s;
-sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
+sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
 void MainMenu()
 {
     window.setTitle("Hangman");
@@ -221,7 +221,7 @@ void CategoryMenu()
     window.setTitle("Choose a category");
     unsigned int x, y, p;
     int t = 0;
-    char buf[10], wordnum;
+    char buf[20], wordnum;
     int rand_print = 0;
     wchar_t word[100], format_word[100];
     FILE* f;
@@ -1890,6 +1890,8 @@ int ComputerGame(
                     if (x > 377 && x < 906 && y > 318 && y < 416) {
                         if (win == 1)
                             Winner(*rand_print, *wordnum);
+                        if (CategoryCheck(*rand_print))
+                            return 2;
                         return 1;
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {
