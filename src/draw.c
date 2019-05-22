@@ -15,7 +15,7 @@ struct scores {
     unsigned char food;
     unsigned char sport;
 } s;
-sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman");
+sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
 void MainMenu()
 {
     window.setTitle("Hangman");
