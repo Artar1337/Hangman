@@ -1890,6 +1890,8 @@ int ComputerGame(
                     if (x > 377 && x < 906 && y > 318 && y < 416) {
                         if (win == 1)
                             Winner(*rand_print, *wordnum);
+                        if (CategoryCheck(*rand_print))
+                            return 2;
                         return 1;
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {

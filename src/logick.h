@@ -7,4 +7,5 @@ void ResetProgress();
 bool inttostr(unsigned short n, char buf[]);
 void Winner(int cat, char num);
 void FreeW(wchar_t mas[]);
+bool CategoryCheck(int n);
 #endif

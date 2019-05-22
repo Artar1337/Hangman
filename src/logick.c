@@ -16,6 +16,53 @@ struct scores {
     unsigned char sport;
 } S, st;
 
+bool CategoryCheck(int n)
+{
+    FILE* fb;
+    bool f = false;
+    fb = fopen("scores.dat", "rb");
+    fread(&st, sizeof(scores), 1, fb);
+    fclose(fb);
+    switch (n) {
+    case 1: {
+        if (st.geo > 59)
+            f = true;
+        break;
+    }
+    case 2: {
+        if (st.phys > 59)
+            f = true;
+        break;
+    }
+    case 3: {
+        if (st.math > 59)
+            f = true;
+        break;
+    }
+    case 4: {
+        if (st.bio > 59)
+            f = true;
+        break;
+    }
+    case 5: {
+        if (st.stuff > 59)
+            f = true;
+        break;
+    }
+    case 6: {
+        if (st.food > 59)
+            f = true;
+        break;
+    }
+    case 7: {
+        if (st.sport > 59)
+            f = true;
+        break;
+    }
+    }
+    return f;
+}
+
 void FreeW(wchar_t mas[])
 {
     int i;
