@@ -220,7 +220,8 @@ void Winner(int cat, char num)
         break;
     }
     }
-    st.all++;
+    st.all = st.bio + st.stuff + st.food + st.sport + st.math + st.phys
+            + st.geo;
     f = fopen("scores.dat", "wb+");
     fwrite(&st, sizeof(scores), 1, f);
     fclose(f);

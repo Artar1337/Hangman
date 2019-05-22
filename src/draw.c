@@ -221,7 +221,7 @@ void CategoryMenu()
     window.setTitle("Choose a category");
     unsigned int x, y, p;
     int t = 0;
-    char buf[10], wordnum;
+    char buf[20], wordnum;
     int rand_print = 0;
     wchar_t word[100], format_word[100];
     FILE* f;
