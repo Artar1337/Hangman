@@ -846,7 +846,9 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
     unsigned int x, y, i = 0, c;
     bool flag_error = 0;
     wchar_t st = L'\0', wrd[100], screenwrd[100];
+    unsigned short number_points1 = 0, number_points2 = 0;
     int flag_name = 1, result = 4;
+    char points1[3] = {0, 0, 0}, points2[3] = {0, 0, 0};
     wrd[0] = L'\0';
     screenwrd[0] = L'\0';
     sf::Vector2i mousexy;
@@ -915,7 +917,16 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                             screenwrd[c] = wrd[i - 1];
                     }
                     result = FriendGame(
-                            wrd, screenwrd, i, name1, name2, &flag_name);
+                            wrd,
+                            screenwrd,
+                            i,
+                            name1,
+                            name2,
+                            &flag_name,
+                            points1,
+                            points2,
+                            &number_points1,
+                            &number_points2);
                     for (c = 0; c < i; c++) {
                         wrd[c] = L'\0';
                         screenwrd[c] = L'\0';
@@ -1958,11 +1969,17 @@ int FriendGame(
         int t,
         wchar_t name1[],
         wchar_t name2[],
-        int* flag_name)
+        int* flag_name,
+        char points1[],
+        char points2[],
+        unsigned short* number_points1,
+        unsigned short* number_points2)
 {
     window.setTitle("Game with friend");
     unsigned int x, y, flag = 0, mistake = 0;
     int i, ans[32], win = 0;
+    unsigned short temp1, temp2;
+    bool flag_text_win = 0;
     sf::Sprite spriteback, interface, hangman, l1, l2, l3, l4, l5, l6, l7, l8,
             l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22,
             l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, end;
@@ -1972,8 +1989,13 @@ int FriendGame(
     sf::Vector2i mousexy;
     sf::Font font;
     sf::Text slovo, responder, gamer_a, gamer_b, scores1_text, scores2_text,
-            text_win, player_g, player_win;
+            text_win, player_g, player_win, scores1_text_end, scores2_text_end,
+            gamer_end1, gamer_end2;
     sf::RectangleShape rectangle(sf::Vector2f(908, 231));
+    temp1 = *number_points1;
+    temp2 = *number_points2;
+    inttostr(temp1, points1);
+    inttostr(temp2, points2);
     rectangle.setFillColor(sf::Color::Red);
     rectangle.setPosition(372, 1);
     font.loadFromFile("src/pricedown.ttf");
@@ -2026,6 +2048,10 @@ int FriendGame(
     l31.setPosition(1034, 580);
     l32.setPosition(1112, 580);
     end.setPosition(300, 200);
+    gamer_end1.setFont(font);
+    gamer_end2.setFont(font);
+    scores1_text.setFont(font);
+    scores2_text.setFont(font);
     slovo.setFont(font);
     player_win.setFont(font);
     player_g.setFont(font);
@@ -2037,11 +2063,14 @@ int FriendGame(
     slovo.setString(format_word);
     responder.setString(L"ОТВЕЧАЕТ:");
     text_win.setString(L"ВЫИГРАЛ:");
+    scores1_text.setString(points1);
+    scores2_text.setString(points2);
     slovo.setCharacterSize(60);
     player_g.setCharacterSize(60);
-
-    gamer_a.setCharacterSize(45);
-    gamer_b.setCharacterSize(45);
+    scores1_text.setCharacterSize(35);
+    scores2_text.setCharacterSize(35);
+    gamer_a.setCharacterSize(35);
+    gamer_b.setCharacterSize(35);
     responder.setCharacterSize(60);
     if (*flag_name == 2) {
         player_g.setString(name1);
@@ -2052,13 +2081,19 @@ int FriendGame(
     }
     gamer_a.setString(name1);
     gamer_b.setString(name2);
+    gamer_end1.setString(name1);
+    gamer_end2.setString(name2);
+    scores1_text.setPosition(350, 100);
+    scores2_text.setPosition(350, 150);
     player_g.setPosition(650, 15);
-    gamer_a.setPosition(15, 100);
-    gamer_b.setPosition(15, 150);
+    gamer_a.setPosition(5, 100);
+    gamer_b.setPosition(5, 150);
+    gamer_end1.setPosition(305, 320);
+    gamer_end2.setPosition(305, 370);
     slovo.setPosition(550, 100);
     responder.setPosition(400, 15);
-    text_win.setPosition(340, 230);
-    player_win.setPosition(560, 230);
+    text_win.setPosition(310, 210);
+    player_win.setPosition(490, 210);
     for (i = 0; i < 32; i++)
         ans[i] = 0;
     ans[word[0] - 1040] = 1;
@@ -2795,20 +2830,78 @@ int FriendGame(
                     flag = 0;
                     if (win == -1) {
                         end.setTexture(endgame);
-                        if (*flag_name == 1)
+                        if (*flag_name == 1) {
                             player_win.setString(name2);
-                        if (*flag_name == 2)
+                            *number_points2 += 1;
+                            temp1 = *number_points1;
+                            temp2 = *number_points2;
+                            inttostr(temp1, points1);
+                            inttostr(temp2, points2);
+                            scores2_text_end.setFont(font);
+                            scores1_text_end.setFont(font);
+                            scores2_text_end.setString(points2);
+                            scores1_text_end.setString(points1);
+                            scores1_text_end.setCharacterSize(35);
+                            scores2_text_end.setCharacterSize(35);
+                            scores1_text_end.setPosition(560, 320);
+                            scores2_text_end.setPosition(560, 370);
+                        }
+                        if (*flag_name == 2) {
                             player_win.setString(name1);
-                        text_win.setCharacterSize(65);
-                        player_win.setCharacterSize(65);
+                            *number_points1 += 1;
+                            temp1 = *number_points1;
+                            temp2 = *number_points2;
+                            inttostr(temp1, points1);
+                            inttostr(temp2, points2);
+                            scores2_text_end.setFont(font);
+                            scores1_text_end.setFont(font);
+                            scores2_text_end.setString(points2);
+                            scores1_text_end.setString(points1);
+                            scores1_text_end.setCharacterSize(35);
+                            scores2_text_end.setCharacterSize(35);
+                            scores1_text_end.setPosition(560, 320);
+                            scores2_text_end.setPosition(560, 370);
+                        }
+                        text_win.setCharacterSize(50);
+                        flag_text_win = 1;
+                        player_win.setCharacterSize(50);
                     } else if (win == 1) {
                         end.setTexture(endgame);
-                        if (*flag_name == 1)
+                        if (*flag_name == 1) {
                             player_win.setString(name1);
-                        if (*flag_name == 2)
+                            *number_points1 += 1;
+                            temp1 = *number_points1;
+                            temp2 = *number_points2;
+                            inttostr(temp1, points1);
+                            inttostr(temp2, points2);
+                            scores2_text_end.setFont(font);
+                            scores1_text_end.setFont(font);
+                            scores2_text_end.setString(points2);
+                            scores1_text_end.setString(points1);
+                            scores1_text_end.setCharacterSize(35);
+                            scores2_text_end.setCharacterSize(35);
+                            scores1_text_end.setPosition(560, 320);
+                            scores2_text_end.setPosition(560, 370);
+                        }
+                        if (*flag_name == 2) {
                             player_win.setString(name2);
-                        text_win.setCharacterSize(65);
-                        player_win.setCharacterSize(65);
+                            *number_points2 += 1;
+                            temp1 = *number_points1;
+                            temp2 = *number_points2;
+                            inttostr(temp1, points1);
+                            inttostr(temp2, points2);
+                            scores2_text_end.setFont(font);
+                            scores1_text_end.setFont(font);
+                            scores2_text_end.setString(points2);
+                            scores1_text_end.setString(points1);
+                            scores1_text_end.setCharacterSize(35);
+                            scores2_text_end.setCharacterSize(35);
+                            scores1_text_end.setPosition(560, 320);
+                            scores2_text_end.setPosition(560, 370);
+                        }
+                        text_win.setCharacterSize(50);
+                        flag_text_win = 1;
+                        player_win.setCharacterSize(50);
                     }
 
                 } else if (win) {
@@ -2859,6 +2952,8 @@ int FriendGame(
         window.draw(l30);
         window.draw(l31);
         window.draw(l32);
+        window.draw(scores1_text);
+        window.draw(scores2_text);
         window.draw(rectangle);
         window.draw(gamer_a);
         window.draw(gamer_b);
@@ -2866,7 +2961,13 @@ int FriendGame(
         window.draw(slovo);
         window.draw(responder);
         window.draw(end);
-        window.draw(text_win);
+        if (flag_text_win) {
+            window.draw(text_win);
+            window.draw(gamer_end1);
+            window.draw(gamer_end2);
+            window.draw(scores1_text_end);
+            window.draw(scores2_text_end);
+        }
         window.draw(player_win);
         window.display();
     }

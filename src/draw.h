@@ -19,5 +19,9 @@ int FriendGame(
         int t,
         wchar_t name1[],
         wchar_t name2[],
-        int* flag_name);
+        int* flag_name,
+        char points1[],
+        char points2[],
+        unsigned short* number_points1,
+        unsigned short* number_points2);
 #endif
