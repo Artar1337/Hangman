@@ -2090,7 +2090,7 @@ int FriendGame(
     gamer_b.setPosition(5, 150);
     gamer_end1.setPosition(305, 320);
     gamer_end2.setPosition(305, 370);
-    slovo.setPosition(550, 100);
+    slovo.setPosition(430, 100);
     responder.setPosition(400, 15);
     text_win.setPosition(310, 210);
     player_win.setPosition(490, 210);
