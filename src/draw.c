@@ -18,13 +18,10 @@ struct scores {
     unsigned char sport;
 } s;
 
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
-    sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win, buffer_lose, buffer_win2;
-    sf::Music music;
-    bool Flag_sound = 1;
-    
-       
-    
+sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
+sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win, buffer_lose, buffer_win2;
+sf::Music music;
+bool Flag_sound = 1;
 
 void MainMenu()
 {
@@ -40,7 +37,7 @@ void MainMenu()
     buffer_win2.loadFromFile("src/sound/win.ogg");
     buffer_lose.loadFromFile("src/sound/lose.ogg");
     music.openFromFile("src/sound/backgroundmusic.ogg");
-    
+
     sound.setBuffer(buffer_button);
     music.setLoop(true);
     sf::Vector2i mousexy;
@@ -59,7 +56,8 @@ void MainMenu()
     buttonsettings.setPosition(640, 190);
     buttondevelopers.setPosition(640, 360);
     buttonexit.setPosition(640, 530);
-    if(Flag_sound) music.setVolume(10);
+    if (Flag_sound)
+        music.setVolume(10);
     music.play();
     while (window.isOpen()) {
         sf::Event event;
@@ -205,10 +203,13 @@ void SettingsMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230) {
                     sound_button.play();
-                    if (Flag_sound)
-                       { Flag_sound = 0;music.setVolume(0);}
-                    else
-                        { Flag_sound = 1;music.setVolume(10);}
+                    if (Flag_sound) {
+                        Flag_sound = 0;
+                        music.setVolume(0);
+                    } else {
+                        Flag_sound = 1;
+                        music.setVolume(10);
+                    }
                 }
                 if (x > 340 && x < 940 && y > 250 && y < 450) {
                     if (Flag_sound)
@@ -974,14 +975,6 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                     screenwrd[i] = L'\0';
                     screenwrd[0] = wrd[0];
                     screenwrd[i - 1] = wrd[i - 1];
-
-                    for (c = 0; c < i; c++)
-                        printf("%d,", wrd[c]);
-                    printf("\n");
-                    for (c = 0; c < i; c++)
-                        printf("%d,", screenwrd[c]);
-                    printf("\n");
-                    printf("%d,", i);
                     for (c = 1; c < i - 1; c++) {
                         if (wrd[c] == wrd[0])
                             screenwrd[c] = wrd[0];
