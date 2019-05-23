@@ -449,7 +449,7 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print, char* wordnum)
         if (flg)
             ch_1 = getc(pf);
         ch_2 = getc(pf);
-        flg = 1;_2);
+        flg = 1;
         if (ch_1 == L'\n') {
             c++;
             ch_1 = ch_2;
