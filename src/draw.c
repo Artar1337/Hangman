@@ -1,7 +1,7 @@
 #include "draw.h"
 #include "logick.h"
-#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
