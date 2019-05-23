@@ -97,7 +97,6 @@ void MainMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(sprite1);
         window.draw(buttonstart);
@@ -121,7 +120,6 @@ void StartGameMenu()
     tex_but_comp.loadFromFile("src/img/buttoncomp.png");
     tex_but_friend.loadFromFile("src/img/buttonfriend.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
-
     spriteback.setTexture(textureback);
     buttoncomp.setTexture(tex_but_comp);
     buttonfriend.setTexture(tex_but_friend);
@@ -129,7 +127,6 @@ void StartGameMenu()
     buttoncomp.setPosition(340, 30);
     buttonfriend.setPosition(340, 250);
     buttonmainmenu.setPosition(340, 470);
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -159,7 +156,6 @@ void StartGameMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(spriteback);
         window.draw(buttoncomp);
@@ -221,7 +217,6 @@ void SettingsMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(spriteback);
         if (Flag_sound)
@@ -240,12 +235,14 @@ void DevelopersMenu()
     sound_button.setBuffer(buffer_button);
     window.setTitle("Developers");
     unsigned int x, y;
-    sf::Sprite spriteback, buttonmainmenu;
-    sf::Texture textureback, tex_but_mainmenu;
+    sf::Sprite spriteback, buttonmainmenu, text;
+    sf::Texture textureback, tex_but_mainmenu, tex_text;
     sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/gameback.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
+    tex_text.loadFromFile("src/img/dev.png");
     spriteback.setTexture(textureback);
+    text.setTexture(tex_text);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttonmainmenu.setPosition(679, 579);
     while (window.isOpen()) {
@@ -262,9 +259,9 @@ void DevelopersMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(spriteback);
+        window.draw(text);
         window.draw(buttonmainmenu);
         window.display();
     }
@@ -299,7 +296,6 @@ void CategoryMenu()
     tex_but_stuff.loadFromFile("src/img/stuff.png");
     tex_but_sport.loadFromFile("src/img/sport.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
-
     spriteback.setTexture(textureback);
     buttonallthemes.setTexture(tex_but_allthemes);
     buttonfood.setTexture(tex_but_food);
@@ -466,7 +462,6 @@ void CategoryMenu()
                         FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(word, format_word, &rand_print, t, &wordnum);
-
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -635,7 +630,6 @@ void CategoryMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(spriteback);
         window.draw(buttonallthemes);
@@ -892,7 +886,6 @@ void FriendNameMenu()
                 }
             }
         }
-
         window.clear();
         window.draw(spriteback);
         window.draw(friendback);
@@ -1097,7 +1090,6 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                 flag = 1;
             }
         }
-
         window.clear();
         window.draw(spriteback);
         window.draw(wordback);
@@ -1113,8 +1105,6 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
         }
         window.display();
     }
-    // printf("kek=%d",i);
-
     std::wcout << wrd << std::endl;
 }
 int ComputerGame(wchar_t word[], wchar_t format_word[], int* rand_print, int t, char* wordnum)
@@ -2243,7 +2233,6 @@ int FriendGame(
         l32.setTexture(tex_correct);
     else if (ans[31] < 0)
         l32.setTexture(tex_incorrect);
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {

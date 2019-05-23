@@ -1,10 +1,13 @@
-.PHONY:all clean
+.PHONY:all clean test
 CC = g++
 CFLAGS = -Wall -Werror
+C = gcc
 SD = src/
 OD = build/
 SFMLFIX = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 EXECUTABLE = bin/hangman.exe
+TEST = bin/testing
+
 all: $(EXECUTABLE)
 	
 $(EXECUTABLE): $(OD)hangman.o $(OD)draw.o $(OD)logick.o
@@ -16,4 +19,11 @@ $(OD)draw.o: $(SD)draw.c
 $(OD)logick.o: $(SD)logick.c
 	 $(CC) $(CFLAGS) -c -o $(OD)logick.o $(SD)logick.c
 clean:
-	rm -rf $(EXECUTABLE) $(OD)*.o
+	rm -rf $(EXECUTABLE) $(TEST) $(OD)*.o $(OD)/test/*.o
+test: $(OD)test $(TEST)
+$(OD)/test:
+	mkdir build/test -p
+$(TEST): $(OD)test/main.o $(OD)test/main.o
+	$(C) $(CFLAGS) $(OD)/test/main.o -o $(TEST)
+$(OD)test/main.o: test/main.c
+	$(C) $(CFLAGS) -c -I thirdparty -I src test/main.c -o $(OD)test/main.o

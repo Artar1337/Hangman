@@ -395,7 +395,6 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print, char* wordnum)
     pf = fopen("scores.dat", "rb");
     fread(&st, sizeof(scores), 1, pf);
     fclose(pf);
-    //    printf("SLOVO N%d\n", 1 + choose);
     if (flag == 8) {
         while (1) {
             flag = rand() % 7 + 1;
@@ -450,16 +449,13 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print, char* wordnum)
         if (flg)
             ch_1 = getc(pf);
         ch_2 = getc(pf);
-        flg = 1;
-        //        printf("%d,%d|", ch_1, ch_2);
+        flg = 1;_2);
         if (ch_1 == L'\n') {
             c++;
-            //  printf("kek=%d|", c);
             ch_1 = ch_2;
             flg = 0;
         } else if (ch_2 == L'\n') {
             c++;
-            //    printf("kek=%d|", c);
         }
         if (c == choose) {
             if (ch_1 == 208 && ch_2 == 176) {
@@ -564,9 +560,6 @@ int logickGameComputer(int flag, wchar_t word[], int* rand_print, char* wordnum)
             break;
     }
     fclose(pf);
-    /*    for (c = 0; c < i; c++)
-            printf("%d,", word[c]);
-        printf("\n");*/
     return i;
 }
 
