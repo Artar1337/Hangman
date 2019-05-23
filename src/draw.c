@@ -1992,16 +1992,13 @@ int ComputerGame(
                         break;
                     }
                     }
-                    if (flag == 1)
- {                       
+                    if (flag == 1) {
                         if (Flag_sound)
                             sound_cor.play();
-}
-                        else if (!flag)
-{
-                            if (Flag_sound)
-                                sound_incor.play();
-}
+                    } else if (!flag) {
+                        if (Flag_sound)
+                            sound_incor.play();
+                    }
                     flag = 0;
                     if (win == -1) {
                         if (Flag_sound)
@@ -2948,16 +2945,13 @@ int FriendGame(
                         break;
                     }
                     }
-                    if (flag == 1)
-{
+                    if (flag == 1) {
                         if (Flag_sound)
                             sound_cor.play();
-}
-                        else if (!flag)
-{
-                            if (Flag_sound)
-                                sound_incor.play();
-}
+                    } else if (!flag) {
+                        if (Flag_sound)
+                            sound_incor.play();
+                    }
                     flag = 0;
                     if (win == -1) {
                         if (Flag_sound)
