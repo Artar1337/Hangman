@@ -3,7 +3,7 @@ CC = g++
 CFLAGS = -Wall -Werror
 SD = src/
 OD = build/
-SFMLFIX = -lsfml-graphics -lsfml-window -lsfml-system
+SFMLFIX = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 EXECUTABLE = bin/hangman.exe
 all: $(EXECUTABLE)
 	
