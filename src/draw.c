@@ -18,15 +18,15 @@ struct scores {
 } s;
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
 sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win,
-        buffer_lose;
+        buffer_lose, buffer_win2;
 
 void MainMenu()
 {
     buffer_button.loadFromFile("src/sound/button.ogg");
-    buffer_button.loadFromFile("src/sound/button.ogg");
     buffer_cor.loadFromFile("src/sound/correct.ogg");
     buffer_incor.loadFromFile("src/sound/wrong.ogg");
     buffer_win.loadFromFile("src/sound/win_reserve.ogg");
+    buffer_win2.loadFromFile("src/sound/win.ogg");
     buffer_lose.loadFromFile("src/sound/lose.ogg");
     sf::Sound sound;
     sound.setBuffer(buffer_button);
@@ -588,11 +588,10 @@ void CategoryMenu()
 
                         if (p == 0)
                             return;
-                        else if (p == 1){
-sound_button.play(); 
-                           continue;
-}
-                        else if (p == 2) {
+                        else if (p == 1) {
+                            sound_button.play();
+                            continue;
+                        } else if (p == 2) {
                             f = fopen("scores.dat", "rb");
                             fread(&s, sizeof(scores), 1, f);
                             inttostr(s.all, buf);
@@ -684,17 +683,17 @@ void FriendNameMenu()
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 340 && x < 1040 && y > 20 && y < 220) {
-                    sound_button.play();
+                  //  sound_button.play();
                     textfield1_pressed = 1;
                 } else {
-                    sound_button.play();
+                   // sound_button.play();
                     textfield1_pressed = 0;
                 }
                 if (x > 340 && x < 1040 && y > 240 && y < 440) {
-                    sound_button.play();
+                 //   sound_button.play();
                     textfield2_pressed = 1;
                 } else {
-                    sound_button.play();
+               //     sound_button.play();
                     textfield2_pressed = 0;
                 }
                 if (x > 1 && x < 601 && y > 559 && y < 719)
@@ -772,6 +771,7 @@ void FriendNameMenu()
                             }
                         }
                     }
+                    sound_button.play();
                     FriendWordMenu(st1, st2);
                     return;
                 }
@@ -1984,7 +1984,7 @@ int ComputerGame(
                         return 1;
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {
-sound_button.play();
+                        sound_button.play();
                         if (win == 1)
                             Winner(*rand_print, *wordnum);
                         return 2;
@@ -2054,8 +2054,12 @@ int FriendGame(
         unsigned short* number_points1,
         unsigned short* number_points2)
 {
-    sf::Sound sound_button;
+    sf::Sound sound_button, sound_cor, sound_incor, sound_win;
+    sound_win.setVolume(50);
     sound_button.setBuffer(buffer_button);
+    sound_cor.setBuffer(buffer_cor);
+    sound_incor.setBuffer(buffer_incor);
+    sound_win.setBuffer(buffer_win2);
     window.setTitle("Game with friend");
     unsigned int x, y, flag = 0, mistake = 0;
     int i, ans[32], win = 0;
@@ -2908,8 +2912,13 @@ int FriendGame(
                         break;
                     }
                     }
+                    if (flag == 1)
+                        sound_cor.play();
+                    else if (!flag)
+                        sound_incor.play();
                     flag = 0;
                     if (win == -1) {
+                        sound_win.play();
                         end.setTexture(endgame);
                         if (*flag_name == 1) {
                             player_win.setString(name2);
@@ -2947,6 +2956,7 @@ int FriendGame(
                         flag_text_win = 1;
                         player_win.setCharacterSize(50);
                     } else if (win == 1) {
+                        sound_win.play();
                         end.setTexture(endgame);
                         if (*flag_name == 1) {
                             player_win.setString(name1);
