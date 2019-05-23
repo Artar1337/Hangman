@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 struct scores {
     unsigned short all;
     unsigned char geo;
@@ -16,15 +17,21 @@ struct scores {
     unsigned char food;
     unsigned char sport;
 } s;
-sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
-sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win, buffer_lose, buffer_win2;
-bool Flag_sound = 1;
+
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
+    sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win, buffer_lose, buffer_win2;
+    sf::Music music;
+    bool Flag_sound = 1;
+    
+       
+    
 
 void MainMenu()
 {
     window.setTitle("Hangman");
     sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers, buttonsettings;
     sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers, tex_but_settings;
+    sf::Sound sound;
     unsigned int x, y;
     buffer_button.loadFromFile("src/sound/button.ogg");
     buffer_cor.loadFromFile("src/sound/correct.ogg");
@@ -32,8 +39,10 @@ void MainMenu()
     buffer_win.loadFromFile("src/sound/win_reserve.ogg");
     buffer_win2.loadFromFile("src/sound/win.ogg");
     buffer_lose.loadFromFile("src/sound/lose.ogg");
-    sf::Sound sound;
+    music.openFromFile("src/sound/backgroundmusic.ogg");
+    
     sound.setBuffer(buffer_button);
+    music.setLoop(true);
     sf::Vector2i mousexy;
     texture1.loadFromFile("src/img/mainmenu.png");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
@@ -50,6 +59,8 @@ void MainMenu()
     buttonsettings.setPosition(640, 190);
     buttondevelopers.setPosition(640, 360);
     buttonexit.setPosition(640, 530);
+    if(Flag_sound) music.setVolume(10);
+    music.play();
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -195,9 +206,9 @@ void SettingsMenu()
                 if (x > 340 && x < 940 && y > 30 && y < 230) {
                     sound_button.play();
                     if (Flag_sound)
-                        Flag_sound = 0;
+                       { Flag_sound = 0;music.setVolume(0);}
                     else
-                        Flag_sound = 1;
+                        { Flag_sound = 1;music.setVolume(10);}
                 }
                 if (x > 340 && x < 940 && y > 250 && y < 450) {
                     if (Flag_sound)
