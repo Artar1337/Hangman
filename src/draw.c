@@ -19,9 +19,16 @@ struct scores {
 sf::RenderWindow window(sf::VideoMode(1280, 720), "Hangman", sf::Style::Close);
 sf::SoundBuffer buffer_button, buffer_cor, buffer_incor, buffer_win,
         buffer_lose, buffer_win2;
+bool Flag_sound = 1;
 
 void MainMenu()
 {
+    window.setTitle("Hangman");
+    sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers,
+            buttonsettings;
+    sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
+            tex_but_settings;
+    unsigned int x, y;
     buffer_button.loadFromFile("src/sound/button.ogg");
     buffer_cor.loadFromFile("src/sound/correct.ogg");
     buffer_incor.loadFromFile("src/sound/wrong.ogg");
@@ -30,12 +37,6 @@ void MainMenu()
     buffer_lose.loadFromFile("src/sound/lose.ogg");
     sf::Sound sound;
     sound.setBuffer(buffer_button);
-    window.setTitle("Hangman");
-    sf::Sprite sprite1, buttonstart, buttonexit, buttondevelopers,
-            buttonsettings;
-    sf::Texture texture1, tex_but_start, tex_but_exit, tex_but_developers,
-            tex_but_settings;
-    unsigned int x, y;
     sf::Vector2i mousexy;
     texture1.loadFromFile("src/img/mainmenu.png");
     tex_but_start.loadFromFile("src/img/buttonstart.png");
@@ -52,7 +53,6 @@ void MainMenu()
     buttonsettings.setPosition(640, 190);
     buttondevelopers.setPosition(640, 360);
     buttonexit.setPosition(640, 530);
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -64,21 +64,27 @@ void MainMenu()
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 640 && x < 1240 && y > 20 && y < 160) {
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     StartGameMenu();
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     break;
                 }
                 if (x > 640 && x < 1240 && y > 190 && y < 330) {
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     SettingsMenu();
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     break;
                 }
                 if (x > 640 && x < 1240 && y > 360 && y < 500) {
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     DevelopersMenu();
-                    sound.play();
+                    if (Flag_sound)
+                        sound.play();
                     break;
                 }
                 if (x > 640 && x < 1240 && y > 530 && y < 640) {
@@ -99,7 +105,6 @@ void MainMenu()
 
 void StartGameMenu()
 {
-    /*buffer_button.loadFromFile("src/sound/button.ogg");*/
     sf::Sound sound_button;
     sound_button.setBuffer(buffer_button);
     window.setTitle("Choose a gamemode");
@@ -131,15 +136,16 @@ void StartGameMenu()
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     CategoryMenu();
                     sound_button.play();
 
                     return;
                 }
                 if (x > 340 && x < 940 && y > 250 && y < 450) {
-                    sound_button.play();
-                    ;
+                    if (Flag_sound)
+                        sound_button.play();
                     FriendNameMenu();
                     sound_button.play();
                     return;
@@ -165,19 +171,23 @@ void SettingsMenu()
     sound_button.setBuffer(buffer_button);
     window.setTitle("Settings");
     unsigned int x, y;
-    sf::Sprite spriteback, buttonsound, buttonprogress, buttonmainmenu;
-    sf::Texture textureback, tex_but_sound, tex_but_progress, tex_but_mainmenu;
+    sf::Sprite spriteback, buttonsound, buttonsound2, buttonprogress,
+            buttonmainmenu;
+    sf::Texture textureback, tex_but_sound, tex_but_sound2, tex_but_progress,
+            tex_but_mainmenu;
     sf::Vector2i mousexy;
     textureback.loadFromFile("src/img/settings.png");
     tex_but_sound.loadFromFile("src/img/buttonsoundON.png");
     tex_but_progress.loadFromFile("src/img/buttonprogress.png");
     tex_but_mainmenu.loadFromFile("src/img/buttonmainmenu.png");
-
+    tex_but_sound2.loadFromFile("src/img/buttonsoundOFF.png");
     spriteback.setTexture(textureback);
     buttonsound.setTexture(tex_but_sound);
+    buttonsound2.setTexture(tex_but_sound2);
     buttonprogress.setTexture(tex_but_progress);
     buttonmainmenu.setTexture(tex_but_mainmenu);
     buttonsound.setPosition(340, 30);
+    buttonsound2.setPosition(340, 30);
     buttonprogress.setPosition(340, 250);
     buttonmainmenu.setPosition(340, 470);
     while (window.isOpen()) {
@@ -192,9 +202,14 @@ void SettingsMenu()
                 y = mousexy.y;
                 if (x > 340 && x < 940 && y > 30 && y < 230) {
                     sound_button.play();
+                    if (Flag_sound)
+                        Flag_sound = 0;
+                    else
+                        Flag_sound = 1;
                 }
                 if (x > 340 && x < 940 && y > 250 && y < 450) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     ResetProgress();
                 }
                 if (x > 340 && x < 940 && y > 470 && y < 670) {
@@ -205,7 +220,10 @@ void SettingsMenu()
 
         window.clear();
         window.draw(spriteback);
-        window.draw(buttonsound);
+        if (Flag_sound)
+            window.draw(buttonsound);
+        else
+            window.draw(buttonsound2);
         window.draw(buttonprogress);
         window.draw(buttonmainmenu);
         window.display();
@@ -365,7 +383,8 @@ void CategoryMenu()
                     return;
                 }
                 if (x > 10 && x < 590 && y > 10 && y < 130 && s.all < 420) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(8, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -408,10 +427,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 10 && x < 590 && y > 140 && y < 260 && s.geo < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(1, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -435,10 +456,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 10 && x < 590 && y > 270 && y < 390 && s.phys < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(2, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -463,17 +486,18 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 10 && x < 590 && y > 400 && y < 520 && s.math < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(3, word, &rand_print, &wordnum);
                         FreeW(format_word);
                         FormatWord(t, word, format_word);
                         p = ComputerGame(
                                 word, format_word, &rand_print, t, &wordnum);
-
                         if (p == 0)
                             return;
                         else if (p == 1)
@@ -491,10 +515,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 690 && x < 1270 && y > 10 && y < 130 && s.bio < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(4, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -519,10 +545,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 690 && x < 1270 && y > 140 && y < 260 && s.stuff < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(5, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -547,10 +575,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 690 && x < 1270 && y > 270 && y < 390 && s.food < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(6, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -575,10 +605,12 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
                 if (x > 690 && x < 1270 && y > 400 && y < 520 && s.sport < 60) {
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     while (1) {
                         t = logickGameComputer(7, word, &rand_print, &wordnum);
                         FreeW(format_word);
@@ -589,7 +621,8 @@ void CategoryMenu()
                         if (p == 0)
                             return;
                         else if (p == 1) {
-                            sound_button.play();
+                            if (Flag_sound)
+                                sound_button.play();
                             continue;
                         } else if (p == 2) {
                             f = fopen("scores.dat", "rb");
@@ -604,7 +637,8 @@ void CategoryMenu()
                             break;
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                 }
             }
         }
@@ -683,17 +717,14 @@ void FriendNameMenu()
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 340 && x < 1040 && y > 20 && y < 220) {
-                  //  sound_button.play();
                     textfield1_pressed = 1;
                 } else {
-                   // sound_button.play();
                     textfield1_pressed = 0;
                 }
                 if (x > 340 && x < 1040 && y > 240 && y < 440) {
-                 //   sound_button.play();
                     textfield2_pressed = 1;
                 } else {
-               //     sound_button.play();
+                    ;
                     textfield2_pressed = 0;
                 }
                 if (x > 1 && x < 601 && y > 559 && y < 719)
@@ -709,7 +740,6 @@ void FriendNameMenu()
                             case 1: {
                                 st1[i1] = L'Г';
                                 break;
-                                ;
                             }
                             case 2: {
                                 st1[i1] = L'Р';
@@ -722,7 +752,6 @@ void FriendNameMenu()
                             case 4: {
                                 st1[i1] = L'К';
                                 break;
-                                ;
                             }
                             case 5: {
                                 st1[i1] = L'1';
@@ -745,7 +774,6 @@ void FriendNameMenu()
                             case 1: {
                                 st2[i2] = L'Г';
                                 break;
-                                ;
                             }
                             case 2: {
                                 st2[i2] = L'Р';
@@ -758,7 +786,6 @@ void FriendNameMenu()
                             case 4: {
                                 st2[i2] = L'К';
                                 break;
-                                ;
                             }
                             case 5: {
                                 st2[i2] = L'2';
@@ -771,7 +798,8 @@ void FriendNameMenu()
                             }
                         }
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     FriendWordMenu(st1, st2);
                     return;
                 }
@@ -979,7 +1007,8 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                         else if (wrd[c] == wrd[i - 1])
                             screenwrd[c] = wrd[i - 1];
                     }
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     result = FriendGame(
                             wrd,
                             screenwrd,
@@ -991,7 +1020,8 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                             points2,
                             &number_points1,
                             &number_points2);
-                    sound_button.play();
+                    if (Flag_sound)
+                        sound_button.play();
                     for (c = 0; c < i; c++) {
                         wrd[c] = L'\0';
                         screenwrd[c] = L'\0';
@@ -1092,7 +1122,6 @@ void FriendWordMenu(wchar_t name1[], wchar_t name2[])
                     }
                     word.setString(screenwrd);
                 }
-
                 flag = 1;
             }
         }
@@ -1964,15 +1993,23 @@ int ComputerGame(
                     }
                     }
                     if (flag == 1)
-                        sound_cor.play();
-                    else if (!flag)
-                        sound_incor.play();
+ {                       
+                        if (Flag_sound)
+                            sound_cor.play();
+}
+                        else if (!flag)
+{
+                            if (Flag_sound)
+                                sound_incor.play();
+}
                     flag = 0;
                     if (win == -1) {
-                        sound_lose.play();
+                        if (Flag_sound)
+                            sound_lose.play();
                         endgame.setTexture(tex_lose);
                     } else if (win == 1) {
-                        sound_win.play();
+                        if (Flag_sound)
+                            sound_win.play();
                         endgame.setTexture(tex_win);
                     }
                 } else if (win) {
@@ -1984,7 +2021,6 @@ int ComputerGame(
                         return 1;
                     } // again
                     else if (x > 300 && x < 591 && y > 435 && y < 520) {
-                        sound_button.play();
                         if (win == 1)
                             Winner(*rand_print, *wordnum);
                         return 2;
@@ -2913,12 +2949,19 @@ int FriendGame(
                     }
                     }
                     if (flag == 1)
-                        sound_cor.play();
-                    else if (!flag)
-                        sound_incor.play();
+{
+                        if (Flag_sound)
+                            sound_cor.play();
+}
+                        else if (!flag)
+{
+                            if (Flag_sound)
+                                sound_incor.play();
+}
                     flag = 0;
                     if (win == -1) {
-                        sound_win.play();
+                        if (Flag_sound)
+                            sound_win.play();
                         end.setTexture(endgame);
                         if (*flag_name == 1) {
                             player_win.setString(name2);
@@ -2956,7 +2999,8 @@ int FriendGame(
                         flag_text_win = 1;
                         player_win.setCharacterSize(50);
                     } else if (win == 1) {
-                        sound_win.play();
+                        if (Flag_sound)
+                            sound_win.play();
                         end.setTexture(endgame);
                         if (*flag_name == 1) {
                             player_win.setString(name1);
